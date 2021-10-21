@@ -57,24 +57,55 @@
 <p>El objetivo principal es conseguir una versión funcional con 2 personajes manejados por dos jugadores diferentes en dos dispositivos distintos a través de una red de ordenadores.</p>
 <p>En un futuro se planea introducir más personajes, mecánicas, mapas, objetos y recompensas aleatorias en el mapa...</p>
 <br>
+
+
+
+
 <h2>Mecánicas</h2>
 <h3>Condiciones de victoria</h3>
+<p>El primer jugador que derribe el edificio del contrario (destruir los 3 pisos que forman el edificio del oponente) gana.</p>
+<p>En caso de no llegar a este punto el jugador que tenga el edificio menos dañado al acabar la cuenta atrás ganará.</p>
 <h3>Acciones posibles</h3>
+<ul>
+  <li>Craftear munición (la mesa de crafteo en el primer piso)</li>
+  <li>Cagar balas y disparar (siempre al último piso y el disparo nunca falla, esto está abierto a cambios) *</li>
+  <li>Reparar</li>
+  <li>Moverse de piso </li>
+  <li>Moverse por el piso, de lado a lado</li>
+  <li>A la hora de disparar se podrá disparar únicamente al piso de más arriba que esté “vivo” (esto puede estar sujeto a cambios, de manera que puede avanzar a que se pueda disparar a cualquier piso.)
+</li>
+</ul>
+<p>*Disclaimer: Se ha planteado la opción de que cargar y disparar sean dos opciones diferentes (el jugador puede dejar el cañón cargado y disparar más tarde). Se tomará una decisión definitiva al conocer el motor de juego y al ir implementando.En esta opción, al dejar el cañón cargado, cambiaría de color.</p>
 <h3>Jugabilidad</h3>
 <h3>Flujo de juego</h3>
 <h3>Dinámica de juego</h3>
 <h3>Personajes</h3>
 <h3>Movimientos y físicas</h3>
 <br>
+
+
+
+
+
 <h2>Interfaz</h2>
 <h3>Pantalla durante la partida</h3>
 <h3>Elementos en pantalla</h3>
 <br>
+
+
+
+
+
 <h2>Arte</h2>
 <h3>Herramientas de diseño</h3>
 <h3>Paleta de colores</h3>
 <h3>Estilo visual</h3>
 <br>
+
+
+
+
+
 <h2>Música</h2>
 <h3>Música durante la partida</h3>
 <h3>Música fuera de la partida</h3>
