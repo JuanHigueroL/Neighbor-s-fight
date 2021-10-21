@@ -42,5 +42,5 @@
 </ul>
 
 <br>
-<h3>Introducción</h3>
-<h2>Concepto de juego</h2>
+<h2>Introducción</h2>
+<h3>Concepto de juego</h3>
