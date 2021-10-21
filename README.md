@@ -47,9 +47,15 @@
 <p>Tras la vigésima ola de la pandemia del coronavirus, la lucha por los recursos es más importante que nunca. ¡Comienza una guerra con tus vecinos para ser los únicos en el barrio con acceso al papel higiénico del supermercado!</p>
 <p>Neighbor's fight es un juego multijugador de 1 vs 1 donde cada jugador controla a un miembro de una comunidad de vecinos y deberá combatir contra el otro, en una batalla basada en lanzarse objetos de distintos tipos desde sus casas para así conseguir dominar el barrio.</<p>
 <h3>Género</h3>
+<p>Tower Defense y juego de estrategia en tiempo real para 2 jugadores (1 vs 1)</p>
 <h3>Características principales</h3>
+<p>El juego se basa en una pelea de vecinos. Cada jugador puede crear distintos tipos de balas, dispararlas al vecino oponente, reparar los daños que te haga el vecino oponente sobre tu edificio y moverte entre pisos para disparar desde diferentes puntos. El objetivo es destruir el edificio vecino (el oponente) o causar el mayor daño posible antes de que se acabe el juego.</p>
 <h3>Propósito y público objetivo</h3>
+<p>El propósito general de este juego es el entretenimiento y diversión de nuestros jugadores, creando un juego en el que te enfrentes a tu amigo en una batalla divertida y absurda en cuanto a la estética. </p>
+<p>El público objetivo es el público general, puesto que es un juego “family-friendly”. Será un juego casual.</p>
 <h3>Alcance</h3>
+<p>El objetivo principal es conseguir una versión funcional con 2 personajes manejados por dos jugadores diferentes en dos dispositivos distintos a través de una red de ordenadores.</p>
+<p>En un futuro se planea introducir más personajes, mecánicas, mapas, objetos y recompensas aleatorias en el mapa...</p>
 <br>
 <h2>Mecánicas</h2>
 <h3>Condiciones de victoria</h3>
