@@ -44,6 +44,9 @@
 <br>
 <h2>Introducción</h2>
 <h3>Concepto de juego</h3>
+<p>Tras la vigésima ola de la pandemia del coronavirus, la lucha por los recursos es más importante que nunca. ¡Comienza una guerra con tus vecinos para ser los únicos en el barrio con acceso al papel higiénico del supermercado! 
+Neighbor's fight es un juego multijugador de 1 vs 1 donde cada jugador controla a un miembro de una comunidad de vecinos y deberá combatir contra el otro, en una batalla basada en lanzarse objetos de distintos tipos desde sus casas para así conseguir dominar el barrio.
+</p>
 <h3>Género</h3>
 <h3>Características principales</h3>
 <h3>Propósito y público objetivo</h3>
