@@ -24,6 +24,19 @@
      <li>Movimientos y físicas</li>
   </ul>
   <li>Interfaz</li>
+  <ul>
+     <li>Pantalla durante la partida</li>
+     <li>Elementos en pantalla</li>
+  </ul>
   <li>Arte</li>
+  <ul>
+     <li>Herramientas de diseño</li>
+     <li>Paleta de colores</li>
+     <li>Estilo visual</li>
+  </ul>
   <li>Música</li>
+  <ul>
+     <li>Música durante la partida</li>
+     <li>Música fuera de la partida</li>
+  </ul>
 </ul>
