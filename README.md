@@ -88,7 +88,24 @@
 <p>Controles: El movimiento del jugador se hará mediante clicks con el ratón de forma que a donde cliques es a donde el jugador se moverá. </p>
 <p>Para realizar las acciones de recargar y reparar el jugador emplea las teclas 1,2,3 y 4 del teclado, siendo la tecla 1 para cargar y disparar el dispara de poco daño, la tecla 2 para el disparo de daño medio y la tecla 3 para el de mucho daño y la tecla 4 para reparar.</p>
 <h3>Personajes</h3>
+<p>Personaje 1:</p>
+<p>Nombre: Anciana Concha </p>
+<p>Descripción: Doña Concha es una anciana de 97 años cuyo objetivo es deshacerse de sus vecinos para así tener el control del papel higiénico. A pesar de no necesitar el papel higiénico en exceso, se hará con el control de este solo por incordiar a sus vecinos, ya que estos mataron a su anterior gato.</p>
+<p>Imagen:</p>
+<p>Munición:</p>
+<ul>
+  <li>poco daño: dentadura </li>
+  <li>daño medio: gato</li>
+  <li>mucho daño: taka-taka</li>
+</ul>
+<p>Imagenes de su munición:</p>
+<p>Estos son los personajes iniciales del juego pero se tiene en mente añadir más personajes que sean distintos estereotipos de vecinos, como por ejemplo el moroso/okupa, el manitas, el friki que lo sabe todo, presidente de la comunidad… Cada uno de estos al igual que los iniciales tendrán distintos tipos de disparo (con diferente cantidad de daño), de manera que los objetos que lanzan están relacionados con lo que representan.</p>
 <h3>Movimientos y físicas</h3>
+<p>Las balas tienen un movimiento parabólico. </p>
+<p>La bala siempre se dispara al piso de arriba del todo.</p>
+<p>El personaje se puede mover entre pisos y de izquierda a derecha.</p>
+<p>La interacción es mediante clicks y la pulsación de teclas.
+</p>
 <br>
 
 
@@ -97,7 +114,19 @@
 
 <h2>Interfaz</h2>
 <h3>Pantalla durante la partida</h3>
+<p>La pantalla del juego consta de dos edificios iguales situados cada uno a un lado de la pantalla. Cada edificio estará formado por tres pisos por los que los jugadores irán moviéndose para cargar y disparar los respectivos cañones que hay situados en cada piso. </p>
 <h3>Elementos en pantalla</h3>
+<ul>
+  <li>Dos edificios iguales situados cada uno a un lado de la pantalla</li>
+  <li>Cada edificio estará formado por tres pisos por los que los jugadores irán moviéndose para cargar y disparar los respectivos cañones que hay situados en cada piso.</li>
+  <li>Un cañón por piso</li>
+  <li>Cuenta atrás en el borde superior</li>
+  <li>“Barras de vida” por cada piso de los edificios</li>
+  <li>Mesa de crafteo en el piso inferior</li>
+  <li>Botón de pausa en la esquina derecha superior</li>
+  <li>Inventario (con la munición del jugador) en la esquina superior izquierda.</li>
+
+</ul>
 <br>
 
 
