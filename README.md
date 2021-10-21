@@ -40,3 +40,7 @@
      <li>Música fuera de la partida</li>
   </ul>
 </ul>
+
+<br>
+<h3>Introducción</h3>
+<h2>Concepto de juego</h2>
