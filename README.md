@@ -58,3 +58,16 @@
 <h3>Personajes</h3>
 <h3>Movimientos y físicas</h3>
 <br>
+<h2>Interfaz</h2>
+<h3>Pantalla durante la partida</h3>
+<h3>Elementos en pantalla</h3>
+<br>
+<h2>Arte</h2>
+<h3>Herramientas de diseño</h3>
+<h3>Paleta de colores</h3>
+<h3>Estilo visual</h3>
+<br>
+<h2>Música</h2>
+<h3>Música durante la partida</h3>
+<h3>Música fuera de la partida</h3>
+<br>
