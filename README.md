@@ -77,8 +77,16 @@
 </ul>
 <p>*Disclaimer: Se ha planteado la opción de que cargar y disparar sean dos opciones diferentes (el jugador puede dejar el cañón cargado y disparar más tarde). Se tomará una decisión definitiva al conocer el motor de juego y al ir implementando.En esta opción, al dejar el cañón cargado, cambiaría de color.</p>
 <h3>Jugabilidad</h3>
+<p>Estrategias de juego: Cada jugador tendrá su propio inventario donde acumulará las distintas municiones (hasta un máximo de tres), por lo que el jugador deberá pensar cómo gastar su tiempo en generar mucha munición de golpe para un gran ataque o emplear menos tiempo y hacer ataques más seguidos.</p>
+<p>Cuando un jugador recibe un disparo del rival puede emplear su tiempo en reparar su piso (es decir sumarle vida a dicho piso). Mientras el jugador repara un agujero, no puede hacer más acciones.</p>
+<p>Aquí se generan dos estrategias diferentes: los jugadores al recibir daño deberán pensar en sí protegerse para aumentar su vida o en emplear su tiempo en realizar un ataque más potente al recibido (la mejor defensa es un buen ataque).
+</p>
 <h3>Flujo de juego</h3>
 <h3>Dinámica de juego</h3>
+<p>Cámara: Vista lateral fija </p>
+<p>Periféricos: Ratón y teclado</p>
+<p>Controles: El movimiento del jugador se hará mediante clicks con el ratón de forma que a donde cliques es a donde el jugador se moverá. </p>
+<p>Para realizar las acciones de recargar y reparar el jugador emplea las teclas 1,2,3 y 4 del teclado, siendo la tecla 1 para cargar y disparar el dispara de poco daño, la tecla 2 para el disparo de daño medio y la tecla 3 para el de mucho daño y la tecla 4 para reparar.</p>
 <h3>Personajes</h3>
 <h3>Movimientos y físicas</h3>
 <br>
