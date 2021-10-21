@@ -44,3 +44,17 @@
 <br>
 <h2>Introducción</h2>
 <h3>Concepto de juego</h3>
+<h3>Género</h3>
+<h3>Características principales</h3>
+<h3>Propósito y público objetivo</h3>
+<h3>Alcance</h3>
+<br>
+<h2>Mecánicas</h2>
+<h3>Condiciones de victoria</h3>
+<h3>Acciones posibles</h3>
+<h3>Jugabilidad</h3>
+<h3>Flujo de juego</h3>
+<h3>Dinámica de juego</h3>
+<h3>Personajes</h3>
+<h3>Movimientos y físicas</h3>
+<br>
