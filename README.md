@@ -6,6 +6,13 @@
 <p>INDEX</p>
 <ul>
   <li>Introducción</li>
+  <ul>
+     <li>Concepto de juego</li>
+     <li>Género</li>
+     <li>Características principales</li>
+     <li>Propósito y público objetivo</li>
+     <li>Alcance</li>
+  </ul>
   <li>Mecánicas</li>
   <li>Interfaz</li>
   <li>Arte</li>
