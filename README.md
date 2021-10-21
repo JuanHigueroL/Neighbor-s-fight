@@ -14,6 +14,15 @@
      <li>Alcance</li>
   </ul>
   <li>Mecánicas</li>
+   <ul>
+     <li>Condiciones de victoria</li>
+     <li>Acciones posibles</li>
+     <li>Jugabilidad</li>
+     <li>Flujo de juego</li>
+     <li>Dinámica de juego</li>
+     <li>Personajes</li>
+     <li>Movimientos y físicas</li>
+  </ul>
   <li>Interfaz</li>
   <li>Arte</li>
   <li>Música</li>
