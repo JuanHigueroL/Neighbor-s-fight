@@ -135,8 +135,22 @@
 
 <h2>Arte</h2>
 <h3>Herramientas de diseño</h3>
+<ul>
+  <li>Sprites con photoshop</li>
+  <li>Animación 2D con Sprites</li>
+  <li>Sonidos de banco de sonidos gratuito (Sonidos y dibujos estilo cartoon.)</li>
+</ul>
 <h3>Paleta de colores</h3>
+<p>Se elegirá una paleta de colores de tonos brillantes y coloridos, acompañando el tono naif del juego.</p>
+<p>Para elegir la paleta se tomarán de referencia los colores de juegos como los de King</p>
 <h3>Estilo visual</h3>
+<p>Neighbor's fight tendrá un estilo visual basado en cartoon en 2D. </p>
+<p>Algunos juegos de referencia: </p>
+<ul>
+  <li>Fireboy and Watergirl</li>
+  <li>Risk para móviles</li>
+  <li>Casual games para móviles como los de SuperCell.</li>
+</ul>
 <br>
 
 
@@ -145,5 +159,8 @@
 
 <h2>Música</h2>
 <h3>Música durante la partida</h3>
+<p>Música estilo combate pokémon</p>
+<p>Música estilo Piratas del Caribe</p>
 <h3>Música fuera de la partida</h3>
+<p>Música animada estilo juegos para niños</p>
 <br>
