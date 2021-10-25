@@ -43,7 +43,7 @@
 </ul>
 
 <br>
-<h2>Introducción</h2>
+<h1>Introducción</h1>
 <h3>Concepto de juego</h3>
 <p>Tras la vigésima ola de la pandemia del coronavirus, la lucha por los recursos es más importante que nunca. ¡Comienza una guerra con tus vecinos para ser los únicos en el barrio con acceso al papel higiénico del supermercado!</p>
 <p>Neighbor's fight es un juego multijugador de 1 vs 1 donde cada jugador controla a un miembro de una comunidad de vecinos y deberá combatir contra el otro, en una batalla basada en lanzarse objetos de distintos tipos desde sus casas para así conseguir dominar el barrio.</<p>
@@ -62,7 +62,7 @@
 
 
 
-<h2>Mecánicas</h2>
+<h1>Mecánicas</h1>
 <h3>Condiciones de victoria</h3>
 <p>El primer jugador que derribe el edificio del contrario (destruir los 3 pisos que forman el edificio del oponente) gana.</p>
 <p>En caso de no llegar a este punto el jugador que tenga el edificio menos dañado al acabar la cuenta atrás ganará.</p>
@@ -83,6 +83,7 @@
 <p>Aquí se generan dos estrategias diferentes: los jugadores al recibir daño deberán pensar en sí protegerse para aumentar su vida o en emplear su tiempo en realizar un ataque más potente al recibido (la mejor defensa es un buen ataque).
 </p>
 <h3>Flujo de juego</h3>
+<img src="" alt="Flujo de juego" width="50%">
 <h3>Dinámica de juego</h3>
 <p><strong>Cámara</strong>: Vista lateral fija </p>
 <p><strong>Periféricos</strong>: Ratón y teclado</p>
@@ -127,7 +128,7 @@
 
 
 
-<h2>Interfaz</h2>
+<h1>Interfaz</h1>
 <h3>Pantalla durante la partida</h3>
 <p>La pantalla del juego consta de dos edificios iguales situados cada uno a un lado de la pantalla. Cada edificio estará formado por tres pisos por los que los jugadores irán moviéndose para cargar y disparar los respectivos cañones que hay situados en cada piso. </p>
 <h3>Elementos en pantalla</h3>
@@ -148,7 +149,7 @@
 
 
 
-<h2>Arte</h2>
+<h1>Arte</h1>
 <h3>Herramientas de diseño</h3>
 <ul>
   <li>Sprites con photoshop</li>
@@ -172,7 +173,7 @@
 
 
 
-<h2>Música</h2>
+<h1>Música</h1>
 <h3>Música durante la partida</h3>
 <p>Música estilo combate pokémon</p>
 <p>Música estilo Piratas del Caribe</p>
