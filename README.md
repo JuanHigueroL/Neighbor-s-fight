@@ -34,18 +34,18 @@ Universidad Rey Juan Carlos
      * Personajes
      * Movimientos y físicas
   
-  * Interfaz
+  * [Interfaz](#Interfaz)
   
      * Pantalla durante la partida
      * Elementos en pantalla
   
-  * Arte
+  * [Arte](#Arte)
   
      * Herramientas de diseño
      * Paleta de colores
      * Estilo visual
   
-  * Música
+  * [Música](#Música)
   
      * Música durante la partida
      * Música fuera de la partida
