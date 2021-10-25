@@ -87,7 +87,7 @@
  <p><strong>Periféricos</strong>: Ratón y teclado</p>
   <p><strong>Controles</strong>: El movimiento del jugador se hará mediante clicks con el ratón de forma que a donde cliques es a donde el jugador se moverá. </p>
 <p>Para realizar las acciones de recargar y reparar el jugador emplea las teclas 1,2,3 y 4 del teclado, siendo la tecla 1 para cargar y disparar el dispara de poco daño, la tecla 2 para el disparo de daño medio y la tecla 3 para el de mucho daño y la tecla 4 para reparar.</p>
-<h3><strong>Personajes</strong></h3>
+<h3>Personajes</h3>
 <p>Personaje 1:</p>
 <p>Nombre: Anciana Concha </p>
 <p>Descripción: Doña Concha es una anciana de 97 años cuyo objetivo es deshacerse de sus vecinos para así tener el control del papel higiénico. A pesar de no necesitar el papel higiénico en exceso, se hará con el control de este solo por incordiar a sus vecinos, ya que estos mataron a su anterior gato.</p>
