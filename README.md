@@ -2,6 +2,8 @@
 
 <h4>Game Desing Document</h4>
 
+<img src="https://user-images.githubusercontent.com/92206944/138704803-acc1d546-92ed-4d5b-acc4-c2e16c3847d5.png" alt="urjc logo" width="10%">
+
 <br>
 <p>INDEX</p>
 <ul>
@@ -83,7 +85,7 @@
 <p>Aquí se generan dos estrategias diferentes: los jugadores al recibir daño deberán pensar en sí protegerse para aumentar su vida o en emplear su tiempo en realizar un ataque más potente al recibido (la mejor defensa es un buen ataque).
 </p>
 <h3>Flujo de juego</h3>
-<img src="" alt="Flujo de juego" width="50%">
+<img src="https://user-images.githubusercontent.com/92206944/138701652-bb52fcb4-d3c0-4356-8879-9e7b1ceb4f92.png" alt="Flujo de juego" width="50%">
 <h3>Dinámica de juego</h3>
 <p><strong>Cámara</strong>: Vista lateral fija </p>
 <p><strong>Periféricos</strong>: Ratón y teclado</p>
@@ -96,6 +98,7 @@
 <p>Nombre: Anciana Concha </p>
 <p>Descripción: Doña Concha es una anciana de 97 años cuyo objetivo es deshacerse de sus vecinos para así tener el control del papel higiénico. A pesar de no necesitar el papel higiénico en exceso, se hará con el control de este solo por incordiar a sus vecinos, ya que estos mataron a su anterior gato.</p>
 <p>Imagen:</p>
+<img src="https://user-images.githubusercontent.com/92206944/138705573-2e9b2c28-c2dc-4f9c-a53b-065bbb291f62.png" alt="urjc logo" width="20%">
 <p>Munición:</p>
 <ul>
   <li>poco daño: dentadura </li>
@@ -130,8 +133,14 @@
 
 <h1>Interfaz</h1>
 <h3>Pantalla durante la partida</h3>
+
+
+<img src="https://user-images.githubusercontent.com/92206944/138705881-9bac1c44-625d-4602-b4a3-569cd56b605a.jpg" alt="pantalla" width="80%">
+<img src="https://user-images.githubusercontent.com/92206944/138705986-89f81a7b-17d2-4b6d-9d02-0051d18e0834.jpg" width="80%">
+
 <p>La pantalla del juego consta de dos edificios iguales situados cada uno a un lado de la pantalla. Cada edificio estará formado por tres pisos por los que los jugadores irán moviéndose para cargar y disparar los respectivos cañones que hay situados en cada piso. </p>
 <h3>Elementos en pantalla</h3>
+<img src="" alt="urjc logo" width="70%">
 <ul>
   <li>Dos edificios iguales situados cada uno a un lado de la pantalla</li>
   <li>Cada edificio estará formado por tres pisos por los que los jugadores irán moviéndose para cargar y disparar los respectivos cañones que hay situados en cada piso.</li>
@@ -159,6 +168,7 @@
 <h3>Paleta de colores</h3>
 <p>Se elegirá una paleta de colores de tonos brillantes y coloridos, acompañando el tono naif del juego.</p>
 <p>Para elegir la paleta se tomarán de referencia los colores de juegos como los de King</p>
+<img src="https://user-images.githubusercontent.com/92206944/138707018-7bafdd6e-b534-4f4b-894b-a1b61652ee7e.jpg" alt="crash on the run" width="100%">
 <h3>Estilo visual</h3>
 <p>Neighbor's fight tendrá un estilo visual basado en cartoon en 2D. </p>
 <p>Algunos juegos de referencia: </p>
