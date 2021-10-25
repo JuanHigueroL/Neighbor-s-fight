@@ -24,22 +24,22 @@
      * Personajes
      * Movimientos y físicas
   
-  <li>Interfaz</li>
-  <ul>
-     <li>Pantalla durante la partida</li>
-     <li>Elementos en pantalla</li>
-  </ul>
-  <li>Arte</li>
-  <ul>
-     <li>Herramientas de diseño</li>
-     <li>Paleta de colores</li>
-     <li>Estilo visual</li>
-  </ul>
-  <li>Música</li>
-  <ul>
-     <li>Música durante la partida</li>
-     <li>Música fuera de la partida</li>
-  </ul>
+  *Interfaz
+  
+     * Pantalla durante la partida
+     * Elementos en pantalla
+  
+  * Arte
+  
+     * Herramientas de diseño
+     * Paleta de colores
+     * Estilo visual
+  
+  *Música
+  
+     * Música durante la partida
+     * Música fuera de la partida
+  
 
 
 <br>
