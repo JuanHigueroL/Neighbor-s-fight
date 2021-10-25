@@ -1,31 +1,29 @@
 # Neighbor-s-fight
-
-<h4>Game Desing Document</h4>
+#### Game Desing Document
 
 <img src="https://user-images.githubusercontent.com/92206944/138704803-acc1d546-92ed-4d5b-acc4-c2e16c3847d5.png" alt="urjc logo" width="10%">
 
 <br>
 <p>INDEX</p>
-<ul>
-  <li>Introducción</li>
-  <ul>
-     <li>Concepto de juego</li>
-     <li>Género</li>
-     <li>Características principales</li>
-     <li>Propósito y público objetivo</li>
-     <li>Alcance</li>
-  </ul>
-  <li>Mecánicas</li>
-   <ul>
-     <li>Condiciones de victoria</li>
-     <li>Acciones posibles</li>
-     <li>Jugabilidad</li>
-     <li>Flujo de juego</li>
-     <li>Dinámica de juego</li>
-     <li>Interacción en Red</li>
-     <li>Personajes</li>
-     <li>Movimientos y físicas</li>
-  </ul>
+
+  * Introducción 
+    * Concepto de juego
+    * Género
+    * Características principales
+    * Propósito y público objetivo
+    * Alcance
+  
+  * Mecánicas
+   
+     * Condiciones de victoria
+     * Acciones posibles
+     * Jugabilidad
+     * Flujo de juego
+     * Dinámica de juego
+     * Interacción en Red
+     * Personajes
+     * Movimientos y físicas
+  
   <li>Interfaz</li>
   <ul>
      <li>Pantalla durante la partida</li>
@@ -42,7 +40,7 @@
      <li>Música durante la partida</li>
      <li>Música fuera de la partida</li>
   </ul>
-</ul>
+
 
 <br>
 <h1>Introducción</h1>
