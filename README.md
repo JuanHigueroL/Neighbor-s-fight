@@ -17,11 +17,11 @@ Universidad Rey Juan Carlos
 <br>
 
   * [Introducción](#Introdución)
-    * Concepto de juego
-    * Género
-    * Características principales
-    * Propósito y público objetivo
-    * Alcance
+    * [Concepto de juego](#Concepto-de-juego)
+    * [Género](#Género)
+    * [Características principales](#Características-principales)
+    * [Propósito y público objetivo](#Propósito-y-público-objetivo)
+    * [Alcance](#Alcance)
   
   * [Mecánicas](#Mecánicas)
    
