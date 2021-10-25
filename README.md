@@ -4,6 +4,9 @@
 <img src="https://user-images.githubusercontent.com/92206944/138704803-acc1d546-92ed-4d5b-acc4-c2e16c3847d5.png" alt="urjc logo" width="10%">
 
 <br>
+
+*** 
+
 <p>INDEX</p>
 
   * Introducción 
@@ -24,7 +27,7 @@
      * Personajes
      * Movimientos y físicas
   
-  *Interfaz
+  * Interfaz
   
      * Pantalla durante la partida
      * Elementos en pantalla
@@ -35,38 +38,38 @@
      * Paleta de colores
      * Estilo visual
   
-  *Música
+  * Música
   
      * Música durante la partida
      * Música fuera de la partida
   
-
-
-<br>
-<h1>Introducción</h1>
-<h3>Concepto de juego</h3>
-<p>Tras la vigésima ola de la pandemia del coronavirus, la lucha por los recursos es más importante que nunca. ¡Comienza una guerra con tus vecinos para ser los únicos en el barrio con acceso al papel higiénico del supermercado!</p>
-<p>Neighbor's fight es un juego multijugador de 1 vs 1 donde cada jugador controla a un miembro de una comunidad de vecinos y deberá combatir contra el otro, en una batalla basada en lanzarse objetos de distintos tipos desde sus casas para así conseguir dominar el barrio.</<p>
-<h3>Género</h3>
-<p>Tower Defense y juego de estrategia en tiempo real para 2 jugadores (1 vs 1)</p>
-<h3>Características principales</h3>
-<p>El juego se basa en una pelea de vecinos. Cada jugador puede crear distintos tipos de balas, dispararlas al vecino oponente, reparar los daños que te haga el vecino oponente sobre tu edificio y moverte entre pisos para disparar desde diferentes puntos. El objetivo es destruir el edificio vecino (el oponente) o causar el mayor daño posible antes de que se acabe el juego.</p>
-<h3>Propósito y público objetivo</h3>
-<p>El propósito general de este juego es el entretenimiento y diversión de nuestros jugadores, creando un juego en el que te enfrentes a tu amigo en una batalla divertida y absurda en cuanto a la estética. </p>
-<p>El público objetivo es el <strong>público general</strong>, puesto que es un juego <em>“family-friendly”</em>. Será un <strong>juego casual</strong>.</p>
-<h3>Alcance</h3>
-  <p>El <strong>objetivo principal</strong> es conseguir una versión funcional con 2 personajes manejados por dos jugadores diferentes en dos dispositivos distintos a través de una red de ordenadores.</p>
-<p>En un futuro se planea introducir más personajes, mecánicas, mapas, objetos y recompensas aleatorias en el mapa...</p>
 <br>
 
 
+# Introducción
+### Concepto de juego
+Tras la vigésima ola de la pandemia del coronavirus, la lucha por los recursos es más importante que nunca. ¡Comienza una guerra con tus vecinos para ser los únicos en el barrio con acceso al papel higiénico del supermercado!
+Neighbor's fight es un juego multijugador de 1 vs 1 donde cada jugador controla a un miembro de una comunidad de vecinos y deberá combatir contra el otro, en una batalla basada en lanzarse objetos de distintos tipos desde sus casas para así conseguir dominar el barrio.
+### Género
+Tower Defense y juego de estrategia en tiempo real para 2 jugadores (1 vs 1)
+### Características principales
+El juego se basa en una pelea de vecinos. Cada jugador puede crear distintos tipos de balas, dispararlas al vecino oponente, reparar los daños que te haga el vecino oponente sobre tu edificio y moverte entre pisos para disparar desde diferentes puntos. El objetivo es destruir el edificio vecino (el oponente) o causar el mayor daño posible antes de que se acabe el juego.
+### Propósito y público objetivo
+El propósito general de este juego es el entretenimiento y diversión de nuestros jugadores, creando un juego en el que te enfrentes a tu amigo en una batalla divertida y absurda en cuanto a la estética. 
+El público objetivo es el <strong>público general</strong>, puesto que es un juego <em>“family-friendly”</em>. Será un <strong>juego casual</strong>.
+### Alcance
+El <strong>objetivo principal</strong> es conseguir una versión funcional con 2 personajes manejados por dos jugadores diferentes en dos dispositivos distintos a través de una red de ordenadores.
+En un futuro se planea introducir más personajes, mecánicas, mapas, objetos y recompensas aleatorias en el mapa...
+<br>
 
 
-<h1>Mecánicas</h1>
-<h3>Condiciones de victoria</h3>
-<p>El primer jugador que derribe el edificio del contrario (destruir los 3 pisos que forman el edificio del oponente) gana.</p>
-<p>En caso de no llegar a este punto el jugador que tenga el edificio menos dañado al acabar la cuenta atrás ganará.</p>
-<h3>Acciones posibles</h3>
+
+
+# Mecánicas
+### Condiciones de victoria
+El primer jugador que derribe el edificio del contrario (destruir los 3 pisos que forman el edificio del oponente) gana.
+En caso de no llegar a este punto el jugador que tenga el edificio menos dañado al acabar la cuenta atrás ganará.
+### Acciones posibles
 <ul>
   <li>Craftear munición (la mesa de crafteo en el primer piso)</li>
   <li>Cagar balas y disparar (siempre al último piso y el disparo nunca falla, esto está abierto a cambios) *</li>
@@ -76,20 +79,28 @@
   <li>A la hora de disparar se podrá disparar únicamente al piso de más arriba que esté “vivo” (esto puede estar sujeto a cambios, de manera que puede avanzar a que se pueda disparar a cualquier piso.)
 </li>
 </ul>
-<p>*Disclaimer: Se ha planteado la opción de que cargar y disparar sean dos opciones diferentes (el jugador puede dejar el cañón cargado y disparar más tarde). Se tomará una decisión definitiva al conocer el motor de juego y al ir implementando.En esta opción, al dejar el cañón cargado, cambiaría de color.</p>
-<h3>Jugabilidad</h3>
-<p><strong>Estrategias de juego</strong>: Cada jugador tendrá su propio inventario donde acumulará las distintas municiones (hasta un máximo de tres), por lo que el jugador deberá pensar cómo gastar su tiempo en generar mucha munición de golpe para un gran ataque o emplear menos tiempo y hacer ataques más seguidos.</p>
-<p>Cuando un jugador recibe un disparo del rival puede emplear su tiempo en reparar su piso (es decir sumarle vida a dicho piso). Mientras el jugador <strong>repara un agujero </strong>, no puede hacer más acciones.</p>
-<p>Aquí se generan dos estrategias diferentes: los jugadores al recibir daño deberán pensar en sí protegerse para aumentar su vida o en emplear su tiempo en realizar un ataque más potente al recibido (la mejor defensa es un buen ataque).
-</p>
-<h3>Flujo de juego</h3>
+
+>*Disclaimer: Se ha planteado la opción de que cargar y disparar sean dos opciones diferentes (el jugador puede dejar el cañón cargado y disparar más tarde). Se tomará una decisión definitiva al conocer el motor de juego y al ir implementando.En esta opción, al dejar el cañón cargado, cambiaría de color.
+
+### Jugabilidad
+<strong>Estrategias de juego</strong>: Cada jugador tendrá su propio inventario donde acumulará las distintas municiones (hasta un máximo de tres), por lo que el jugador deberá pensar cómo gastar su tiempo en generar mucha munición de golpe para un gran ataque o emplear menos tiempo y hacer ataques más seguidos.
+<br><br>
+Cuando un jugador recibe un disparo del rival puede emplear su tiempo en reparar su piso (es decir sumarle vida a dicho piso). Mientras el jugador <strong>repara un agujero </strong>, no puede hacer más acciones.
+<br><br>
+Aquí se generan dos estrategias diferentes: los jugadores al recibir daño deberán pensar en sí protegerse para aumentar su vida o en emplear su tiempo en realizar un ataque más potente al recibido (la mejor defensa es un buen ataque).
+
+### Flujo de juego
 <img src="https://user-images.githubusercontent.com/92206944/138701652-bb52fcb4-d3c0-4356-8879-9e7b1ceb4f92.png" alt="Flujo de juego" width="50%">
-<h3>Dinámica de juego</h3>
-<p><strong>Cámara</strong>: Vista lateral fija </p>
-<p><strong>Periféricos</strong>: Ratón y teclado</p>
-<p><strong>Controles</strong>: El movimiento del jugador se hará mediante clicks con el ratón de forma que a donde cliques es a donde el jugador se moverá. </p>
-<p>Para realizar las acciones de recargar y reparar el jugador emplea las teclas 1,2,3 y 4 del teclado, siendo la tecla 1 para cargar y disparar el dispara de poco daño, la tecla 2 para el disparo de daño medio y la tecla 3 para el de mucho daño y la tecla 4 para reparar.</p>
-<h3>Interacción en Red </h3>
+<br>
+
+### Dinámica de juego
+<strong>Cámara</strong>: Vista lateral fija
+<br>
+<strong>Periféricos</strong>: Ratón y teclado
+<br>
+<strong>Controles</strong>: El movimiento del jugador se hará mediante clicks con el ratón de forma que a donde cliques es a donde el jugador se moverá. 
+Para realizar las acciones de recargar y reparar el jugador emplea las teclas 1,2,3 y 4 del teclado, siendo la tecla 1 para cargar y disparar el dispara de poco daño, la tecla 2 para el disparo de daño medio y la tecla 3 para el de mucho daño y la tecla 4 para reparar.
+### Interacción en Red
 <p> En la interacción en red podemos ver el movimiento del jugador subiendo y bajando de piso, la creación de la distinta munición,  la recarga de los cañones, su disparo y la barra de vida del edificio rival junto al desgaste del edificio tras la pérdida de vida.</p>
 <h3>Personajes</h3>
 <p>Personaje 1:</p>
