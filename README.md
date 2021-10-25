@@ -20,6 +20,7 @@
      <li>Jugabilidad</li>
      <li>Flujo de juego</li>
      <li>Dinámica de juego</li>
+     <li>Interacción en Red</li>
      <li>Personajes</li>
      <li>Movimientos y físicas</li>
   </ul>
@@ -83,10 +84,12 @@
 </p>
 <h3>Flujo de juego</h3>
 <h3>Dinámica de juego</h3>
- <p><strong>Cámara</strong>: Vista lateral fija </p>
- <p><strong>Periféricos</strong>: Ratón y teclado</p>
-  <p><strong>Controles</strong>: El movimiento del jugador se hará mediante clicks con el ratón de forma que a donde cliques es a donde el jugador se moverá. </p>
+<p><strong>Cámara</strong>: Vista lateral fija </p>
+<p><strong>Periféricos</strong>: Ratón y teclado</p>
+<p><strong>Controles</strong>: El movimiento del jugador se hará mediante clicks con el ratón de forma que a donde cliques es a donde el jugador se moverá. </p>
 <p>Para realizar las acciones de recargar y reparar el jugador emplea las teclas 1,2,3 y 4 del teclado, siendo la tecla 1 para cargar y disparar el dispara de poco daño, la tecla 2 para el disparo de daño medio y la tecla 3 para el de mucho daño y la tecla 4 para reparar.</p>
+<h3>Interacción en Red </h3>
+<p> En la interacción en red podemos ver el movimiento del jugador subiendo y bajando de piso, la creación de la distinta munición,  la recarga de los cañones, su disparo y la barra de vida del edificio rival junto al desgaste del edificio tras la pérdida de vida.</p>
 <h3>Personajes</h3>
 <p>Personaje 1:</p>
 <p>Nombre: Anciana Concha </p>
