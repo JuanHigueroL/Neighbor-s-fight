@@ -1,9 +1,15 @@
 # Neighbor-s-fight
 #### Game Desing Document
 
+Universidad Rey Juan Carlos
+<br>
+*Juegos en Red*
+<br>
 <img src="https://user-images.githubusercontent.com/92206944/138704803-acc1d546-92ed-4d5b-acc4-c2e16c3847d5.png" alt="urjc logo" width="10%">
 
 <br>
+
+
 
 *** 
 
