@@ -25,30 +25,30 @@ Universidad Rey Juan Carlos
   
   * [Mecánicas](#Mecánicas)
    
-     * Condiciones de victoria
-     * Acciones posibles
-     * Jugabilidad
-     * Flujo de juego
-     * Dinámica de juego
-     * Interacción en Red
-     * Personajes
-     * Movimientos y físicas
+     * [Condiciones de victoria](#Condiciones-de-victoria)
+     * [Acciones posibles](#Acciones-posibles)
+     * [Jugabilidad](#Jugabilidad)
+     * [Flujo de juego](#Flujo-de-juego)
+     * [Dinámica de juego](#Dinámica-de-juego)
+     * [Interacción en Red](#Interacción-en-Red)
+     * [Personajes](#Personajes)
+     * [Movimientos y físicas](#Movimientos-y-físicas)
   
   * [Interfaz](#Interfaz)
   
-     * Pantalla durante la partida
-     * Elementos en pantalla
+     * [Pantalla durante la partida](#Pantalla-durante-la-partida)
+     * [Elementos en pantalla](#Elementos-es-pantalla)
   
   * [Arte](#Arte)
   
-     * Herramientas de diseño
-     * Paleta de colores
-     * Estilo visual
+     * [Herramientas de diseño](#Herramientas-de-diseño)
+     * [Paleta de colores](#Paleta-de-colores)
+     * [Estilo visual](#Estilo-visual)
   
   * [Música](#Música)
   
-     * Música durante la partida
-     * Música fuera de la partida
+     * [Música durante la partida](#Música-durante-la-partida)
+     * [Música fuera de la partida](#Música-fuera-de-la-partida)
   
 <br>
 
