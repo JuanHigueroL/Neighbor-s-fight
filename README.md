@@ -206,6 +206,7 @@ Se elegirá una paleta de colores de tonos brillantes y coloridos, acompañando 
 <br>
 Para elegir la paleta se tomarán de referencia los colores de juegos como los de King
 <br>
+<br>
 <img src="https://user-images.githubusercontent.com/92206944/138707018-7bafdd6e-b534-4f4b-894b-a1b61652ee7e.jpg" alt="crash on the run" width="100%">
 
 ### Estilo visual
