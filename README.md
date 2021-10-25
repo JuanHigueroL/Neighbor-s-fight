@@ -99,6 +99,18 @@
   <li>mucho daño: taka-taka</li>
 </ul>
 <p>Imagenes de su munición:</p>
+
+<p>Personaje 2:</p>
+<p>Nombre: Rockero Javi </p>
+<p>Descripción: Tras varias llamadas a la policía por parte de sus vecinos, ahora ve la oportunidad perfecta de venganza gracias a la locura causada por el COVID-19.</p>
+<p>Imagen:</p>
+<p>Munición:</p>
+<ul>
+  <li>poco daño: baquetas </li>
+  <li>daño medio: guitarra</li>
+  <li>mucho daño: amplificador</li>
+</ul>
+<p>Imagenes de su munición:</p>
 <p>Estos son los personajes iniciales del juego pero se tiene en mente añadir más personajes que sean distintos estereotipos de vecinos, como por ejemplo el moroso/okupa, el manitas, el friki que lo sabe todo, presidente de la comunidad… Cada uno de estos al igual que los iniciales tendrán distintos tipos de disparo (con diferente cantidad de daño), de manera que los objetos que lanzan están relacionados con lo que representan.</p>
 <h3>Movimientos y físicas</h3>
 <p>Las balas tienen un movimiento parabólico. </p>
