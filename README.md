@@ -37,7 +37,7 @@ Universidad Rey Juan Carlos
   * [Interfaz](#Interfaz)
   
      * [Pantalla durante la partida](#Pantalla-durante-la-partida)
-     * [Elementos en pantalla](#Elementos-es-pantalla)
+     * [Elementos en pantalla](#Elementos-en-pantalla)
   
   * [Arte](#Arte)
   
