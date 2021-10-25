@@ -133,6 +133,7 @@ Para realizar las acciones de recargar y reparar el jugador emplea las teclas 1,
 **Descripción**: Tras varias llamadas a la policía por parte de sus vecinos, ahora ve la oportunidad perfecta de venganza gracias a la locura causada por el COVID-19.
 <br>
 **Imagen**:
+<img src="https://user-images.githubusercontent.com/92206944/138766914-65777dc0-399d-4361-81c6-ae1f8acd384a.png" alt="Rockero" width="50%">
 <br>
 **Munición**:
 <ul>
