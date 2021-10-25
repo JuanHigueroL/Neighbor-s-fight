@@ -175,8 +175,8 @@
 
 <h1>Música</h1>
 <h3>Música durante la partida</h3>
-<p>Música estilo combate pokémon</p>
-<p>Música estilo Piratas del Caribe</p>
+<p><a href="https://www.youtube.com/watch?v=YTEADhN5_WM&ab_channel=JuanSanchez">Música estilo combate pokémon</a></p>
+<p><a href="https://youtu.be/EI9iI-RC5XI">Música estilo Piratas del Caribe</a></p>
 <h3>Música fuera de la partida</h3>
 <p>Música animada estilo juegos para niños</p>
 <br>
