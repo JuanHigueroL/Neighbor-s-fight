@@ -104,8 +104,9 @@ Para realizar las acciones de recargar y reparar el jugador emplea las teclas 1,
 ### Interacción en Red
  En la interacción en red podemos ver el movimiento del jugador subiendo y bajando de piso, la creación de la distinta munición,  la recarga de los cañones, su disparo y la barra de vida del edificio rival junto al desgaste del edificio tras la pérdida de vida.
 ### Personajes
-Personaje 1:
+#### Personaje 1:
 <br>
+
 **Nombre**: Anciana Concha 
 <br>
 **Descripción**: Doña Concha es una anciana de 97 años cuyo objetivo es deshacerse de sus vecinos para así tener el control del papel higiénico. A pesar de no necesitar el papel higiénico en exceso, se hará con el control de este solo por incordiar a sus vecinos, ya que estos mataron a su anterior gato.
@@ -120,27 +121,37 @@ Personaje 1:
   <li>daño medio: gato</li>
   <li>mucho daño: taka-taka</li>
 </ul>
-**Imagenes de su munición:**
-<img src="" alt="Concha" width="20%">
 
-<p>Personaje 2:</p>
-<p>Nombre: Rockero Javi </p>
-<p>Descripción: Tras varias llamadas a la policía por parte de sus vecinos, ahora ve la oportunidad perfecta de venganza gracias a la locura causada por el COVID-19.</p>
-<p>Imagen:</p>
-<p>Munición:</p>
+**Imagenes de su munición:**
+<br>
+<img src="https://user-images.githubusercontent.com/92206944/138765037-186c8f03-985b-4ac0-9ef5-702101405892.png" alt="Concha" width="50%">
+<br>
+
+#### Personaje 2:
+**Nombre**: Rockero Javi 
+<br>
+**Descripción**: Tras varias llamadas a la policía por parte de sus vecinos, ahora ve la oportunidad perfecta de venganza gracias a la locura causada por el COVID-19.
+<br>
+**Imagen**:
+<br>
+**Munición**:
 <ul>
   <li>poco daño: baquetas </li>
   <li>daño medio: guitarra</li>
   <li>mucho daño: amplificador</li>
 </ul>
-<p>Imagenes de su munición:</p>
-<p>Estos son los personajes iniciales del juego pero se tiene en mente añadir más personajes que sean distintos estereotipos de vecinos, como por ejemplo el moroso/okupa, el manitas, el friki que lo sabe todo, presidente de la comunidad… Cada uno de estos al igual que los iniciales tendrán distintos tipos de disparo (con diferente cantidad de daño), de manera que los objetos que lanzan están relacionados con lo que representan.</p>
-<h3>Movimientos y físicas</h3>
-<p>Las balas tienen un movimiento parabólico. </p>
-<p>La bala siempre se dispara al piso de arriba del todo.</p>
-<p>El personaje se puede mover entre pisos y de izquierda a derecha.</p>
-<p>La interacción es mediante clicks y la pulsación de teclas.
-</p>
+**Imagenes de su munición**:
+<br>
+Estos son los personajes iniciales del juego pero se tiene en mente añadir más personajes que sean distintos estereotipos de vecinos, como por ejemplo el moroso/okupa, el manitas, el friki que lo sabe todo, presidente de la comunidad… Cada uno de estos al igual que los iniciales tendrán distintos tipos de disparo (con diferente cantidad de daño), de manera que los objetos que lanzan están relacionados con lo que representan.
+### Movimientos y físicas
+Las balas tienen un movimiento parabólico. 
+<br>
+La bala siempre se dispara al piso de arriba del todo.
+<br>
+El personaje se puede mover entre pisos y de izquierda a derecha.
+<br>
+La interacción es mediante clicks y la pulsación de teclas.
+
 <br>
 
 
