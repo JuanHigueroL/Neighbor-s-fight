@@ -166,8 +166,8 @@ La interacción es mediante clicks y la pulsación de teclas.
 ### Pantalla durante la partida
 
 
-<img src="https://user-images.githubusercontent.com/92206944/138705881-9bac1c44-625d-4602-b4a3-569cd56b605a.jpg" alt="pantalla" width="80%">
-<img src="https://user-images.githubusercontent.com/92206944/138705986-89f81a7b-17d2-4b6d-9d02-0051d18e0834.jpg" width="80%">
+<img src="https://user-images.githubusercontent.com/92206944/138779209-c05306ce-a6f6-430d-be8b-e01d94284b28.png" width="80%">
+<img src="https://user-images.githubusercontent.com/92206944/138779249-0a74fbc7-2bbc-4fbb-aaa1-145feef9e71a.png" width="80%">
 
 La pantalla del juego consta de dos edificios iguales situados cada uno a un lado de la pantalla. Cada edificio estará formado por tres pisos por los que los jugadores irán moviéndose para cargar y disparar los respectivos cañones que hay situados en cada piso.
 
