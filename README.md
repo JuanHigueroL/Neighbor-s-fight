@@ -177,6 +177,18 @@
   <li>Risk para móviles</li>
   <li>Casual games para móviles como los de SuperCell.</li>
 </ul>
+<p>Algunas imágenes de referencia:</p>
+<img src="https://user-images.githubusercontent.com/92206944/138707638-25d0de1d-86e2-4f27-b4ec-823f9e087fa6.png" alt="referencias" width="50%">
+<img src="https://user-images.githubusercontent.com/92206944/138707798-3d66cd83-7957-4231-b92c-db14c7a8c6b3.gif" alt="referencias" width="50%">
+<img src="https://user-images.githubusercontent.com/92206944/138707896-b3e06d17-460e-4ab8-94ce-4cfd75a22164.jpg" alt="referencias" width="50%">
+<img src="https://user-images.githubusercontent.com/92206944/138708002-beb5fbb8-ce44-4554-83bd-a8235ecd7704.png" alt="referencias" width="50%">
+<img src="https://user-images.githubusercontent.com/92206944/138708079-a246ffe8-5592-47e2-a8e0-b19a7386f14f.jpg" alt="referencias" width="50%">
+<img src="https://user-images.githubusercontent.com/92206944/138708156-6cadc71c-2042-4944-a61a-51abcec26769.jpg" alt="referencias" width="50%">
+<img src="https://user-images.githubusercontent.com/92206944/138708216-3265ef64-d794-4b97-9c1a-4e2e7647b7e1.jpg" alt="referencias" width="50%">
+<img src="https://user-images.githubusercontent.com/92206944/138708309-79406148-071a-4504-ada8-67631f7dd795.jpg" alt="referencias" width="50%">
+<img src="https://user-images.githubusercontent.com/92206944/138708395-503fe4b3-3c85-4399-9d60-6576b7280000.jpg" alt="referencias" width="50%">
+
+
 <br>
 
 
