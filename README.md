@@ -140,9 +140,12 @@ Para realizar las acciones de recargar y reparar el jugador emplea las teclas 1,
   <li>daño medio: guitarra</li>
   <li>mucho daño: amplificador</li>
 </ul>
+
 **Imagenes de su munición**:
+<img src="https://user-images.githubusercontent.com/92206944/138765683-d5340cff-c58c-47c6-9a9a-4d7f8a06ee78.png" alt="Rockero" width="50%">
 <br>
 Estos son los personajes iniciales del juego pero se tiene en mente añadir más personajes que sean distintos estereotipos de vecinos, como por ejemplo el moroso/okupa, el manitas, el friki que lo sabe todo, presidente de la comunidad… Cada uno de estos al igual que los iniciales tendrán distintos tipos de disparo (con diferente cantidad de daño), de manera que los objetos que lanzan están relacionados con lo que representan.
+
 ### Movimientos y físicas
 Las balas tienen un movimiento parabólico. 
 <br>
@@ -158,16 +161,19 @@ La interacción es mediante clicks y la pulsación de teclas.
 
 
 
-<h1>Interfaz</h1>
-<h3>Pantalla durante la partida</h3>
+# Interfaz
+### Pantalla durante la partida
 
 
 <img src="https://user-images.githubusercontent.com/92206944/138705881-9bac1c44-625d-4602-b4a3-569cd56b605a.jpg" alt="pantalla" width="80%">
 <img src="https://user-images.githubusercontent.com/92206944/138705986-89f81a7b-17d2-4b6d-9d02-0051d18e0834.jpg" width="80%">
 
-<p>La pantalla del juego consta de dos edificios iguales situados cada uno a un lado de la pantalla. Cada edificio estará formado por tres pisos por los que los jugadores irán moviéndose para cargar y disparar los respectivos cañones que hay situados en cada piso. </p>
-<h3>Elementos en pantalla</h3>
-<img src="" alt="urjc logo" width="70%">
+La pantalla del juego consta de dos edificios iguales situados cada uno a un lado de la pantalla. Cada edificio estará formado por tres pisos por los que los jugadores irán moviéndose para cargar y disparar los respectivos cañones que hay situados en cada piso.
+
+### Elementos en pantalla
+
+<img src="" alt="pantalla" width="70%">
+
 <ul>
   <li>Dos edificios iguales situados cada uno a un lado de la pantalla</li>
   <li>Cada edificio estará formado por tres pisos por los que los jugadores irán moviéndose para cargar y disparar los respectivos cañones que hay situados en cada piso.</li>
@@ -185,26 +191,31 @@ La interacción es mediante clicks y la pulsación de teclas.
 
 
 
-<h1>Arte</h1>
-<h3>Herramientas de diseño</h3>
+# Arte
+### Herramientas de diseño
 <ul>
   <li>Sprites con photoshop</li>
   <li>Animación 2D con Sprites</li>
   <li>Sonidos de banco de sonidos gratuito (Sonidos y dibujos estilo cartoon.)</li>
 </ul>
-<h3>Paleta de colores</h3>
-<p>Se elegirá una paleta de colores de tonos brillantes y coloridos, acompañando el tono naif del juego.</p>
-<p>Para elegir la paleta se tomarán de referencia los colores de juegos como los de King</p>
+### Paleta de colores
+Se elegirá una paleta de colores de tonos brillantes y coloridos, acompañando el tono naif del juego.
+<br>
+Para elegir la paleta se tomarán de referencia los colores de juegos como los de King
+<br>
 <img src="https://user-images.githubusercontent.com/92206944/138707018-7bafdd6e-b534-4f4b-894b-a1b61652ee7e.jpg" alt="crash on the run" width="100%">
-<h3>Estilo visual</h3>
-<p>Neighbor's fight tendrá un estilo visual basado en cartoon en 2D. </p>
-<p>Algunos juegos de referencia: </p>
+
+### Estilo visual
+Neighbor's fight tendrá un estilo visual basado en cartoon en 2D. 
+<br>
+Algunos juegos de referencia: 
 <ul>
   <li>Fireboy and Watergirl</li>
   <li>Risk para móviles</li>
   <li>Casual games para móviles como los de SuperCell.</li>
 </ul>
-<p>Algunas imágenes de referencia:</p>
+Algunas imágenes de referencia:
+<br>
 
 
 
@@ -225,10 +236,11 @@ La interacción es mediante clicks y la pulsación de teclas.
 
 
 
-<h1>Música</h1>
-<h3>Música durante la partida</h3>
-<p><a href="https://www.youtube.com/watch?v=YTEADhN5_WM&ab_channel=JuanSanchez">Música estilo combate pokémon</a></p>
-<p><a href="https://youtu.be/EI9iI-RC5XI">Música estilo Piratas del Caribe</a></p>
-<h3>Música fuera de la partida</h3>
-<p>Música animada estilo juegos para niños</p>
+# Música
+### Música durante la partida
+<a href="https://www.youtube.com/watch?v=YTEADhN5_WM&ab_channel=JuanSanchez">Música estilo combate pokémon</a>
+<br>
+<a href="https://youtu.be/EI9iI-RC5XI">Música estilo Piratas del Caribe</a>
+### Música fuera de la partida<
+Música animada estilo juegos para niños
 <br>
