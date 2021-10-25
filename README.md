@@ -173,7 +173,7 @@ La pantalla del juego consta de dos edificios iguales situados cada uno a un lad
 
 ### Elementos en pantalla
 
-<img src="" alt="pantalla" width="70%">
+<img src="https://user-images.githubusercontent.com/92206944/138778894-25a7a176-1559-4305-9ee2-a7d89c7d7468.png" alt="pantalla" width="70%">
 
 <ul>
   <li>Dos edificios iguales situados cada uno a un lado de la pantalla</li>
@@ -245,6 +245,6 @@ Algunas imágenes de referencia:
 <a href="https://www.youtube.com/watch?v=YTEADhN5_WM&ab_channel=JuanSanchez">Música estilo combate pokémon</a>
 <br>
 <a href="https://youtu.be/EI9iI-RC5XI">Música estilo Piratas del Caribe</a>
-### Música fuera de la partida<
+### Música fuera de la partida
 Música animada estilo juegos para niños
 <br>
