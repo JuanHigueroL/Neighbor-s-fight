@@ -199,7 +199,9 @@ La pantalla del juego consta de dos edificios iguales situados cada uno a un lad
   <li>Animación 2D con Sprites</li>
   <li>Sonidos de banco de sonidos gratuito (Sonidos y dibujos estilo cartoon.)</li>
 </ul>
+
 ### Paleta de colores
+
 Se elegirá una paleta de colores de tonos brillantes y coloridos, acompañando el tono naif del juego.
 <br>
 Para elegir la paleta se tomarán de referencia los colores de juegos como los de King
