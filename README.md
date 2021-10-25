@@ -90,8 +90,9 @@ Cuando un jugador recibe un disparo del rival puede emplear su tiempo en reparar
 Aquí se generan dos estrategias diferentes: los jugadores al recibir daño deberán pensar en sí protegerse para aumentar su vida o en emplear su tiempo en realizar un ataque más potente al recibido (la mejor defensa es un buen ataque).
 
 ### Flujo de juego
-<img src="https://user-images.githubusercontent.com/92206944/138701652-bb52fcb4-d3c0-4356-8879-9e7b1ceb4f92.png" alt="Flujo de juego" width="50%">
+<img src="https://user-images.githubusercontent.com/92206944/138764126-7f04618d-f9e5-4b42-aa9a-5674c7f55acb.png" alt="Flujo de juego" width="100%">
 <br>
+
 
 ### Dinámica de juego
 <strong>Cámara</strong>: Vista lateral fija
@@ -101,20 +102,26 @@ Aquí se generan dos estrategias diferentes: los jugadores al recibir daño debe
 <strong>Controles</strong>: El movimiento del jugador se hará mediante clicks con el ratón de forma que a donde cliques es a donde el jugador se moverá. 
 Para realizar las acciones de recargar y reparar el jugador emplea las teclas 1,2,3 y 4 del teclado, siendo la tecla 1 para cargar y disparar el dispara de poco daño, la tecla 2 para el disparo de daño medio y la tecla 3 para el de mucho daño y la tecla 4 para reparar.
 ### Interacción en Red
-<p> En la interacción en red podemos ver el movimiento del jugador subiendo y bajando de piso, la creación de la distinta munición,  la recarga de los cañones, su disparo y la barra de vida del edificio rival junto al desgaste del edificio tras la pérdida de vida.</p>
-<h3>Personajes</h3>
-<p>Personaje 1:</p>
-<p>Nombre: Anciana Concha </p>
-<p>Descripción: Doña Concha es una anciana de 97 años cuyo objetivo es deshacerse de sus vecinos para así tener el control del papel higiénico. A pesar de no necesitar el papel higiénico en exceso, se hará con el control de este solo por incordiar a sus vecinos, ya que estos mataron a su anterior gato.</p>
-<p>Imagen:</p>
-<img src="https://user-images.githubusercontent.com/92206944/138705573-2e9b2c28-c2dc-4f9c-a53b-065bbb291f62.png" alt="urjc logo" width="20%">
-<p>Munición:</p>
+ En la interacción en red podemos ver el movimiento del jugador subiendo y bajando de piso, la creación de la distinta munición,  la recarga de los cañones, su disparo y la barra de vida del edificio rival junto al desgaste del edificio tras la pérdida de vida.
+### Personajes
+Personaje 1:
+<br>
+**Nombre**: Anciana Concha 
+<br>
+**Descripción**: Doña Concha es una anciana de 97 años cuyo objetivo es deshacerse de sus vecinos para así tener el control del papel higiénico. A pesar de no necesitar el papel higiénico en exceso, se hará con el control de este solo por incordiar a sus vecinos, ya que estos mataron a su anterior gato.
+<br>
+**Imagen:**
+<br>
+<img src="https://user-images.githubusercontent.com/92206944/138705573-2e9b2c28-c2dc-4f9c-a53b-065bbb291f62.png" alt="Concha" width="20%">
+<br>
+**Munición:**
 <ul>
   <li>poco daño: dentadura </li>
   <li>daño medio: gato</li>
   <li>mucho daño: taka-taka</li>
 </ul>
-<p>Imagenes de su munición:</p>
+**Imagenes de su munición:**
+<img src="" alt="Concha" width="20%">
 
 <p>Personaje 2:</p>
 <p>Nombre: Rockero Javi </p>
