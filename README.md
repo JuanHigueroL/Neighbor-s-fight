@@ -5,7 +5,7 @@
 <br>
 <p>INDEX</p>
 <ul>
-  <li><a href="">Introducción</a></li>
+  <li>Introducción</li>
   <ul>
      <li>Concepto de juego</li>
      <li>Género</li>
