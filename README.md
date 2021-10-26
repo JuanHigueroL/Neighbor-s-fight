@@ -10,7 +10,9 @@ Universidad Rey Juan Carlos
 <br>
 
 <img src="https://user-images.githubusercontent.com/92206944/138921876-892e3b0a-37f9-431c-882d-fdc786773fe5.png" alt="zacan logo" width="50%">
+
 <br>
+
 #### Roberto Algegre Marcos
 #### David Pozo Sánchez
 #### Juan Higuera López
