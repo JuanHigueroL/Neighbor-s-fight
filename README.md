@@ -16,7 +16,7 @@ Universidad Rey Juan Carlos
 #### INDEX
 <br>
 
-  * [Introducción](#Introdución)
+  * [Introducción](#Introducción)
     * [Concepto de juego](#Concepto-de-juego)
     * [Género](#Género)
     * [Características principales](#Características-principales)
