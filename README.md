@@ -13,10 +13,11 @@ Universidad Rey Juan Carlos
 
 <br>
 
-#### Roberto Algegre Marcos
+#### Roberto Algegre Marcos 
 #### David Pozo Sánchez
 #### Juan Higuera López
-#### Lucía Tallero Fernández
+#### Lucía Tallero Fernández 
+l.tallero.2018@gmail.com
 
 
 *** 
