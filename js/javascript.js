@@ -1,12 +1,41 @@
+class EscenaInicio extends Phaser.Scene{
+    preload ()
+    {
+        //cargar imgs
+    }
+
+    create ()
+    {
+        //mostrar imgs
+    }
+
+    update ()
+    {
+    }
+}
+
+
+class EscenaJuego extends Phaser.Scene{
+    preload ()
+    {
+        //cargar imgs
+    }
+
+    create ()
+    {
+        //mostrar imgs
+    }
+
+    update ()
+    {
+    }
+}
+
 const config = {
     type: Phaser.AUTO,
-    width: 800,
-    height: 600,
-    scene: {
-        preload: preload,
-        create: create,
-        update: update
-    },
+    width: 1280,
+    height: 720,
+    scene: EscenaInicio,
     scale: {
         mode: Phaser.scale
     }
@@ -14,16 +43,3 @@ const config = {
 
 var game = new Phaser.Game(config);
 
-function preload ()
-{
-    //cargar imgs
-}
-
-function create ()
-{
-    //mostrar imgs
-}
-
-function update ()
-{
-}
