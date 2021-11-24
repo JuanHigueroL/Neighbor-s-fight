@@ -19,9 +19,9 @@ Universidad Rey Juan Carlos
 
 #### Roberto Algegre Marcos 
 r.alegre.2019@alumnos.urjc.es - roberalegre(github)
-#### David Pozo Sánchez
+#### Juan Higuero López
 j.higuero.2019@alumnos.urjc.es - JuanHigueroL (github)
-#### Juan Higuera López
+#### David Pozo Sánchez
 d.pozo.2019@alumnos.urjc.es - DavidPS17 (github)
 #### Lucía Tallero Fernández 
 l.tallero.2018@alumnos.urjc.es - tallerofdez (github)
