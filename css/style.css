@@ -1,6 +1,10 @@
 body{
-    background: white;
+
+    background-image: url(../resources/images/Fondo.png);
+    background-size: 15%;
+    background-repeat: repeat;
     margin : 0;
+
 }
 
 canvas{
