@@ -1,0 +1,32 @@
+interior piso 1
+  ancho: 241
+  alto: 150
+
+piso exterior:
+  ancho total: 801
+  altura total: 214
+
+  piso entero: (ancho) 0-389
+  piso derruido: (ancho) 412-799
+
+interior piso 2
+  ancho: 241
+  alto: 147
+
+piso exterior:
+  ancho total: 801
+  altura total: 214
+
+  piso entero: (ancho) 0-389
+  piso derruido: (ancho) 412-799
+
+interior piso 3
+  ancho: 243
+  alto: 154
+
+piso exterior:
+  ancho total: 801
+  altura total: 214
+
+  piso entero: (ancho) 0-389
+  piso derruido: (ancho) 412-799
