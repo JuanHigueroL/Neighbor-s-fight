@@ -456,17 +456,17 @@ class EscenaJuego extends Phaser.Scene {
         console.log(Phaser.Input.Keyboard.KeyCodes);
 
         // Cargamos la imagen del fondo
-        this.load.image('backdrop', 'assets/images/pruebas/background.png');
+        this.load.image('backdrop', 'assets/images/definitivas/general/fondo_juego_v1.jpeg');
 
         // Cargamos las imagenes del cañon
         this.load.image('cannon_head', 'assets/images/pruebas/cannon_head.png');
         this.load.image('cannon_body', 'assets/images/pruebas/cannon_body.png');
-        this.load.spritesheet('chick1', 'assets/images/pruebas/pollo1.png', { frameWidth: 16, frameHeight: 18 });
-        this.load.spritesheet('chick2', 'assets/images/pruebas/pollo2.png', { frameWidth: 16, frameHeight: 18 });
-        this.load.spritesheet('chick3', 'assets/images/pruebas/pollo3.png', { frameWidth: 16, frameHeight: 18 });
-        this.load.spritesheet('chick4', 'assets/images/pruebas/pollo4.png', { frameWidth: 16, frameHeight: 18 });
-        this.load.spritesheet('chick5', 'assets/images/pruebas/pollo5.png', { frameWidth: 16, frameHeight: 18 });
-        this.load.spritesheet('chick6', 'assets/images/pruebas/pollo6.png', { frameWidth: 16, frameHeight: 18 });
+        this.load.spritesheet('chick1', 'assets/images/definitivas/proyectiles/dentadura.png', { frameWidth: 1200, frameHeight: 1000 });
+        this.load.spritesheet('chick2', 'assets/images/definitivas/proyectiles/gato.png', { frameWidth: 2600, frameHeight: 2200 });
+        this.load.spritesheet('chick3', 'assets/images/definitivas/proyectiles/TacaTaca.png', { frameWidth: 2000, frameHeight: 2000 });
+        this.load.spritesheet('chick4', 'assets/images/definitivas/proyectiles/baquetas.png', { frameWidth: 1500, frameHeight: 1500 });
+        this.load.spritesheet('chick5', 'assets/images/definitivas/proyectiles/guitarra.png', { frameWidth: 1600, frameHeight: 1600 });
+        this.load.spritesheet('chick6', 'assets/images/definitivas/proyectiles/altavoz.png', { frameWidth: 1000, frameHeight: 1000 });
 
         // Cargamos las imagenes de los edificios
         this.load.image('edificio1', 'assets/images/pruebas/edificio_v1.png');
@@ -489,10 +489,10 @@ class EscenaJuego extends Phaser.Scene {
         this.load.image('detector_escaleras', 'assets/images/pruebas/detector_escaleras_pruebas.png');
 
         // Cargamos las imagenes de los personajes
-        this.load.spritesheet('P1', 'assets/images/pruebas/personaje_pruebas.png', { frameWidth: 32, frameHeight: 48 });
+        this.load.spritesheet('anciana', 'assets/images/definitivas/personajes/anciana.png', { frameWidth: 1000, frameHeight: 1000 });
 
         // Cargamos la imagen de la mesa de crafteo
-        this.load.image('mesa', 'assets/images/pruebas/mesa_crafteo.png');
+        this.load.image('mesa', 'assets/images/definitivas/otros/mesa_crafteo.png');
 
         // Cargamos las imagenes de los power ups
         this.load.spritesheet('martillo', 'assets/images/pruebas/martillo.png', { frameWidth: 800, frameHeight: 800 });
@@ -512,18 +512,18 @@ class EscenaJuego extends Phaser.Scene {
         // Animaciones del personaje
         this.anims.create({
             key: 'left',
-            frames: this.anims.generateFrameNumbers('P1', { start: 0, end: 3 }),
+            frames: this.anims.generateFrameNumbers('anciana', { start: 0, end: 3 }),
             frameRate: 10,
             repeat: -1
         });
         this.anims.create({
             key: 'turn',
-            frames: [{ key: 'P1', frame: 4 }],
+            frames: [{ key: 'anciana', frame: 4 }],
             frameRate: 20
         });
         this.anims.create({
             key: 'right',
-            frames: this.anims.generateFrameNumbers('P1', { start: 5, end: 8 }),
+            frames: this.anims.generateFrameNumbers('anciana', { start: 5, end: 8 }),
             frameRate: 10,
             repeat: -1
         });
@@ -636,15 +636,15 @@ class EscenaJuego extends Phaser.Scene {
 
         // Suelo edificio derecha
         sueloD1 = this.physics.add.staticGroup();
-        sueloD1.create(1080, 500, 'suelo').setScale(0.6).refreshBody();
+        sueloD1.create(1055, 500, 'suelo').setScale(0.6).refreshBody();
         sueloD2 = this.physics.add.staticGroup();
-        sueloD2.create(1080, 350, 'suelo').setScale(0.6).refreshBody();
+        sueloD2.create(1055, 350, 'suelo').setScale(0.6).refreshBody();
 
         // Suelo edificio izquierda
         sueloI1 = this.physics.add.staticGroup();
-        sueloI1.create(200, 500, 'suelo').setScale(0.6).refreshBody();
+        sueloI1.create(225, 500, 'suelo').setScale(0.6).refreshBody();
         sueloI2 = this.physics.add.staticGroup();
-        sueloI2.create(200, 350, 'suelo').setScale(0.6).refreshBody();
+        sueloI2.create(225, 350, 'suelo').setScale(0.6).refreshBody();
 
         // ------------------------- Escaleras -------------------------
         // Escalera izquierda
@@ -666,15 +666,15 @@ class EscenaJuego extends Phaser.Scene {
         detectorD.create(1250, 0, 'detector_escaleras').setScale(0.27).refreshBody();
 
         // ------------------------- Jugador 1 -------------------------
-        P1 = this.physics.add.sprite(440, 600, 'P1');
+        P1 = this.physics.add.sprite(440, 600, 'anciana').setScale(0.075);
         P1.setCollideWorldBounds(true);
 
         // ------------------------- Jugador 2 -------------------------
-        P2 = this.physics.add.sprite(840, 600, 'P1');
+        P2 = this.physics.add.sprite(840, 600, 'anciana').setScale(0.075);
         P2.setCollideWorldBounds(true);
 
         // ------------------------- Crafteo -------------------------
-        mesa = this.add.image(640, 660, 'mesa').setDepth(0).setScale(0.5);
+        mesa = this.add.image(640, 660, 'mesa').setDepth(0).setScale(1.5);
 
         // ------------------------- Cañones derecha -------------------------
         // Creamos el cañon 1 (arriba)
@@ -721,12 +721,12 @@ class EscenaJuego extends Phaser.Scene {
         angle6 = 0;
 
         // ------------------------- Proyectiles -------------------------
-        chick1 = this.physics.add.sprite(cannonHead1.x, cannonHead1.y, 'chick1').setScale(1.5);
-        chick2 = this.physics.add.sprite(cannonHead1.x, cannonHead1.y, 'chick2').setScale(1.5);
-        chick3 = this.physics.add.sprite(cannonHead1.x, cannonHead1.y, 'chick3').setScale(1.5);
-        chick4 = this.physics.add.sprite(cannonHead1.x, cannonHead1.y, 'chick4').setScale(1.5);
-        chick5 = this.physics.add.sprite(cannonHead1.x, cannonHead1.y, 'chick5').setScale(1.5);
-        chick6 = this.physics.add.sprite(cannonHead1.x, cannonHead1.y, 'chick6').setScale(1.5);
+        chick1 = this.physics.add.sprite(cannonHead1.x, cannonHead1.y, 'chick1').setScale(0.04);
+        chick2 = this.physics.add.sprite(cannonHead1.x, cannonHead1.y, 'chick2').setScale(0.03);
+        chick3 = this.physics.add.sprite(cannonHead1.x, cannonHead1.y, 'chick3').setScale(0.04);
+        chick4 = this.physics.add.sprite(cannonHead1.x, cannonHead1.y, 'chick4').setScale(0.04);
+        chick5 = this.physics.add.sprite(cannonHead1.x, cannonHead1.y, 'chick5').setScale(0.05);
+        chick6 = this.physics.add.sprite(cannonHead1.x, cannonHead1.y, 'chick6').setScale(0.08);
 
         chick1.disableBody(true, true);
         chick2.disableBody(true, true);
@@ -810,16 +810,16 @@ class EscenaJuego extends Phaser.Scene {
 
         // ********** Personajes - escaleras **********
         // P1
-        this.physics.add.overlap(P1, escalerasD, escalera1.bind());
-        this.physics.add.overlap(P1, escalerasI, escalera1.bind());
         this.physics.add.overlap(P1, detectorD, noEscalera1.bind());
         this.physics.add.overlap(P1, detectorI, noEscalera1.bind());
+        this.physics.add.overlap(P1, escalerasD, escalera1.bind());
+        this.physics.add.overlap(P1, escalerasI, escalera1.bind());
 
         // P2
-        this.physics.add.overlap(P2, escalerasD, escalera2.bind());
-        this.physics.add.overlap(P2, escalerasI, escalera2.bind());
         this.physics.add.overlap(P2, detectorD, noEscalera2.bind());
         this.physics.add.overlap(P2, detectorI, noEscalera2.bind());
+        this.physics.add.overlap(P2, escalerasD, escalera2.bind());
+        this.physics.add.overlap(P2, escalerasI, escalera2.bind());
 
         // ********** Proyectil - edificio **********
         // P1
