@@ -6,6 +6,8 @@ var cursors;
 // ------------------------- Zonas de movimiento -------------------------
 // Suelos
 var suelo;
+var tierra;
+var tierra2;
 var sueloD1;
 var sueloD2;
 var sueloI1;
@@ -49,6 +51,12 @@ var vida1P3 = 100;
 var edificio1P1;
 var edificio1P2;
 var edificio1P3;
+var taller1;
+
+var fondoEdificio1P1;
+var fondoEdificio1P2;
+var fondoEdificio1P3;
+var fondoEdificio1Taller;
 
 var subirEscaleras1 = false;
 
@@ -62,6 +70,12 @@ var vida2P3 = 100;
 var edificio2P1;
 var edificio2P2;
 var edificio2P3;
+var taller2;
+
+var fondoEdificio2P1;
+var fondoEdificio2P2;
+var fondoEdificio2P3;
+var fondoEdificio2Taller;
 
 var subirEscaleras2 = false;
 
@@ -135,9 +149,18 @@ var angle6;
 var chick1;
 var chick2;
 var chick3;
+
 var chick4;
 var chick5;
 var chick6;
+
+var municionDentadura;
+var municionGato;
+var municionTacaTaca;
+
+var municionBaquetas;
+var municionGuitarra;
+var municionAltavoz;
 
 // ------------------------- Crafteo -------------------------
 var mesa;
@@ -178,8 +201,6 @@ var barraEnergia2;
 // Colisiones de los disparos del jugador 1
 var polloAux1 = pollos[bala1];
 function hit11(polloAux1) {
-    this.add.image(polloAux1.x + 25, polloAux1.y, 'efecto_roto_1').setScale(0.05);
-
     polloAux1.disableBody(true, true);
 
     vida1P1 -= daños1[bala1];
@@ -188,8 +209,6 @@ function hit11(polloAux1) {
     energia1 += 5;
 }
 function hit12(polloAux1) {
-    this.add.image(polloAux1.x + 25, polloAux1.y, 'efecto_roto_1').setScale(0.05);
-
     polloAux1.disableBody(true, true);
 
     if (vida1P1 > 0 && vida1P2 > 50) {
@@ -206,8 +225,6 @@ function hit12(polloAux1) {
     console.log("12: " + vida1P2);
 }
 function hit13(polloAux1) {
-    this.add.image(polloAux1.x + 25, polloAux1.y, 'efecto_roto_1').setScale(0.05);
-
     polloAux1.disableBody(true, true);
 
     if (vida1P1 <= 0 && vida1P2 > 0 && vida1P3 > 50) {
@@ -259,8 +276,6 @@ function hitSTOP1(polloAux1) {
 // Colisiones de los disparos del jugador 2
 var polloaux = pollos[bala2 + 3];
 function hit21(polloaux) {
-    this.add.image(polloaux.x - 35, polloaux.y, 'efecto_roto_2').setScale(0.05);
-
     polloaux.disableBody(true, true);
 
     vida2P1 -= daños2[bala2];
@@ -269,8 +284,6 @@ function hit21(polloaux) {
     energia2 += 5;
 }
 function hit22(polloaux) {
-    this.add.image(polloaux.x - 35, polloaux.y, 'efecto_roto_2').setScale(0.05);
-
     polloaux.disableBody(true, true);
 
     if (vida2P1 > 0 && vida2P2 > 50) {
@@ -287,8 +300,6 @@ function hit22(polloaux) {
     console.log("12: " + vida2P2);
 }
 function hit23(polloaux) {
-    this.add.image(polloaux.x - 35, polloaux.y, 'efecto_roto_2').setScale(0.05);
-
     polloaux.disableBody(true, true);
 
     if (vida2P1 <= 0 && vida2P2 > 0 && vida2P3 > 50) {
@@ -459,8 +470,9 @@ class EscenaJuego extends Phaser.Scene {
         this.load.image('backdrop', 'assets/images/definitivas/general/fondo_juego_v1.jpeg');
 
         // Cargamos las imagenes del cañon
-        this.load.image('cannon_head', 'assets/images/pruebas/cannon_head.png');
-        this.load.image('cannon_body', 'assets/images/pruebas/cannon_body.png');
+        this.load.image('cannon_head1', 'assets/images/definitivas/otros/cañon1.png');
+        this.load.image('cannon_head2', 'assets/images/definitivas/otros/cañon2.png');
+        this.load.image('cannon_body', 'assets/images/definitivas/otros/soporte_cañon.png');
         this.load.spritesheet('chick1', 'assets/images/definitivas/proyectiles/dentadura.png', { frameWidth: 1200, frameHeight: 1000 });
         this.load.spritesheet('chick2', 'assets/images/definitivas/proyectiles/gato.png', { frameWidth: 2600, frameHeight: 2200 });
         this.load.spritesheet('chick3', 'assets/images/definitivas/proyectiles/TacaTaca.png', { frameWidth: 2000, frameHeight: 2000 });
@@ -468,25 +480,39 @@ class EscenaJuego extends Phaser.Scene {
         this.load.spritesheet('chick5', 'assets/images/definitivas/proyectiles/guitarra.png', { frameWidth: 1600, frameHeight: 1600 });
         this.load.spritesheet('chick6', 'assets/images/definitivas/proyectiles/altavoz.png', { frameWidth: 1000, frameHeight: 1000 });
 
-        // Cargamos las imagenes de los edificios
-        this.load.image('edificio1', 'assets/images/pruebas/edificio_v1.png');
-        this.load.image('efecto_roto_1', 'assets/images/pruebas/efecto_roto_1.png');
-        this.load.image('efecto_roto_2', 'assets/images/pruebas/efecto_roto_2.png');
+        // Cargamos las imagenes de los edificios 1
+        this.load.spritesheet('edificio1_parte1', 'assets/images/definitivas/edificios/edificio1/planta_arriba.png', { frameWidth: 390, frameHeight: 152 });
+        this.load.spritesheet('edificio1_parte2', 'assets/images/definitivas/edificios/edificio1/planta_medio.png', { frameWidth: 390, frameHeight: 152 });
+        this.load.spritesheet('edificio1_parte3', 'assets/images/definitivas/edificios/edificio1/planta_abajo.png', { frameWidth: 390, frameHeight: 152 });
+        this.load.image('taller1', 'assets/images/definitivas/edificios/edificio1/taller.png');
 
-        this.load.image('edificio_P1', 'assets/images/pruebas/edificio_P1.png');
-        this.load.image('edificio_P2', 'assets/images/pruebas/edificio_P2.png');
-        this.load.image('edificio_P3', 'assets/images/pruebas/edificio_P3.png');
+        this.load.image('fondo_edificio1_parte1', 'assets/images/definitivas/edificios/edificio1/fondo_planta_arriba.png');
+        this.load.image('fondo_edificio1_parte2', 'assets/images/definitivas/edificios/edificio1/fondo_planta_medio.png');
+        this.load.image('fondo_edificio1_parte3', 'assets/images/definitivas/edificios/edificio1/fondo_planta_abajo.png');
+        this.load.image('fondo_taller1', 'assets/images/definitivas/edificios/edificio1/fondo_taller.png');
 
-        this.load.spritesheet('edificio_parte1', 'assets/images/pruebas/edificio_pruebas_parteArriba.png', { frameWidth: 100, frameHeight: 87 });
-        this.load.spritesheet('edificio_parte2', 'assets/images/pruebas/edificio_pruebas_parteMedio.png', { frameWidth: 100, frameHeight: 54 });
-        this.load.spritesheet('edificio_parte3', 'assets/images/pruebas/edificio_pruebas_parteAbajo.png', { frameWidth: 100, frameHeight: 54 });
+        // Cargamos las imagenes de los edificios 1
+        this.load.spritesheet('edificio2_parte1', 'assets/images/definitivas/edificios/edificio2/planta_arriba.png', { frameWidth: 390, frameHeight: 152 });
+        this.load.spritesheet('edificio2_parte2', 'assets/images/definitivas/edificios/edificio2/planta_medio.png', { frameWidth: 390, frameHeight: 152 });
+        this.load.spritesheet('edificio2_parte3', 'assets/images/definitivas/edificios/edificio2/planta_abajo.png', { frameWidth: 390, frameHeight: 152 });
+        this.load.image('taller2', 'assets/images/definitivas/edificios/edificio2/taller.png');
 
+        this.load.image('fondo_edificio2_parte1', 'assets/images/definitivas/edificios/edificio2/fondo_planta_arriba.png');
+        this.load.image('fondo_edificio2_parte2', 'assets/images/definitivas/edificios/edificio2/fondo_planta_medio.png');
+        this.load.image('fondo_edificio2_parte3', 'assets/images/definitivas/edificios/edificio2/fondo_planta_abajo.png');
+        this.load.image('fondo_taller2', 'assets/images/definitivas/edificios/edificio2/fondo_taller.png');
+
+        // Cargamos la imagen del boton
         this.load.image('boton', 'assets/images/pruebas/boton.png');
 
         // Cargamos las imagenes de las zonas de movimiento
-        this.load.image('suelo', 'assets/images/pruebas/suelo_pruebas.png');
+        this.load.image('suelo_principal', 'assets/images/pruebas/suelo_v2.png');
+        this.load.image('tierra', 'assets/images/pruebas/tierra.png');
+        this.load.image('tierra2', 'assets/images/pruebas/tierra2.png');
+        this.load.image('suelo', 'assets/images/pruebas/suelo_pruebas2.png');
         this.load.image('escaleras', 'assets/images/pruebas/escaleras_pruebas.png');
-        this.load.image('detector_escaleras', 'assets/images/pruebas/detector_escaleras_pruebas.png');
+        this.load.image('detector_escaleras1', 'assets/images/pruebas/detector_escaleras_pruebas1.png');
+        this.load.image('detector_escaleras2', 'assets/images/pruebas/detector_escaleras_pruebas2.png');
 
         // Cargamos las imagenes de los personajes
         this.load.spritesheet('anciana', 'assets/images/definitivas/personajes/anciana.png', { frameWidth: 1000, frameHeight: 1000 });
@@ -566,159 +592,222 @@ class EscenaJuego extends Phaser.Scene {
             repeat: -1
         });
 
-        // Frames de los edificios
+        // Frames del edificio 1
         this.anims.create({
-            key: 'v1',
-            frames: [{ key: 'edificio_parte1', frame: 0 }]
+            key: 'edificio1_v1',
+            frames: [{ key: 'edificio1_parte1', frame: 0 }]
         });
         this.anims.create({
-            key: 'v2',
-            frames: [{ key: 'edificio_parte1', frame: 1 }]
+            key: 'edificio1_v2',
+            frames: [{ key: 'edificio1_parte1', frame: 1 }]
         });
         this.anims.create({
             key: 'v3',
-            frames: [{ key: 'edificio_parte1', frame: 2 }]
+            frames: [{ key: 'edificio1_parte1', frame: 2 }]
         });
 
         this.anims.create({
-            key: 'v4',
-            frames: [{ key: 'edificio_parte2', frame: 0 }]
+            key: 'edificio1_v4',
+            frames: [{ key: 'edificio1_parte2', frame: 0 }]
         });
         this.anims.create({
-            key: 'v5',
-            frames: [{ key: 'edificio_parte2', frame: 1 }]
+            key: 'edificio1_v5',
+            frames: [{ key: 'edificio1_parte2', frame: 1 }]
         });
         this.anims.create({
-            key: 'v6',
-            frames: [{ key: 'edificio_parte2', frame: 2 }]
+            key: 'edificio1_v6',
+            frames: [{ key: 'edificio1_parte2', frame: 2 }]
+        });
+
+        this.anims.create({
+            key: 'edificio1_v7',
+            frames: [{ key: 'edificio1_parte3', frame: 0 }]
         });
         this.anims.create({
-            key: 'v7',
-            frames: [{ key: 'edificio_parte3', frame: 0 }]
+            key: 'edificio1_v8',
+            frames: [{ key: 'edificio1_parte3', frame: 1 }]
         });
         this.anims.create({
-            key: 'v8',
-            frames: [{ key: 'edificio_parte3', frame: 1 }]
+            key: 'edificio1_v9',
+            frames: [{ key: 'edificio1_parte3', frame: 2 }]
+        });
+
+        // Frames del edificio 2
+        this.anims.create({
+            key: 'edificio2_v1',
+            frames: [{ key: 'edificio2_parte1', frame: 0 }]
         });
         this.anims.create({
-            key: 'v9',
-            frames: [{ key: 'edificio_parte3', frame: 2 }]
+            key: 'edificio2_v2',
+            frames: [{ key: 'edificio2_parte1', frame: 1 }]
+        });
+        this.anims.create({
+            key: 'edificio2_v3',
+            frames: [{ key: 'edificio2_parte1', frame: 2 }]
+        })
+
+        this.anims.create({
+            key: 'edificio2_v4',
+            frames: [{ key: 'edificio2_parte2', frame: 0 }]
+        });
+        this.anims.create({
+            key: 'edificio2_v5',
+            frames: [{ key: 'edificio2_parte2', frame: 1 }]
+        });
+        this.anims.create({
+            key: 'edificio2_v6',
+            frames: [{ key: 'edificio2_parte2', frame: 2 }]
         });
 
-        // ------------------------- Fondo -------------------------
-        this.add.image(640, 360, 'backdrop');
-
-        // ------------------------- Edificios -------------------------
-        // Creamos el edificio 1
-        edificio1P1 = this.physics.add.sprite(1110, 165, 'edificio_parte1').setScale(3.5);
-        edificio1P1.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
-        edificio1P2 = this.physics.add.sprite(1110, 410, 'edificio_parte2').setScale(3.5);
-        edificio1P2.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
-        edificio1P3 = this.physics.add.sprite(1110, 600, 'edificio_parte3').setScale(3.5);
-        edificio1P3.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
-
-        boton1 = this.add.image(500, 660, 'boton').setDepth(0).setScale(0.1);
-
-        // Creamos el edificio 2
-        edificio2P1 = this.physics.add.sprite(180, 165, 'edificio_parte1').setScale(3.5);
-        edificio2P1.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
-        edificio2P2 = this.physics.add.sprite(180, 410, 'edificio_parte2').setScale(3.5);
-        edificio2P2.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
-        edificio2P3 = this.physics.add.sprite(180, 600, 'edificio_parte3').setScale(3.5);
-        edificio2P3.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
-
-        boton2 = this.add.image(780, 660, 'boton').setDepth(0).setScale(0.1);
-
-        // ------------------------- Suelos -------------------------
-        // Suelo principal
-        suelo = this.physics.add.staticGroup();
-        suelo.create(640, 775, 'suelo').setScale(3).refreshBody();
-
-        // Suelo edificio derecha
-        sueloD1 = this.physics.add.staticGroup();
-        sueloD1.create(1055, 500, 'suelo').setScale(0.6).refreshBody();
-        sueloD2 = this.physics.add.staticGroup();
-        sueloD2.create(1055, 350, 'suelo').setScale(0.6).refreshBody();
-
-        // Suelo edificio izquierda
-        sueloI1 = this.physics.add.staticGroup();
-        sueloI1.create(225, 500, 'suelo').setScale(0.6).refreshBody();
-        sueloI2 = this.physics.add.staticGroup();
-        sueloI2.create(225, 350, 'suelo').setScale(0.6).refreshBody();
+        this.anims.create({
+            key: 'edificio2_v7',
+            frames: [{ key: 'edificio2_parte3', frame: 0 }]
+        });
+        this.anims.create({
+            key: 'edificio2_v8',
+            frames: [{ key: 'edificio2_parte3', frame: 1 }]
+        });
+        this.anims.create({
+            key: 'edificio2_v9',
+            frames: [{ key: 'edificio2_parte3', frame: 2 }]
+        });
 
         // ------------------------- Escaleras -------------------------
         // Escalera izquierda
         escalerasI = this.physics.add.staticGroup();
-        escalerasI.create(25, 550, 'escaleras').setScale(0.45).refreshBody();
+        escalerasI.create(30, 450, 'escaleras').refreshBody();
 
         // Detectores de la escalera izquierda
         detectorI = this.physics.add.staticGroup();
-        detectorI.create(95, 550, 'detector_escaleras').setScale(0.31).refreshBody();
-        detectorI.create(25, 0, 'detector_escaleras').setScale(0.27).refreshBody();
+        detectorI.create(75, 360, 'detector_escaleras1').refreshBody();
+        detectorI.create(30, 80, 'detector_escaleras2').refreshBody();
 
         // Escalera derecha
         escalerasD = this.physics.add.staticGroup();
-        escalerasD.create(1250, 550, 'escaleras').setScale(0.45).refreshBody();
+        escalerasD.create(1250, 450, 'escaleras').refreshBody();
 
         // Detectores de la escalera derecha
         detectorD = this.physics.add.staticGroup();
-        detectorD.create(1180, 550, 'detector_escaleras').setScale(0.31).refreshBody();
-        detectorD.create(1250, 0, 'detector_escaleras').setScale(0.27).refreshBody();
+        detectorD.create(1205, 360, 'detector_escaleras1').refreshBody();
+        detectorD.create(1250, 80, 'detector_escaleras2').refreshBody();
+
+        // ------------------------- Suelos  1 -------------------------
+        // Suelo edificio derecha
+        sueloD1 = this.physics.add.staticGroup();
+        sueloD1.create(1045, 390, 'suelo').refreshBody();
+        sueloD2 = this.physics.add.staticGroup();
+        sueloD2.create(1045, 240, 'suelo').refreshBody();
+
+        // Suelo edificio izquierda
+        sueloI1 = this.physics.add.staticGroup();
+        sueloI1.create(235, 390, 'suelo').refreshBody();
+        sueloI2 = this.physics.add.staticGroup();
+        sueloI2.create(235, 240, 'suelo').refreshBody();
+
+        // ------------------------- Fondo -------------------------
+        this.add.image(640, 360, 'backdrop');
+
+        // ------------------------- Edificios - parte 1 -------------------------
+        // Fondo edificio 1
+        fondoEdificio1P1 = this.add.image(181, 170, 'fondo_edificio1_parte1').setDepth(0);
+        fondoEdificio1P2 = this.add.image(181, 300, 'fondo_edificio1_parte2').setDepth(0);
+        fondoEdificio1P3 = this.add.image(181, 450, 'fondo_edificio1_parte3').setDepth(0);
+        fondoEdificio1Taller = this.add.image(181, 610, 'fondo_taller1').setDepth(0);
+
+        // Fondo edificio 2
+        fondoEdificio2P1 = this.add.image(1097, 170, 'fondo_edificio2_parte1').setDepth(0);
+        fondoEdificio2P2 = this.add.image(1097, 300, 'fondo_edificio2_parte2').setDepth(0);
+        fondoEdificio2P3 = this.add.image(1097, 450, 'fondo_edificio2_parte3').setDepth(0);
+        fondoEdificio1Taller = this.add.image(1097, 610, 'fondo_taller2').setDepth(0);
 
         // ------------------------- Jugador 1 -------------------------
-        P1 = this.physics.add.sprite(440, 600, 'anciana').setScale(0.075);
+        P1 = this.physics.add.sprite(440, 400, 'anciana').setScale(0.075);
         P1.setCollideWorldBounds(true);
 
         // ------------------------- Jugador 2 -------------------------
-        P2 = this.physics.add.sprite(840, 600, 'anciana').setScale(0.075);
+        P2 = this.physics.add.sprite(840, 400, 'anciana').setScale(0.075);
         P2.setCollideWorldBounds(true);
 
+        // ------------------------- Edificios - parte 2 -------------------------
+        // Creamos el edificio 1
+        edificio1P1 = this.physics.add.sprite(1080, 165, 'edificio1_parte1');
+        edificio1P1.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        edificio1P2 = this.physics.add.sprite(1080, 315, 'edificio1_parte2');
+        edificio1P2.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        edificio1P3 = this.physics.add.sprite(1080, 465, 'edificio1_parte3');
+        edificio1P3.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        taller1 = this.physics.add.sprite(1125, 610, 'taller1');
+        taller1.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+
+        boton1 = this.add.image(500, 500, 'boton').setDepth(0).setScale(0.1);
+
+        // Creamos el edificio 2
+        edificio2P1 = this.physics.add.sprite(200, 165, 'edificio2_parte1');
+        edificio2P1.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        edificio2P2 = this.physics.add.sprite(200, 315, 'edificio2_parte2');
+        edificio2P2.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        edificio2P3 = this.physics.add.sprite(200, 465, 'edificio2_parte3');
+        edificio2P3.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        taller2 = this.physics.add.sprite(150, 610, 'taller2');
+        taller2.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+
+        boton2 = this.add.image(780, 500, 'boton').setDepth(0).setScale(0.1);
+
         // ------------------------- Crafteo -------------------------
-        mesa = this.add.image(640, 660, 'mesa').setDepth(0).setScale(1.5);
+        mesa = this.add.image(640, 515, 'mesa').setDepth(0).setScale(1.5);
 
         // ------------------------- Cañones derecha -------------------------
         // Creamos el cañon 1 (arriba)
-        cannonHead1 = this.add.image(300, 300, 'cannon_head').setDepth(1).setScale(0.5);
-        cannon1 = this.add.image(cannonHead1.x, cannonHead1.y + 20, 'cannon_body').setDepth(1).setScale(0.5);
+        cannonHead1 = this.add.image(350, 190, 'cannon_head1').setDepth(1).setScale(0.75);
+        cannon1 = this.add.image(cannonHead1.x, cannonHead1.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
         gfx1 = this.add.graphics().setDefaultStyles({ lineStyle: { width: 10, color: 0xffdd00, alpha: 0.5 } });
         line1 = new Phaser.Geom.Line();
         angle1 = 0;
 
         // Creamos el cañon 2 (medio)
-        cannonHead2 = this.add.image(300, 450, 'cannon_head').setDepth(1).setScale(0.5);
-        cannon2 = this.add.image(cannonHead2.x, cannonHead2.y + 20, 'cannon_body').setDepth(1).setScale(0.5);
+        cannonHead2 = this.add.image(350, 340, 'cannon_head1').setDepth(1).setScale(0.75);
+        cannon2 = this.add.image(cannonHead2.x, cannonHead2.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
         gfx2 = this.add.graphics().setDefaultStyles({ lineStyle: { width: 10, color: 0xffdd00, alpha: 0.5 } });
         line2 = new Phaser.Geom.Line();
         angle2 = 0;
 
         // Creamos el cañon 3 (abajo)
-        cannonHead3 = this.add.image(300, 650, 'cannon_head').setDepth(1).setScale(0.5);
-        cannon3 = this.add.image(cannonHead3.x, cannonHead3.y + 20, 'cannon_body').setDepth(1).setScale(0.5);
+        cannonHead3 = this.add.image(350, 490, 'cannon_head1').setDepth(1).setScale(0.75);
+        cannon3 = this.add.image(cannonHead3.x, cannonHead3.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
         gfx3 = this.add.graphics().setDefaultStyles({ lineStyle: { width: 10, color: 0xffdd00, alpha: 0.5 } });
         line3 = new Phaser.Geom.Line();
         angle3 = 0;
 
         // ------------------------- Cañones izquierda -------------------------
         // Creamos el cañon 4 (arriba)
-        cannonHead4 = this.add.image(980, 300, 'cannon_head').setDepth(1).setScale(0.5);
-        cannon4 = this.add.image(cannonHead4.x, cannonHead4.y + 20, 'cannon_body').setDepth(1).setScale(0.5);
+        cannonHead4 = this.add.image(930, 190, 'cannon_head2').setDepth(1).setScale(0.75);
+        cannon4 = this.add.image(cannonHead4.x, cannonHead4.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
         gfx4 = this.add.graphics().setDefaultStyles({ lineStyle: { width: 10, color: 0xffdd00, alpha: 0.5 } });
         line4 = new Phaser.Geom.Line();
         angle4 = 0;
 
         // Creamos el cañon 5 (medio)
-        cannonHead5 = this.add.image(980, 450, 'cannon_head').setDepth(1).setScale(0.5);
-        cannon5 = this.add.image(cannonHead5.x, cannonHead5.y + 20, 'cannon_body').setDepth(1).setScale(0.5);
+        cannonHead5 = this.add.image(930, 340, 'cannon_head2').setDepth(1).setScale(0.75);
+        cannon5 = this.add.image(cannonHead5.x, cannonHead5.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
         gfx5 = this.add.graphics().setDefaultStyles({ lineStyle: { width: 10, color: 0xffdd00, alpha: 0.5 } });
         line5 = new Phaser.Geom.Line();
         angle5 = 0;
 
         // Creamos el cañon 6 (abajo)
-        cannonHead6 = this.add.image(980, 650, 'cannon_head').setDepth(1).setScale(0.5);
-        cannon6 = this.add.image(cannonHead6.x, cannonHead6.y + 20, 'cannon_body').setDepth(1).setScale(0.5);
+        cannonHead6 = this.add.image(930, 490, 'cannon_head2').setDepth(1).setScale(0.75);
+        cannon6 = this.add.image(cannonHead6.x, cannonHead6.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
         gfx6 = this.add.graphics().setDefaultStyles({ lineStyle: { width: 10, color: 0xffdd00, alpha: 0.5 } });
         line6 = new Phaser.Geom.Line();
         angle6 = 0;
+
+        // ------------------------- Suelos  2 -------------------------
+        // Suelo principal
+        tierra = this.physics.add.staticGroup();
+        tierra.create(640, 630, 'tierra').refreshBody();
+        tierra2 = this.physics.add.staticGroup();
+        tierra2.create(640, 700, 'tierra2').refreshBody();
+        suelo = this.physics.add.staticGroup();
+        suelo.create(640, 540, 'suelo_principal').refreshBody();
 
         // ------------------------- Proyectiles -------------------------
         chick1 = this.physics.add.sprite(cannonHead1.x, cannonHead1.y, 'chick1').setScale(0.04);
@@ -779,11 +868,11 @@ class EscenaJuego extends Phaser.Scene {
 
         // ------------------------- Ultimates -------------------------
         // Municion
-        viejas = this.physics.add.sprite(-400, 150, 'viejas').setScale(0.1);
+        viejas = this.physics.add.sprite(-400, 475, 'viejas').setScale(0.1);
         viejas.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
         viejas.disableBody(true, true);
 
-        municion = this.physics.add.sprite(200, 660, 'municion').setScale(0.2);
+        municion = this.physics.add.sprite(200, 510, 'municion').setScale(0.2);
         municion.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
         municion.disableBody(true, true);
 
@@ -792,10 +881,21 @@ class EscenaJuego extends Phaser.Scene {
         bateria.setVelocity(0, 100).setCollideWorldBounds(false).setGravityY(-300);
         bateria.disableBody(true, true);
 
+        // ------------------------- Textos municion -------------------------
+        municionDentadura = this.add.text(90, 630, municion1[0].toString(), { fontSize: '32px', aling: 'center' });
+        municionGato = this.add.text(160, 630, municion1[1].toString(), { fontSize: '32px', aling: 'center' });
+        municionTacaTaca = this.add.text(230, 630, municion1[2].toString(), { fontSize: '32px', aling: 'center' });
+
+        municionBaquetas = this.add.text(1010, 630, municion2[0].toString(), { fontSize: '32px', aling: 'center' });
+        municionGuitarra = this.add.text(1080, 630, municion2[1].toString(), { fontSize: '32px', aling: 'center' });
+        municionAltavoz = this.add.text(1150, 630, municion2[2].toString(), { fontSize: '32px', aling: 'center' });
+
         // ------------------------- Fisicas -------------------------
         // ********** Personajes - suelos **********
         // P1
         this.physics.add.collider(P1, suelo);
+        this.physics.add.collider(P1, tierra);
+        this.physics.add.collider(P1, tierra2);
         this.physics.add.collider(P1, sueloD1);
         this.physics.add.collider(P1, sueloD2);
         this.physics.add.collider(P1, sueloI1);
@@ -803,6 +903,8 @@ class EscenaJuego extends Phaser.Scene {
 
         // P2
         this.physics.add.collider(P2, suelo);
+        this.physics.add.collider(P2, tierra);
+        this.physics.add.collider(P2, tierra2);
         this.physics.add.collider(P2, sueloD1);
         this.physics.add.collider(P2, sueloD2);
         this.physics.add.collider(P2, sueloI1);
@@ -879,6 +981,18 @@ class EscenaJuego extends Phaser.Scene {
     update() {
         // Prueba de detectar la duracion de la pulsacion (no funciona)
         //key.getDuration();
+
+        // ------------------------- Textos municion -------------------------
+        municionDentadura.setText(municion1[0].toString());
+        municionGato.setText(municion1[1].toString());
+        municionTacaTaca.setText(municion1[2].toString());
+
+        municionBaquetas.setText(municion2[0].toString());
+        municionGuitarra.setText(municion2[1].toString());
+        municionAltavoz.setText(municion2[2].toString());
+
+        textoTiempo.setText(120 - (tiempoPartida.getProgress() * 120).toString().substr(0, 3));
+
         // ------------------------- Jugador 1 -------------------------
         var keyW = this.input.keyboard.addKey('W');
         var keyS = this.input.keyboard.addKey('S');
@@ -1336,12 +1450,12 @@ class EscenaJuego extends Phaser.Scene {
             vida1P3 = 0;
         }
 
-        Phaser.Geom.Line.SetToAngle(barra1, 400, 50, 0, 100 * (vida2P1 / vidaMax));
-        Phaser.Geom.Line.SetToAngle(barra2, 400, 100, 0, 100 * (vida2P2 / vidaMax));
-        Phaser.Geom.Line.SetToAngle(barra3, 400, 150, 0, 100 * (vida2P3 / vidaMax));
-        Phaser.Geom.Line.SetToAngle(barra4, 800, 50, 0, 100 * (vida1P1 / vidaMax));
-        Phaser.Geom.Line.SetToAngle(barra5, 800, 100, 0, 100 * (vida1P2 / vidaMax));
-        Phaser.Geom.Line.SetToAngle(barra6, 800, 150, 0, 100 * (vida1P3 / vidaMax));
+        Phaser.Geom.Line.SetToAngle(barra1, 400, 575, 0, 100 * (vida2P1 / vidaMax));
+        Phaser.Geom.Line.SetToAngle(barra2, 400, 625, 0, 100 * (vida2P2 / vidaMax));
+        Phaser.Geom.Line.SetToAngle(barra3, 400, 675, 0, 100 * (vida2P3 / vidaMax));
+        Phaser.Geom.Line.SetToAngle(barra4, 800, 575, 0, 100 * (vida1P1 / vidaMax));
+        Phaser.Geom.Line.SetToAngle(barra5, 800, 625, 0, 100 * (vida1P2 / vidaMax));
+        Phaser.Geom.Line.SetToAngle(barra6, 800, 675, 0, 100 * (vida1P3 / vidaMax));
         configBarra1.clear().strokeLineShape(barra1);
         configBarra2.clear().strokeLineShape(barra2);
         configBarra3.clear().strokeLineShape(barra3);
@@ -1356,85 +1470,85 @@ class EscenaJuego extends Phaser.Scene {
         if (energia2 > 100) {
             energia2 = 100;
         }
-        Phaser.Geom.Line.SetToAngle(barraEnergia1, 375, 150, -1.57, 100 * (energia1 / 100));
-        Phaser.Geom.Line.SetToAngle(barraEnergia2, 925, 150, -1.57, 100 * (energia2 / 100));
+        Phaser.Geom.Line.SetToAngle(barraEnergia1, 375, 675, -1.57, 100 * (energia1 / 100));
+        Phaser.Geom.Line.SetToAngle(barraEnergia2, 925, 675, -1.57, 100 * (energia2 / 100));
         configBarraEnergia1.clear().strokeLineShape(barraEnergia1);
         configBarraEnergia2.clear().strokeLineShape(barraEnergia2);
 
         // ------------------------- Sprites edificios -------------------------
         if (vida1P1 >= 60) {
-            edificio1P1.anims.play('v1');
+            edificio1P1.anims.play('edificio2_v1');
         }
         if (vida1P1 <= 60) {
-            edificio1P1.anims.play('v2');
+            edificio1P1.anims.play('edificio2_v2');
         }
         if (vida1P1 <= 30) {
-            edificio1P1.anims.play('v3');
+            edificio1P1.anims.play('edificio2_v3');
         }
         if (vida1P1 <= 0) {
             edificio1P1.setVelocity(5, 200);
         }
 
         if (vida1P2 >= 60) {
-            edificio1P2.anims.play('v4');
+            edificio1P2.anims.play('edificio2_v4');
         }
         if (vida1P2 <= 60) {
-            edificio1P2.anims.play('v5');
+            edificio1P2.anims.play('edificio2_v5');
         }
         if (vida1P2 <= 30) {
-            edificio1P2.anims.play('v6');
+            edificio1P2.anims.play('edificio2_v6');
         }
         if (vida1P2 <= 0) {
             edificio1P2.setVelocity(5, 200);
         }
 
         if (vida1P3 >= 60) {
-            edificio1P3.anims.play('v7');
+            edificio1P3.anims.play('edificio2_v7');
         }
         if (vida1P3 <= 60) {
-            edificio1P3.anims.play('v8');
+            edificio1P3.anims.play('edificio2_v8');
         }
         if (vida1P3 <= 30) {
-            edificio1P3.anims.play('v9');
+            edificio1P3.anims.play('edificio2_v9');
         }
         if (vida1P3 <= 0) {
             edificio1P3.setVelocity(5, 200);
         }
 
         if (vida2P1 >= 60) {
-            edificio2P1.anims.play('v1');
+            edificio2P1.anims.play('edificio1_v1');
         }
         if (vida2P1 <= 60) {
-            edificio2P1.anims.play('v2');
+            edificio2P1.anims.play('edificio1_v2');
         }
         if (vida2P1 <= 30) {
-            edificio2P1.anims.play('v3');
+            edificio2P1.anims.play('edificio1_v3');
         }
         if (vida2P1 <= 0) {
             edificio2P1.setVelocity(-5, 200);
         }
 
         if (vida2P2 >= 60) {
-            edificio2P2.anims.play('v4');
+            edificio2P2.anims.play('edificio1_v4');
         }
         if (vida2P2 <= 60) {
-            edificio2P2.anims.play('v5');
+            edificio2P2.anims.play('edificio1_v5');
         }
         if (vida2P2 <= 30) {
-            edificio2P2.anims.play('v6');
+            edificio2P2.anims.play('edificio1_v6');
         }
         if (vida2P2 <= 0) {
             edificio2P2.setVelocity(-5, 200);
         }
 
         if (vida2P3 >= 60) {
-            edificio2P3.anims.play('v7');
+            edificio2P3.anims.play('edificio1_v7');
         }
         if (vida2P3 <= 60) {
-            edificio2P3.anims.play('v8');
+            edificio2P3.anims.play('edificio1_v8');
         }
         if (vida2P3 <= 30) {
-            edificio2P3.anims.play('v9');
+            edificio2P3.anims.play('edificio1_v9');
         }
         if (vida2P3 <= 0) {
             edificio2P3.setVelocity(-5, 200);
@@ -1454,16 +1568,16 @@ class EscenaJuego extends Phaser.Scene {
             martillo.setVelocity(0, velMartillo).setCollideWorldBounds(false).setGravityY(-300);
         }
 
-        if (martillo.y < 200) {
+        if (martillo.y < 100) {
             martillo.setVelocity(0, velMartillo);
-        } else if (martillo.y > 600) {
+        } else if (martillo.y > 450) {
             martillo.setVelocity(0, -velMartillo);
         }
 
         // Stop
-        if (bloqueo.y < 200) {
+        if (bloqueo.y < 100) {
             bloqueo.setVelocity(0, velBloqueo);
-        } else if (bloqueo.y > 600) {
+        } else if (bloqueo.y > 450) {
             bloqueo.setVelocity(0, -velBloqueo);
         }
 
@@ -1482,7 +1596,7 @@ class EscenaJuego extends Phaser.Scene {
         if (cursors.shift.isDown && distanciaBoton1 <= 50 && crafteando2 === false && crafteando1 === false && habilidadEspecial1 === true) {
             habilidadEspecial1 = false;
 
-            viejas.enableBody(true, -100, 650, true, true);
+            viejas.enableBody(true, -100, 475, true, true);
             viejas.setVelocity(50, 0).setCollideWorldBounds(false).setGravityY(-300);
         }
         if (viejas.x > 200) {
@@ -1490,7 +1604,7 @@ class EscenaJuego extends Phaser.Scene {
             municion1[1] += 5;
             municion1[2] += 2;
 
-            municion.enableBody(true, 200, 660, true, true);
+            municion.enableBody(true, 200, 510, true, true);
 
             viejas.setVelocity(-50, 0).setCollideWorldBounds(false).setGravityY(-300);
         }
