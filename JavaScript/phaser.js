@@ -30,6 +30,8 @@ var daños1 = [10, 20, 35];
 var energia1 = 0;
 var municion;
 var viejas;
+var reparando1 = false;
+var explosion1;
 
 var P2;
 var municion2 = [10, 10, 10];
@@ -39,9 +41,12 @@ var tiempoCrafteo2 = [1000, 1500, 2500];
 var daños2 = [5, 15, 30];
 var energia2 = 0;
 var bateria;
+var reparando2 = false;
+var explosion2;
 
 // ------------------------- Edificios -------------------------
 var vidaMax = 100;
+var tiempoReparar = 2500;
 
 // Edificio 1 (izquierda)
 var vida1P1 = 100;
@@ -193,6 +198,16 @@ var configBarraEnergia1;
 var configBarraEnergia2;
 var barraEnergia1;
 var barraEnergia2;
+
+// ------------------------- Reparar -------------------------
+var Eabajo;
+var Oabajo;
+var reparar21aux;
+var reparar22aux;
+var reparar23aux;
+var reparar11aux;
+var reparar12aux;
+var reparar13aux;
 
 // Prueba de detectar la duracion de la pulsacion (no funciona)
 //var key;
@@ -367,6 +382,7 @@ function añadirMunicion1() {
     municion1[bala1]++;
     console.log(municion1[bala1]);
     crafteando1 = false;
+    P1.anims.play('turn', true);
 
     energia1++;
 }
@@ -383,6 +399,7 @@ function municionEspecial1() {
     habilidadEspecial1 = true;
     energia1 = 0;
     crafteando1 = false;
+    P2.anims.play('turn', true);
 
     bloqueo.enableBody(true, 640, -20, true, true);
     bloqueo.setVelocity(0, velBloqueo).setCollideWorldBounds(false).setGravityY(-300);
@@ -429,6 +446,117 @@ function temporizador() {
     this.scene.start('EscenaPostGame');
 }
 
+// Reparar
+function reparar21() {
+    if (Eabajo === true && reparando1 === false && vida2P1 < 100) {
+        reparar21aux = true;
+    } else {
+        reparar21aux = false;
+    }
+}
+function reparar21v2() {
+    reparando1 = false;
+    P1.anims.play('turn', true);
+
+    vida2P1 += 10;
+    if (vida2P1 > 100) {
+        vida2P1 = 100;
+    }
+    console.log("Reparado 21: " + vida2P1);
+}
+
+function reparar22() {
+    if (Eabajo === true && reparando1 === false && vida2P2 < 100) {
+        reparar22aux = true;
+    } else {
+        reparar22aux = false;
+    }
+}
+function reparar22v2() {
+    reparando1 = false;
+    P1.anims.play('turn', true);
+
+    vida2P2 += 10;
+    if (vida2P2 > 100) {
+        vida2P2 = 100;
+    }
+    console.log("Reparado 22: " + vida2P2);
+}
+
+function reparar23() {
+    if (Eabajo === true && reparando1 === false && vida2P3 < 100) {
+        reparar23aux = true;
+    } else {
+        reparar23aux = false;
+    }
+}
+function reparar23v2() {
+    reparando1 = false;
+    P1.anims.play('turn', true);
+
+    vida2P3 += 10;
+    if (vida2P3 > 100) {
+        vida2P3 = 100;
+    }
+    console.log("Reparado 23: " + vida2P3);
+}
+
+
+
+function reparar11() {
+    if (Oabajo === true && reparando2 === false && vida1P1 < 100) {
+        reparar11aux = true;
+    } else {
+        reparar11aux = false;
+    }
+}
+function reparar11v2() {
+    reparando2 = false;
+    P2.anims.play('turn', true);
+
+    vida1P1 += 10;
+    if (vida1P1 > 100) {
+        vida1P1 = 100;
+    }
+    console.log("Reparado 11: " + vida1P1);
+}
+
+function reparar12() {
+    if (Oabajo === true && reparando2 === false && vida1P2 < 100) {
+        reparar12aux = true;
+    } else {
+        reparar12aux = false;
+    }
+}
+function reparar12v2() {
+    reparando2 = false;
+    P2.anims.play('turn', true);
+
+    vida1P2 += 10;
+    if (vida1P2 > 100) {
+        vida1P2 = 100;
+    }
+    console.log("Reparado 12: " + vida1P2);
+}
+
+function reparar13() {
+    if (Oabajo === true && reparando2 === false && vida1P3 < 100) {
+        reparar13aux = true;
+    } else {
+        reparar13aux = false;
+    }
+}
+function reparar13v2() {
+    reparando2 = false;
+    P2.anims.play('turn', true);
+
+    vida1P3 += 10;
+    if (vida1P3 > 100) {
+        vida1P3 = 100;
+    }
+    console.log("Reparado 13: " + vida1P3);
+}
+
 class EscenaInicio extends Phaser.Scene {
     constructor() {
         super({ key: 'EscenaInicio' });
@@ -470,9 +598,10 @@ class EscenaJuego extends Phaser.Scene {
         this.load.image('backdrop', 'assets/images/definitivas/general/fondo_juego_v1.jpeg');
 
         // Cargamos las imagenes del cañon
-        this.load.image('cannon_head1', 'assets/images/definitivas/otros/cañon1.png');
-        this.load.image('cannon_head2', 'assets/images/definitivas/otros/cañon2.png');
-        this.load.image('cannon_body', 'assets/images/definitivas/otros/soporte_cañon.png');
+        this.load.spritesheet('cannon_head1', 'assets/images/definitivas/otros/cañon1.png', { frameWidth: 126, frameHeight: 59 });
+        this.load.spritesheet('cannon_head2', 'assets/images/definitivas/otros/cañon2.png', { frameWidth: 126, frameHeight: 59 });
+        this.load.spritesheet('cannon_body', 'assets/images/definitivas/otros/soporte_cañon.png', { frameWidth: 39, frameHeight: 68 });
+
         this.load.spritesheet('chick1', 'assets/images/definitivas/proyectiles/dentadura.png', { frameWidth: 1200, frameHeight: 1000 });
         this.load.spritesheet('chick2', 'assets/images/definitivas/proyectiles/gato.png', { frameWidth: 2600, frameHeight: 2200 });
         this.load.spritesheet('chick3', 'assets/images/definitivas/proyectiles/TacaTaca.png', { frameWidth: 2000, frameHeight: 2000 });
@@ -480,15 +609,17 @@ class EscenaJuego extends Phaser.Scene {
         this.load.spritesheet('chick5', 'assets/images/definitivas/proyectiles/guitarra.png', { frameWidth: 1600, frameHeight: 1600 });
         this.load.spritesheet('chick6', 'assets/images/definitivas/proyectiles/altavoz.png', { frameWidth: 1000, frameHeight: 1000 });
 
+        this.load.spritesheet('disparo', 'assets/images/definitivas/otros/explosion.png', { frameWidth: 250, frameHeight: 154 });
+
         // Cargamos las imagenes de los edificios 1
         this.load.spritesheet('edificio1_parte1', 'assets/images/definitivas/edificios/edificio1/planta_arriba.png', { frameWidth: 390, frameHeight: 152 });
         this.load.spritesheet('edificio1_parte2', 'assets/images/definitivas/edificios/edificio1/planta_medio.png', { frameWidth: 390, frameHeight: 152 });
         this.load.spritesheet('edificio1_parte3', 'assets/images/definitivas/edificios/edificio1/planta_abajo.png', { frameWidth: 390, frameHeight: 152 });
         this.load.image('taller1', 'assets/images/definitivas/edificios/edificio1/taller.png');
 
-        this.load.image('fondo_edificio1_parte1', 'assets/images/definitivas/edificios/edificio1/fondo_planta_arriba.png');
-        this.load.image('fondo_edificio1_parte2', 'assets/images/definitivas/edificios/edificio1/fondo_planta_medio.png');
-        this.load.image('fondo_edificio1_parte3', 'assets/images/definitivas/edificios/edificio1/fondo_planta_abajo.png');
+        this.load.spritesheet('fondo_edificio1_parte1', 'assets/images/definitivas/edificios/edificio1/fondo_planta_arriba.png', { frameWidth: 241, frameHeight: 150 });
+        this.load.spritesheet('fondo_edificio1_parte2', 'assets/images/definitivas/edificios/edificio1/fondo_planta_medio.png', { frameWidth: 241, frameHeight: 147 });
+        this.load.spritesheet('fondo_edificio1_parte3', 'assets/images/definitivas/edificios/edificio1/fondo_planta_abajo.png', { frameWidth: 253, frameHeight: 154 });
         this.load.image('fondo_taller1', 'assets/images/definitivas/edificios/edificio1/fondo_taller.png');
 
         // Cargamos las imagenes de los edificios 1
@@ -497,9 +628,9 @@ class EscenaJuego extends Phaser.Scene {
         this.load.spritesheet('edificio2_parte3', 'assets/images/definitivas/edificios/edificio2/planta_abajo.png', { frameWidth: 390, frameHeight: 152 });
         this.load.image('taller2', 'assets/images/definitivas/edificios/edificio2/taller.png');
 
-        this.load.image('fondo_edificio2_parte1', 'assets/images/definitivas/edificios/edificio2/fondo_planta_arriba.png');
-        this.load.image('fondo_edificio2_parte2', 'assets/images/definitivas/edificios/edificio2/fondo_planta_medio.png');
-        this.load.image('fondo_edificio2_parte3', 'assets/images/definitivas/edificios/edificio2/fondo_planta_abajo.png');
+        this.load.spritesheet('fondo_edificio2_parte1', 'assets/images/definitivas/edificios/edificio2/fondo_planta_arriba.png', { frameWidth: 241, frameHeight: 150 });
+        this.load.spritesheet('fondo_edificio2_parte2', 'assets/images/definitivas/edificios/edificio2/fondo_planta_medio.png', { frameWidth: 241, frameHeight: 147 });
+        this.load.spritesheet('fondo_edificio2_parte3', 'assets/images/definitivas/edificios/edificio2/fondo_planta_abajo.png', { frameWidth: 253, frameHeight: 154 });
         this.load.image('fondo_taller2', 'assets/images/definitivas/edificios/edificio2/fondo_taller.png');
 
         // Cargamos la imagen del boton
@@ -516,6 +647,7 @@ class EscenaJuego extends Phaser.Scene {
 
         // Cargamos las imagenes de los personajes
         this.load.spritesheet('anciana', 'assets/images/definitivas/personajes/anciana.png', { frameWidth: 1000, frameHeight: 1000 });
+        this.load.spritesheet('anciana_reparar', 'assets/images/definitivas/personajes/anciana_reparar.png', { frameWidth: 1000, frameHeight: 1000 });
 
         // Cargamos la imagen de la mesa de crafteo
         this.load.image('mesa', 'assets/images/definitivas/otros/mesa_crafteo.png');
@@ -535,6 +667,14 @@ class EscenaJuego extends Phaser.Scene {
         cursors = this.input.keyboard.createCursorKeys();
 
         // ------------------------- Animaciones -------------------------
+        // Animacion disparo
+        this.anims.create({
+            key: 'disparar',
+            frames: this.anims.generateFrameNumbers('disparo', { start: 0, end: 6 }),
+            frameRate: 10,
+            repeat: 0
+        });
+
         // Animaciones del personaje
         this.anims.create({
             key: 'left',
@@ -550,6 +690,12 @@ class EscenaJuego extends Phaser.Scene {
         this.anims.create({
             key: 'right',
             frames: this.anims.generateFrameNumbers('anciana', { start: 5, end: 8 }),
+            frameRate: 10,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'reparar',
+            frames: this.anims.generateFrameNumbers('anciana_reparar', { start: 0, end: 4 }),
             frameRate: 10,
             repeat: -1
         });
@@ -709,15 +855,27 @@ class EscenaJuego extends Phaser.Scene {
 
         // ------------------------- Edificios - parte 1 -------------------------
         // Fondo edificio 1
-        fondoEdificio1P1 = this.add.image(181, 170, 'fondo_edificio1_parte1').setDepth(0);
-        fondoEdificio1P2 = this.add.image(181, 300, 'fondo_edificio1_parte2').setDepth(0);
-        fondoEdificio1P3 = this.add.image(181, 450, 'fondo_edificio1_parte3').setDepth(0);
+        fondoEdificio1P1 = this.physics.add.sprite(181, 170, 'fondo_edificio1_parte1');
+        fondoEdificio1P1.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        fondoEdificio1P2 = this.physics.add.sprite(181, 315, 'fondo_edificio1_parte2');
+        fondoEdificio1P2.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        fondoEdificio1P3 = this.physics.add.sprite(181, 465, 'fondo_edificio1_parte3');
+        fondoEdificio1P3.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        //fondoEdificio1P1 = this.add.image(181, 170, 'fondo_edificio1_parte1').setDepth(0);
+        //fondoEdificio1P2 = this.add.image(181, 300, 'fondo_edificio1_parte2').setDepth(0);
+        //fondoEdificio1P3 = this.add.image(181, 450, 'fondo_edificio1_parte3').setDepth(0);
         fondoEdificio1Taller = this.add.image(181, 610, 'fondo_taller1').setDepth(0);
 
         // Fondo edificio 2
-        fondoEdificio2P1 = this.add.image(1097, 170, 'fondo_edificio2_parte1').setDepth(0);
-        fondoEdificio2P2 = this.add.image(1097, 300, 'fondo_edificio2_parte2').setDepth(0);
-        fondoEdificio2P3 = this.add.image(1097, 450, 'fondo_edificio2_parte3').setDepth(0);
+        fondoEdificio2P1 = this.physics.add.sprite(1097, 170, 'fondo_edificio2_parte1');
+        fondoEdificio2P1.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        fondoEdificio2P2 = this.physics.add.sprite(1097, 315, 'fondo_edificio2_parte2');
+        fondoEdificio2P2.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        fondoEdificio2P3 = this.physics.add.sprite(1097, 465, 'fondo_edificio2_parte3');
+        fondoEdificio2P3.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        //fondoEdificio2P1 = this.add.image(1097, 170, 'fondo_edificio2_parte1').setDepth(0);
+        //fondoEdificio2P2 = this.add.image(1097, 300, 'fondo_edificio2_parte2').setDepth(0);
+        //fondoEdificio2P3 = this.add.image(1097, 450, 'fondo_edificio2_parte3').setDepth(0);
         fondoEdificio1Taller = this.add.image(1097, 610, 'fondo_taller2').setDepth(0);
 
         // ------------------------- Jugador 1 -------------------------
@@ -758,44 +916,68 @@ class EscenaJuego extends Phaser.Scene {
 
         // ------------------------- Cañones derecha -------------------------
         // Creamos el cañon 1 (arriba)
-        cannonHead1 = this.add.image(350, 190, 'cannon_head1').setDepth(1).setScale(0.75);
-        cannon1 = this.add.image(cannonHead1.x, cannonHead1.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
+        cannonHead1 = this.physics.add.sprite(350, 190, 'cannon_head1').setScale(0.75).setDepth(2);
+        cannonHead1.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300)
+        cannon1 = this.physics.add.sprite(cannonHead1.x, cannonHead1.y + 20, 'cannon_body').setScale(0.8).setDepth(2);
+        cannon1.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        //cannonHead1 = this.add.image(350, 190, 'cannon_head1').setDepth(1).setScale(0.75);
+        //cannon1 = this.add.image(cannonHead1.x, cannonHead1.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
         gfx1 = this.add.graphics().setDefaultStyles({ lineStyle: { width: 10, color: 0xffdd00, alpha: 0.5 } });
         line1 = new Phaser.Geom.Line();
         angle1 = 0;
 
         // Creamos el cañon 2 (medio)
-        cannonHead2 = this.add.image(350, 340, 'cannon_head1').setDepth(1).setScale(0.75);
-        cannon2 = this.add.image(cannonHead2.x, cannonHead2.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
+        cannonHead2 = this.physics.add.sprite(350, 340, 'cannon_head1').setScale(0.75).setDepth(1);
+        cannonHead2.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        cannon2 = this.physics.add.sprite(cannonHead2.x, cannonHead2.y + 20, 'cannon_body').setScale(0.8).setDepth(1);
+        cannon2.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        //cannonHead2 = this.add.image(350, 340, 'cannon_head1').setDepth(1).setScale(0.75);
+        //cannon2 = this.add.image(cannonHead2.x, cannonHead2.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
         gfx2 = this.add.graphics().setDefaultStyles({ lineStyle: { width: 10, color: 0xffdd00, alpha: 0.5 } });
         line2 = new Phaser.Geom.Line();
         angle2 = 0;
 
         // Creamos el cañon 3 (abajo)
-        cannonHead3 = this.add.image(350, 490, 'cannon_head1').setDepth(1).setScale(0.75);
-        cannon3 = this.add.image(cannonHead3.x, cannonHead3.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
+        cannonHead3 = this.physics.add.sprite(350, 490, 'cannon_head1').setScale(0.75).setDepth(1);
+        cannonHead3.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        cannon3 = this.physics.add.sprite(cannonHead3.x, cannonHead3.y + 20, 'cannon_body').setScale(0.8).setDepth(1);
+        cannon3.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        //cannonHead3 = this.add.image(350, 490, 'cannon_head1').setDepth(1).setScale(0.75);
+        //cannon3 = this.add.image(cannonHead3.x, cannonHead3.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
         gfx3 = this.add.graphics().setDefaultStyles({ lineStyle: { width: 10, color: 0xffdd00, alpha: 0.5 } });
         line3 = new Phaser.Geom.Line();
         angle3 = 0;
 
         // ------------------------- Cañones izquierda -------------------------
         // Creamos el cañon 4 (arriba)
-        cannonHead4 = this.add.image(930, 190, 'cannon_head2').setDepth(1).setScale(0.75);
-        cannon4 = this.add.image(cannonHead4.x, cannonHead4.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
+        cannonHead4 = this.physics.add.sprite(930, 190, 'cannon_head2').setScale(0.75).setDepth(1);
+        cannonHead4.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        cannon4 = this.physics.add.sprite(cannonHead4.x, cannonHead4.y + 20, 'cannon_body').setScale(0.8).setDepth(1);
+        cannon4.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        //cannonHead4 = this.add.image(930, 190, 'cannon_head2').setDepth(1).setScale(0.75);
+        //cannon4 = this.add.image(cannonHead4.x, cannonHead4.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
         gfx4 = this.add.graphics().setDefaultStyles({ lineStyle: { width: 10, color: 0xffdd00, alpha: 0.5 } });
         line4 = new Phaser.Geom.Line();
         angle4 = 0;
 
         // Creamos el cañon 5 (medio)
-        cannonHead5 = this.add.image(930, 340, 'cannon_head2').setDepth(1).setScale(0.75);
-        cannon5 = this.add.image(cannonHead5.x, cannonHead5.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
+        cannonHead5 = this.physics.add.sprite(930, 340, 'cannon_head2').setScale(0.75).setDepth(1);
+        cannonHead5.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        cannon5 = this.physics.add.sprite(cannonHead5.x, cannonHead5.y + 20, 'cannon_body').setScale(0.8).setDepth(1);
+        cannon5.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        //cannonHead5 = this.add.image(930, 340, 'cannon_head2').setDepth(1).setScale(0.75);
+        //cannon5 = this.add.image(cannonHead5.x, cannonHead5.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
         gfx5 = this.add.graphics().setDefaultStyles({ lineStyle: { width: 10, color: 0xffdd00, alpha: 0.5 } });
         line5 = new Phaser.Geom.Line();
         angle5 = 0;
 
         // Creamos el cañon 6 (abajo)
-        cannonHead6 = this.add.image(930, 490, 'cannon_head2').setDepth(1).setScale(0.75);
-        cannon6 = this.add.image(cannonHead6.x, cannonHead6.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
+        cannonHead6 = this.physics.add.sprite(930, 490, 'cannon_head2').setScale(0.75).setDepth(1);
+        cannonHead6.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        cannon6 = this.physics.add.sprite(cannonHead6.x, cannonHead6.y + 20, 'cannon_body').setScale(0.8).setDepth(1);
+        cannon6.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+        //cannonHead6 = this.add.image(930, 490, 'cannon_head2').setDepth(1).setScale(0.75);
+        //cannon6 = this.add.image(cannonHead6.x, cannonHead6.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
         gfx6 = this.add.graphics().setDefaultStyles({ lineStyle: { width: 10, color: 0xffdd00, alpha: 0.5 } });
         line6 = new Phaser.Geom.Line();
         angle6 = 0;
@@ -909,6 +1091,17 @@ class EscenaJuego extends Phaser.Scene {
         this.physics.add.collider(P2, sueloD2);
         this.physics.add.collider(P2, sueloI1);
         this.physics.add.collider(P2, sueloI2);
+
+        // ********** Personajes - casa **********
+        // P1
+        this.physics.add.overlap(P1, edificio2P1, reparar21.bind());
+        this.physics.add.overlap(P1, edificio2P2, reparar22.bind());
+        this.physics.add.overlap(P1, edificio2P3, reparar23.bind());
+
+        // P2
+        this.physics.add.overlap(P2, edificio1P1, reparar11.bind());
+        this.physics.add.overlap(P2, edificio1P2, reparar12.bind());
+        this.physics.add.overlap(P2, edificio1P3, reparar13.bind());
 
         // ********** Personajes - escaleras **********
         // P1
@@ -1030,6 +1223,10 @@ class EscenaJuego extends Phaser.Scene {
                 pollos[bala1].play('fly' + bala1);
                 this.physics.velocityFromRotation(angle1, 800, pollos[bala1].body.velocity);
                 municion1[bala1]--;
+
+                explosion1 = this.physics.add.sprite(cannonHead1.x + 50, cannonHead1.y, 'disparo').setDepth(0);
+                explosion1.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+                explosion1.anims.play('disparar', true);
             }
         }
 
@@ -1070,6 +1267,10 @@ class EscenaJuego extends Phaser.Scene {
                 pollos[bala1].play('fly' + bala1);
                 this.physics.velocityFromRotation(angle2, 800, pollos[bala1].body.velocity);
                 municion1[bala1]--;
+
+                explosion1 = this.physics.add.sprite(cannonHead2.x + 50, cannonHead2.y, 'disparo').setDepth(0);
+                explosion1.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+                explosion1.anims.play('disparar', true);
             }
         }
 
@@ -1110,6 +1311,10 @@ class EscenaJuego extends Phaser.Scene {
                 pollos[bala1].play('fly' + bala1);
                 this.physics.velocityFromRotation(angle3, 800, pollos[bala1].body.velocity);
                 municion1[bala1]--;
+
+                explosion1 = this.physics.add.sprite(cannonHead3.x + 50, cannonHead3.y, 'disparo').setDepth(0);
+                explosion1.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+                explosion1.anims.play('disparar', true);
             }
         }
 
@@ -1118,28 +1323,28 @@ class EscenaJuego extends Phaser.Scene {
 
         // Mover personaje
         this.input.keyboard.on("keydown_A", () => {
-            if (crafteando1 === false) {
+            if (crafteando1 === false && reparando1 === false) {
                 P1.setVelocityX(-velocidad1);
 
                 P1.anims.play('left', true);
             }
         });
         this.input.keyboard.on("keydown_D", () => {
-            if (crafteando1 === false) {
+            if (crafteando1 === false && reparando1 === false) {
                 P1.setVelocityX(velocidad1);
 
                 P1.anims.play('right', true);
             }
         });
         this.input.keyboard.on("keyup_A", () => {
-            if (crafteando1 === false) {
+            if (crafteando1 === false && reparando1 === false) {
                 P1.setVelocityX(0);
 
                 P1.anims.play('turn');
             }
         });
         this.input.keyboard.on("keyup_D", () => {
-            if (crafteando1 === false) {
+            if (crafteando1 === false && reparando1 === false) {
                 P1.setVelocityX(0);
 
                 P1.anims.play('turn');
@@ -1178,6 +1383,7 @@ class EscenaJuego extends Phaser.Scene {
 
         if (this.input.keyboard.checkDown(cursors.shift, tiempoCrafteo1[bala1]) && distanciaMesa1 <= 50 && crafteando1 === false && crafteando2 === false) {
             crafteando1 = true;
+            P1.anims.play('reparar', true);
             P1.setVelocityX(0);
             P1.setVelocityY(0);
             timer1 = this.time.delayedCall(tiempoCrafteo1[bala1], añadirMunicion1, [], this);
@@ -1186,6 +1392,7 @@ class EscenaJuego extends Phaser.Scene {
         this.input.keyboard.once("keydown_Q", () => {
             if (distanciaMesa1 <= 50 && crafteando1 === false && crafteando2 === false && energia1 === 100) {
                 crafteando1 = true;
+                P1.anims.play('reparar', true);
                 P1.setVelocityX(0);
                 P1.setVelocityY(0);
                 timer1 = this.time.delayedCall(5000, municionEspecial1, [], this);
@@ -1240,6 +1447,10 @@ class EscenaJuego extends Phaser.Scene {
                 pollos[bala2 + 3].play('fly' + (bala2 + 3));
                 this.physics.velocityFromRotation(angle4, -800, pollos[bala2 + 3].body.velocity);
                 municion2[bala2]--;
+
+                explosion2 = this.physics.add.sprite(cannonHead4.x - 50, cannonHead4.y, 'disparo').setDepth(0);
+                explosion2.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+                explosion2.anims.play('disparar', true);
             }
         }
 
@@ -1280,6 +1491,10 @@ class EscenaJuego extends Phaser.Scene {
                 pollos[bala2 + 3].play('fly' + (bala2 + 3));
                 this.physics.velocityFromRotation(angle5, -800, pollos[bala2 + 3].body.velocity);
                 municion2[bala2]--;
+
+                explosion2 = this.physics.add.sprite(cannonHead5.x - 50, cannonHead5.y, 'disparo').setDepth(0);
+                explosion2.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+                explosion2.anims.play('disparar', true);
             }
         }
 
@@ -1320,6 +1535,10 @@ class EscenaJuego extends Phaser.Scene {
                 pollos[bala2 + 3].play('fly' + (bala2 + 3));
                 this.physics.velocityFromRotation(angle6, -800, pollos[bala2 + 3].body.velocity);
                 municion2[bala2]--;
+
+                explosion2 = this.physics.add.sprite(cannonHead6.x - 50, cannonHead6.y, 'disparo').setDepth(0);
+                explosion2.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
+                explosion2.anims.play('disparar', true);
             }
         }
 
@@ -1328,28 +1547,28 @@ class EscenaJuego extends Phaser.Scene {
 
         // Mover personaje
         this.input.keyboard.on("keydown_J", () => {
-            if (crafteando2 === false) {
+            if (crafteando2 === false && reparando2 === false) {
                 P2.setVelocityX(-velocidad2);
 
                 P2.anims.play('left', true);
             }
         });
         this.input.keyboard.on("keydown_L", () => {
-            if (crafteando2 === false) {
+            if (crafteando2 === false && reparando2 === false) {
                 P2.setVelocityX(velocidad2);
 
                 P2.anims.play('right', true);
             }
         });
         this.input.keyboard.on("keyup_J", () => {
-            if (crafteando2 === false) {
+            if (crafteando2 === false && reparando2 === false) {
                 P2.setVelocityX(0);
 
                 P2.anims.play('turn');
             }
         });
         this.input.keyboard.on("keyup_L", () => {
-            if (crafteando2 === false) {
+            if (crafteando2 === false && reparando2 === false) {
                 P2.setVelocityX(0);
 
                 P2.anims.play('turn');
@@ -1388,6 +1607,7 @@ class EscenaJuego extends Phaser.Scene {
         var distanciaMesa2 = distanciaMesa2X + distanciaMesa2Y;
 
         if (this.input.keyboard.checkDown(cursors.space, tiempoCrafteo2[bala2]) && distanciaMesa2 <= 50 && crafteando2 === false && crafteando1 === false) {
+            P2.anims.play('reparar', true);
             crafteando2 = true;
             P2.setVelocityX(0);
             P2.setVelocityY(0);
@@ -1396,6 +1616,7 @@ class EscenaJuego extends Phaser.Scene {
 
         this.input.keyboard.once("keydown_U", () => {
             if (distanciaMesa2 <= 50 && crafteando1 === false && crafteando2 === false && energia2 === 100) {
+                P2.anims.play('reparar', true);
                 crafteando2 = true;
                 P2.setVelocityX(0);
                 P2.setVelocityY(0);
@@ -1487,6 +1708,11 @@ class EscenaJuego extends Phaser.Scene {
         }
         if (vida1P1 <= 0) {
             edificio1P1.setVelocity(5, 200);
+            fondoEdificio2P1.setVelocity(5, 200);
+            Phaser.Geom.Line.SetToAngle(line4, cannonHead4.x, cannonHead4.y, angle4, 0);
+            gfx4.clear().strokeLineShape(line4);
+            cannonHead4.setVelocity(5, 200);
+            cannon4.setVelocity(5, 200);
         }
 
         if (vida1P2 >= 60) {
@@ -1500,6 +1726,11 @@ class EscenaJuego extends Phaser.Scene {
         }
         if (vida1P2 <= 0) {
             edificio1P2.setVelocity(5, 200);
+            fondoEdificio2P2.setVelocity(5, 200);
+            Phaser.Geom.Line.SetToAngle(line5, cannonHead5.x, cannonHead5.y, angle5, 0);
+            gfx5.clear().strokeLineShape(line5);
+            cannonHead5.setVelocity(5, 200);
+            cannon5.setVelocity(5, 200);
         }
 
         if (vida1P3 >= 60) {
@@ -1513,6 +1744,11 @@ class EscenaJuego extends Phaser.Scene {
         }
         if (vida1P3 <= 0) {
             edificio1P3.setVelocity(5, 200);
+            fondoEdificio2P3.setVelocity(5, 200);
+            Phaser.Geom.Line.SetToAngle(line6, cannonHead6.x, cannonHead6.y, angle6, 0);
+            gfx6.clear().strokeLineShape(line6);
+            cannonHead6.setVelocity(5, 200);
+            cannon6.setVelocity(5, 200);
         }
 
         if (vida2P1 >= 60) {
@@ -1526,6 +1762,11 @@ class EscenaJuego extends Phaser.Scene {
         }
         if (vida2P1 <= 0) {
             edificio2P1.setVelocity(-5, 200);
+            fondoEdificio1P1.setVelocity(5, 200);
+            Phaser.Geom.Line.SetToAngle(line1, cannonHead1.x, cannonHead1.y, angle1, 0);
+            gfx1.clear().strokeLineShape(line1);
+            cannonHead1.setVelocity(5, 200);
+            cannon1.setVelocity(5, 200);
         }
 
         if (vida2P2 >= 60) {
@@ -1539,6 +1780,11 @@ class EscenaJuego extends Phaser.Scene {
         }
         if (vida2P2 <= 0) {
             edificio2P2.setVelocity(-5, 200);
+            fondoEdificio1P2.setVelocity(5, 200);
+            Phaser.Geom.Line.SetToAngle(line2, cannonHead2.x, cannonHead2.y, angle2, 0);
+            gfx2.clear().strokeLineShape(line2);
+            cannonHead1.setVelocity(5, 200);
+            cannon1.setVelocity(5, 200);
         }
 
         if (vida2P3 >= 60) {
@@ -1552,6 +1798,11 @@ class EscenaJuego extends Phaser.Scene {
         }
         if (vida2P3 <= 0) {
             edificio2P3.setVelocity(-5, 200);
+            fondoEdificio1P3.setVelocity(5, 200);
+            Phaser.Geom.Line.SetToAngle(line3, cannonHead3.x, cannonHead3.y, angle3, 0);
+            gfx3.clear().strokeLineShape(line3);
+            cannonHead1.setVelocity(5, 200);
+            cannon1.setVelocity(5, 200);
         }
 
         // ------------------------- Temporizador -------------------------
@@ -1637,6 +1888,56 @@ class EscenaJuego extends Phaser.Scene {
             energia2++;
 
             tiempoAux2++;
+        }
+
+        // ------------------------- Reparar -------------------------
+        var keyE = this.input.keyboard.addKey('E');
+
+        if (keyE.isDown) {
+            Eabajo = true;
+        } else {
+            Eabajo = false;
+        }
+
+        if (reparar21aux === true) {
+            reparando1 = true;
+            P1.anims.play('reparar', true);
+            timer1 = this.time.delayedCall(tiempoReparar, reparar21v2, [], this);
+        }
+        if (reparar22aux === true) {
+            reparando1 = true;
+            P1.anims.play('reparar', true);
+            timer1 = this.time.delayedCall(tiempoReparar, reparar22v2, [], this);
+        }
+        if (reparar23aux === true) {
+            reparando1 = true;
+            P1.anims.play('reparar', true);
+            timer1 = this.time.delayedCall(tiempoReparar, reparar23v2, [], this);
+        }
+
+
+        var keyO = this.input.keyboard.addKey('O');
+
+        if (keyO.isDown) {
+            Oabajo = true;
+        } else {
+            Oabajo = false;
+        }
+
+        if (reparar11aux === true) {
+            reparando2 = true;
+            P2.anims.play('reparar', true);
+            timer2 = this.time.delayedCall(tiempoReparar, reparar11v2, [], this);
+        }
+        if (reparar12aux === true) {
+            reparando2 = true;
+            P2.anims.play('reparar', true);
+            timer2 = this.time.delayedCall(tiempoReparar, reparar12v2, [], this);
+        }
+        if (reparar13aux === true) {
+            reparando2 = true;
+            P2.anims.play('reparar', true);
+            timer2 = this.time.delayedCall(tiempoReparar, reparar13v2, [], this);
         }
 
         // ------------------------- Fin del juego -------------------------
