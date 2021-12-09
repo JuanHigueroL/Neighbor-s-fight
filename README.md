@@ -137,7 +137,7 @@ Para utilizar la reparar E (jugador 1) o O (jugador 2).
 <br>
 **Imagen:**
 <br>
-<img src="" alt="Concha" width="20%">
+<img src="https://user-images.githubusercontent.com/92206944/145450654-3e22e2ff-14a4-4624-a33f-825dc040afc4.png" alt="Concha" width="20%">
 <br>
 **Munición:**
 <ul>
