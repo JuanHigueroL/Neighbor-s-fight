@@ -157,6 +157,7 @@ Para utilizar la reparar E (jugador 1) o O (jugador 2).
 **Descripción**: Tras varias llamadas a la policía por parte de sus vecinos, ahora ve la oportunidad perfecta de venganza gracias a la locura causada por el COVID-19.
 <br>
 **Imagen**:
+<br>
 <img src="https://user-images.githubusercontent.com/92206944/145451148-8fa21800-0a5b-4dfe-8f3d-ac2469771d75.png" alt="Rockero" width="50%">
 <img src="https://user-images.githubusercontent.com/92206944/145451234-e8fac4cf-9f86-4faf-ae02-1c63c7306900.png" alt="Rockero" width="50%">
 <br>
@@ -175,11 +176,9 @@ Estos son los personajes iniciales del juego pero se tiene en mente añadir más
 ### Movimientos y físicas
 Las balas tienen un movimiento parabólico. 
 <br>
-La bala siempre se dispara al piso de arriba del todo.
-<br>
 El personaje se puede mover entre pisos y de izquierda a derecha.
 <br>
-La interacción es mediante clicks y la pulsación de teclas.
+La interacción es mediante la pulsación de teclas.
 
 <br>
 
