@@ -94,16 +94,12 @@ El primer jugador que derribe el edificio del contrario (destruir los 3 pisos qu
 En caso de no llegar a este punto el jugador que tenga el edificio menos dañado al acabar la cuenta atrás ganará.
 ### Acciones posibles
 <ul>
-  <li>Craftear munición (la mesa de crafteo en el primer piso)</li>
+ <li>Craftear munición (la mesa de crafteo entre los dos pisos) y munición 'ultimate'</li>
   <li>Cagar balas y disparar (siempre al último piso y el disparo nunca falla, esto está abierto a cambios) *</li>
   <li>Reparar</li>
   <li>Moverse de piso </li>
   <li>Moverse por el piso, de lado a lado</li>
-  <li>A la hora de disparar se podrá disparar únicamente al piso de más arriba que esté “vivo” (esto puede estar sujeto a cambios, de manera que puede avanzar a que se pueda disparar a cualquier piso.)
-</li>
 </ul>
-
->*Disclaimer: Se ha planteado la opción de que cargar y disparar sean dos opciones diferentes (el jugador puede dejar el cañón cargado y disparar más tarde). Se tomará una decisión definitiva al conocer el motor de juego y al ir implementando.En esta opción, al dejar el cañón cargado, cambiaría de color.
 
 ### Jugabilidad
 <strong>Estrategias de juego</strong>: Cada jugador tendrá su propio inventario donde acumulará las distintas municiones (hasta un máximo de tres), por lo que el jugador deberá pensar cómo gastar su tiempo en generar mucha munición de golpe para un gran ataque o emplear menos tiempo y hacer ataques más seguidos.
@@ -122,8 +118,13 @@ Aquí se generan dos estrategias diferentes: los jugadores al recibir daño debe
 <br>
 <strong>Periféricos</strong>: Ratón y teclado
 <br>
-<strong>Controles</strong>: El movimiento del jugador se hará mediante clicks con el ratón de forma que a donde cliques es a donde el jugador se moverá. 
-Para realizar las acciones de recargar y reparar el jugador emplea las teclas 1,2,3 y 4 del teclado, siendo la tecla 1 para cargar y disparar el dispara de poco daño, la tecla 2 para el disparo de daño medio y la tecla 3 para el de mucho daño y la tecla 4 para reparar.
+<strong>Controles</strong>: 
+Para realizar las acciones de seleccionar munición el jugador emplea las teclas 1,2,3 y 8,9 y 0 del teclado, según sea el jugador 1 o el 2.
+Para moverse, se emplean las teclas wasd o ijkl según sea el jugador 1 o el 2.
+Para disparar/craftear munición, la las teclas barra espaciadora o shift respectivamente.
+Para utilizar la ultimate Q (jugador 1) o U (jugador 2). 
+Para utilizar la reparar E (jugador 1) o O (jugador 2). 
+
 ### Interacción en Red
  En la interacción en red podemos ver el movimiento del jugador subiendo y bajando de piso, la creación de la distinta munición,  la recarga de los cañones, su disparo y la barra de vida del edificio rival junto al desgaste del edificio tras la pérdida de vida.
 ### Personajes
@@ -136,7 +137,7 @@ Para realizar las acciones de recargar y reparar el jugador emplea las teclas 1,
 <br>
 **Imagen:**
 <br>
-<img src="https://user-images.githubusercontent.com/92206944/138705573-2e9b2c28-c2dc-4f9c-a53b-065bbb291f62.png" alt="Concha" width="20%">
+<img src="" alt="Concha" width="20%">
 <br>
 **Munición:**
 <ul>
