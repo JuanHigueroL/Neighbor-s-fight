@@ -400,7 +400,7 @@ function añadirMunicion2() {
     municion2[bala2]++;
     console.log(municion2[bala2]);
     crafteando2 = false;
-    P2.anims.play('turn', true);
+    P2.anims.play('turn2', true);
     craftear.stop();
 
     energia2++;
@@ -422,7 +422,7 @@ function municionEspecial2() {
     habilidadEspecial2 = true;
     energia2 = 0;
     crafteando2 = false;
-    P2.anims.play('turn', true);
+    P2.anims.play('turn2', true);
     craftear.stop();
 
     bloqueo.enableBody(true, 640, -20, true, true);
@@ -458,7 +458,15 @@ function hitBateria3() {
 // Temporizador de la partida
 function temporizador() {
     musica_fondo.stop();
-    this.scene.start('EscenaPostGame');
+
+    var vidaTotalAnciana = vida2P1 + vida2P2 + vida2P3;
+    var vidaTotalRockero = vida1P1 + vida1P2 + vida1P3;
+
+    if(vidaTotalAnciana > vidaTotalRockero){
+        this.scene.start('VictoriaAnciana');
+    }else{
+        this.scene.start('VictoriaRockero');
+    }
 }
 
 // Reparar
@@ -530,7 +538,7 @@ function reparar11() {
 }
 function reparar11v2() {
     reparando2 = false;
-    P2.anims.play('turn', true);
+    P2.anims.play('turn2', true);
     reparar.stop();
 
     vida1P1 += 10;
@@ -549,7 +557,7 @@ function reparar12() {
 }
 function reparar12v2() {
     reparando2 = false;
-    P2.anims.play('turn', true);
+    P2.anims.play('turn2', true);
     reparar.stop();
 
     vida1P2 += 10;
@@ -568,7 +576,7 @@ function reparar13() {
 }
 function reparar13v2() {
     reparando2 = false;
-    P2.anims.play('turn', true);
+    P2.anims.play('turn2', true);
     reparar.stop();
 
     vida1P3 += 10;
@@ -584,11 +592,12 @@ class EscenaInicio extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('fondo_juego', 'assets/images/definitivas/general/fondo_juego_v1.jpeg');
+        this.load.image('fondo_juego', 'assets/images/definitivas/general/fondo_inicio.png');
         this.load.image('fondo_negro', 'assets/images/definitivas/general/fondo_negro.png');
         this.load.image('logo_juego', 'assets/images/definitivas/general/logo_juego.png');
         this.load.image('logo_grupo', 'assets/images/definitivas/general/logo_grupo.png');
         this.load.image('boton_jugar', 'assets/images/definitivas/general/boton_jugar.png');
+        this.load.image('boton_tutorial', 'assets/images/definitivas/general/boton_tutorial.png');
     }
 
     create() {
@@ -596,11 +605,92 @@ class EscenaInicio extends Phaser.Scene {
         this.add.image(640, 360, 'fondo_negro');
         this.add.image(640, 360, 'logo_juego');
         this.add.image(640, 360, 'logo_grupo');
-        this.add.image(640, 360, 'boton_jugar');
+        this.add.image(640, 450, 'boton_jugar');
+        this.add.image(640, 600, 'boton_tutorial');
 
-        this.input.once('pointerdown', () => {
-            this.scene.start('EscenaJuego');
+        var jugar = this.add.zone(480,380,320,140);
+        jugar.setOrigin(0);
+        jugar.setInteractive();
+        jugar.once('pointerdown', ()=>{
+            this.scene.start('EscenaJuego')
         });
+        //this.add.graphics().lineStyle(2,0xff0000).strokeRectShape(jugar);
+
+        var controles = this.add.zone(490,550,300,100);
+        controles.setOrigin(0);
+        controles.setInteractive();
+        controles.once('pointerdown', ()=>{
+            this.scene.start('EscenaTutorial1')
+        });
+        //this.add.graphics().lineStyle(2,0xff0000).strokeRectShape(controles);
+    }
+}
+
+class EscenaTutorial1 extends Phaser.Scene {
+    constructor() {
+        super({ key: 'EscenaTutorial1' });
+    }
+
+    preload() {
+        this.load.image('fondo_tuto1', 'assets/images/definitivas/general/tutorial_guia.png');
+        this.load.image('atras1', 'assets/images/definitivas/general/volver.png');
+        this.load.image('flecha_derecha', 'assets/images/definitivas/general/flecha_derecha.png');
+    }
+
+    create() {
+        this.add.image(640, 360, 'fondo_tuto1');
+        this.add.image(1050, 100, 'atras1');
+        this.add.image(1050, 300, 'flecha_derecha');
+
+        var volver1 = this.add.zone(1000,50,100,100);
+        volver1.setOrigin(0);
+        volver1.setInteractive();
+        volver1.once('pointerdown', ()=>{
+            this.scene.start('EscenaInicio')
+        });
+        //this.add.graphics().lineStyle(2,0xff0000).strokeRectShape(volver1);
+
+        var pasarDerecha = this.add.zone(1000,245,110,110);
+        pasarDerecha.setOrigin(0);
+        pasarDerecha.setInteractive();
+        pasarDerecha.once('pointerdown', ()=>{
+            this.scene.start('EscenaTutorial2')
+        });
+        //this.add.graphics().lineStyle(2,0xff0000).strokeRectShape(pasarDerecha);
+    }
+}
+
+class EscenaTutorial2 extends Phaser.Scene {
+    constructor() {
+        super({ key: 'EscenaTutorial2' });
+    }
+
+    preload() {
+        this.load.image('fondo_tuto2', 'assets/images/definitivas/general/tutorial_controles.png');
+        this.load.image('atras2', 'assets/images/definitivas/general/volver.png');
+        this.load.image('flecha_izquierda', 'assets/images/definitivas/general/flecha_izquierda.png');
+    }
+
+    create() {
+        this.add.image(640, 360, 'fondo_tuto2');
+        this.add.image(1050, 100, 'atras2');
+        this.add.image(200, 300, 'flecha_izquierda');
+
+        var volver2 = this.add.zone(1000,50,100,100);
+        volver2.setOrigin(0);
+        volver2.setInteractive();
+        volver2.once('pointerdown', ()=>{
+            this.scene.start('EscenaInicio')
+        });
+        //this.add.graphics().lineStyle(2,0xff0000).strokeRectShape(volver2);
+
+        var pasarIzquierda = this.add.zone(150,245,110,110);
+        pasarIzquierda.setOrigin(0);
+        pasarIzquierda.setInteractive();
+        pasarIzquierda.once('pointerdown', ()=>{
+            this.scene.start('EscenaTutorial1')
+        });
+        //this.add.graphics().lineStyle(2,0xff0000).strokeRectShape(pasarIzquierda);
     }
 }
 
@@ -624,7 +714,7 @@ class EscenaJuego extends Phaser.Scene {
         this.load.spritesheet('cannon_body', 'assets/images/definitivas/otros/soporte_cañon.png', { frameWidth: 39, frameHeight: 68 });
 
         this.load.spritesheet('chick1', 'assets/images/definitivas/proyectiles/dentadura.png', { frameWidth: 1200, frameHeight: 1000 });
-        this.load.spritesheet('chick2', 'assets/images/definitivas/proyectiles/gato.png', { frameWidth: 2600, frameHeight: 2200 });
+        this.load.spritesheet('chick2', 'assets/images/definitivas/proyectiles/gato_peque.png', { frameWidth: 1300, frameHeight: 1100 });
         this.load.spritesheet('chick3', 'assets/images/definitivas/proyectiles/TacaTaca.png', { frameWidth: 2000, frameHeight: 2000 });
         this.load.spritesheet('chick4', 'assets/images/definitivas/proyectiles/baquetas.png', { frameWidth: 1500, frameHeight: 1500 });
         this.load.spritesheet('chick5', 'assets/images/definitivas/proyectiles/guitarra.png', { frameWidth: 1600, frameHeight: 1600 });
@@ -667,8 +757,11 @@ class EscenaJuego extends Phaser.Scene {
         this.load.image('detector_escaleras2', 'assets/images/pruebas/detector_escaleras_pruebas2.png');
 
         // Cargamos las imagenes de los personajes
-        this.load.spritesheet('anciana', 'assets/images/definitivas/personajes/anciana.png', { frameWidth: 1000, frameHeight: 1000 });
-        this.load.spritesheet('anciana_reparar', 'assets/images/definitivas/personajes/anciana_reparar.png', { frameWidth: 1000, frameHeight: 1000 });
+        this.load.spritesheet('anciana', 'assets/images/definitivas/personajes/anciana_peque.png', { frameWidth: 500, frameHeight: 500 });
+        this.load.spritesheet('anciana_reparar', 'assets/images/definitivas/personajes/anciana_reparar_peque.png', { frameWidth: 500, frameHeight: 500 });
+
+        this.load.spritesheet('rockero', 'assets/images/definitivas/personajes/rockero_peque.png', { frameWidth: 500, frameHeight: 698 });
+        this.load.spritesheet('rockero_reparar', 'assets/images/definitivas/personajes/rockero_reparar_peque.png', { frameWidth: 500, frameHeight: 697 });
 
         // Cargamos la imagen de la mesa de crafteo
         this.load.image('mesa', 'assets/images/definitivas/otros/mesa_crafteo.png');
@@ -704,7 +797,7 @@ class EscenaJuego extends Phaser.Scene {
             repeat: 0
         });
 
-        // Animaciones del personaje
+        // Animaciones del personaje 1
         this.anims.create({
             key: 'left',
             frames: this.anims.generateFrameNumbers('anciana', { start: 0, end: 3 }),
@@ -731,6 +824,31 @@ class EscenaJuego extends Phaser.Scene {
         this.anims.create({
             key: 'ulti_anciana',
             frames: this.anims.generateFrameNumbers('viejas', { start: 0, end: 1 }),
+            frameRate: 10,
+            repeat: -1
+        });
+
+        // Animaciones del personaje 2
+        this.anims.create({
+            key: 'left2',
+            frames: this.anims.generateFrameNumbers('rockero', { start: 0, end: 3 }),
+            frameRate: 10,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'turn2',
+            frames: [{ key: 'rockero', frame: 4 }],
+            frameRate: 20
+        });
+        this.anims.create({
+            key: 'right2',
+            frames: this.anims.generateFrameNumbers('rockero', { start: 5, end: 8 }),
+            frameRate: 10,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'reparar2',
+            frames: this.anims.generateFrameNumbers('rockero_reparar', { start: 0, end: 4 }),
             frameRate: 10,
             repeat: -1
         });
@@ -915,11 +1033,11 @@ class EscenaJuego extends Phaser.Scene {
         mesa = this.add.image(640, 515, 'mesa').setDepth(0).setScale(1.5);
 
         // ------------------------- Jugador 1 -------------------------
-        P1 = this.physics.add.sprite(440, 400, 'anciana').setScale(0.075);
+        P1 = this.physics.add.sprite(440, 400, 'anciana').setScale(0.15);
         P1.setCollideWorldBounds(true);
 
         // ------------------------- Jugador 2 -------------------------
-        P2 = this.physics.add.sprite(840, 400, 'anciana').setScale(0.075);
+        P2 = this.physics.add.sprite(840, 400, 'rockero').setScale(0.15);
         P2.setCollideWorldBounds(true);
 
         // ------------------------- Edificios - parte 2 -------------------------
@@ -1010,7 +1128,7 @@ class EscenaJuego extends Phaser.Scene {
 
         // ------------------------- Proyectiles -------------------------
         chick1 = this.physics.add.sprite(cannonHead1.x, cannonHead1.y, 'chick1').setScale(0.04);
-        chick2 = this.physics.add.sprite(cannonHead1.x, cannonHead1.y, 'chick2').setScale(0.03);
+        chick2 = this.physics.add.sprite(cannonHead1.x, cannonHead1.y, 'chick2').setScale(0.06);
         chick3 = this.physics.add.sprite(cannonHead1.x, cannonHead1.y, 'chick3').setScale(0.04);
         chick4 = this.physics.add.sprite(cannonHead1.x, cannonHead1.y, 'chick4').setScale(0.04);
         chick5 = this.physics.add.sprite(cannonHead1.x, cannonHead1.y, 'chick5').setScale(0.05);
@@ -1517,28 +1635,28 @@ class EscenaJuego extends Phaser.Scene {
             if (crafteando2 === false && reparando2 === false) {
                 P2.setVelocityX(-velocidad2);
 
-                P2.anims.play('left', true);
+                P2.anims.play('left2', true);
             }
         });
         this.input.keyboard.on("keydown_L", () => {
             if (crafteando2 === false && reparando2 === false) {
                 P2.setVelocityX(velocidad2);
 
-                P2.anims.play('right', true);
+                P2.anims.play('right2', true);
             }
         });
         this.input.keyboard.on("keyup_J", () => {
             if (crafteando2 === false && reparando2 === false) {
                 P2.setVelocityX(0);
 
-                P2.anims.play('turn');
+                P2.anims.play('turn2');
             }
         });
         this.input.keyboard.on("keyup_L", () => {
             if (crafteando2 === false && reparando2 === false) {
                 P2.setVelocityX(0);
 
-                P2.anims.play('turn');
+                P2.anims.play('turn2');
             }
         });
 
@@ -1563,7 +1681,7 @@ class EscenaJuego extends Phaser.Scene {
         var distanciaMesa2 = distanciaMesa2X + distanciaMesa2Y;
 
         if (this.input.keyboard.checkDown(cursors.space, tiempoCrafteo2[bala2]) && distanciaMesa2 <= 50 && crafteando2 === false && crafteando1 === false) {
-            P2.anims.play('reparar', true);
+            P2.anims.play('reparar2', true);
             crafteando2 = true;
             craftear.play();
             P2.setVelocityX(0);
@@ -1573,7 +1691,7 @@ class EscenaJuego extends Phaser.Scene {
 
         this.input.keyboard.once("keydown_U", () => {
             if (distanciaMesa2 <= 50 && crafteando1 === false && crafteando2 === false && energia2 === 100) {
-                P2.anims.play('reparar', true);
+                P2.anims.play('reparar2', true);
                 crafteando2 = true;
                 craftear.play();
                 P2.setVelocityX(0);
@@ -1725,8 +1843,8 @@ class EscenaJuego extends Phaser.Scene {
             fondoEdificio1P2.setVelocity(5, 200);
             Phaser.Geom.Line.SetToAngle(line2, cannonHead2.x, cannonHead2.y, angle2, 0);
             gfx2.clear().strokeLineShape(line2);
-            cannonHead1.setVelocity(5, 200);
-            cannon1.setVelocity(5, 200);
+            cannonHead2.setVelocity(5, 200);
+            cannon2.setVelocity(5, 200);
         }
 
         if (vida2P3 >= 60) {
@@ -1743,8 +1861,8 @@ class EscenaJuego extends Phaser.Scene {
             fondoEdificio1P3.setVelocity(5, 200);
             Phaser.Geom.Line.SetToAngle(line3, cannonHead3.x, cannonHead3.y, angle3, 0);
             gfx3.clear().strokeLineShape(line3);
-            cannonHead1.setVelocity(5, 200);
-            cannon1.setVelocity(5, 200);
+            cannonHead3.setVelocity(5, 200);
+            cannon3.setVelocity(5, 200);
         }
 
         // ------------------------- Temporizador -------------------------
@@ -1874,46 +1992,60 @@ class EscenaJuego extends Phaser.Scene {
 
         if (reparar11aux === true) {
             reparando2 = true;
-            P2.anims.play('reparar', true);
+            P2.anims.play('reparar2', true);
             reparar.play();
             timer2 = this.time.delayedCall(tiempoReparar, reparar11v2, [], this);
         }
         if (reparar12aux === true) {
             reparando2 = true;
-            P2.anims.play('reparar', true);
+            P2.anims.play('reparar2', true);
             reparar.play();
             timer2 = this.time.delayedCall(tiempoReparar, reparar12v2, [], this);
         }
         if (reparar13aux === true) {
             reparando2 = true;
-            P2.anims.play('reparar', true);
+            P2.anims.play('reparar2', true);
             reparar.play();
             timer2 = this.time.delayedCall(tiempoReparar, reparar13v2, [], this);
         }
 
         // ------------------------- Fin del juego -------------------------
         if (vida1P1 <= 0 && vida1P2 <= 0 && vida1P3 <= 0) {
-            this.scene.start('EscenaPostGame');
+            this.scene.start('VictoriaAnciana');
             musica_fondo.stop();
         }
         if (vida2P1 <= 0 && vida2P2 <= 0 && vida2P3 <= 0) {
-            this.scene.start('EscenaPostGame');
+            this.scene.start('VictoriaRockero');
             musica_fondo.stop();
         }
     }
 }
 
-class EscenaPostGame extends Phaser.Scene {
+class VictoriaAnciana extends Phaser.Scene {
     constructor() {
-        super({ key: 'EscenaPostGame' });
+        super({ key: 'VictoriaAnciana' });
     }
 
     preload() {
-        this.load.image('fondo_juego2', 'assets/images/definitivas/general/fondo_juego_v2.jpeg');
+        this.load.image('fondo_victoria_anciana', 'assets/images/definitivas/general/victoria_vieja.png');
     }
 
     create() {
-        this.add.image(640, 360, 'fondo_juego2');
+        this.add.image(640, 360, 'fondo_victoria_anciana');
+    }
+}
+
+class VictoriaRockero extends Phaser.Scene {
+    constructor() {
+        super({ key: 'VictoriaRockero' });
+    }
+
+    preload() {
+        this.load.image('fondo_victoria_rockero', 'assets/images/definitivas/general/victoria_rockero.png');
+    }
+
+    create() {
+        this.add.image(640, 360, 'fondo_victoria_rockero');
     }
 }
 
@@ -1930,7 +2062,7 @@ var config = {
             gravity: { y: 300 }
         }
     },
-    scene: [EscenaInicio, EscenaJuego, EscenaPostGame]
+    scene: [EscenaInicio, EscenaTutorial1, EscenaTutorial2, EscenaJuego, VictoriaAnciana, VictoriaRockero]
 };
 
 let game = new Phaser.Game(config);
