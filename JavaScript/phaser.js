@@ -209,6 +209,14 @@ var reparar11aux;
 var reparar12aux;
 var reparar13aux;
 
+// Sonidos
+var musica_fondo;
+
+var cañonazo;
+var reparar;
+var craftear;
+var boton;
+
 // Prueba de detectar la duracion de la pulsacion (no funciona)
 //var key;
 
@@ -383,6 +391,7 @@ function añadirMunicion1() {
     console.log(municion1[bala1]);
     crafteando1 = false;
     P1.anims.play('turn', true);
+    craftear.stop();
 
     energia1++;
 }
@@ -391,6 +400,8 @@ function añadirMunicion2() {
     municion2[bala2]++;
     console.log(municion2[bala2]);
     crafteando2 = false;
+    P2.anims.play('turn', true);
+    craftear.stop();
 
     energia2++;
 }
@@ -399,7 +410,8 @@ function municionEspecial1() {
     habilidadEspecial1 = true;
     energia1 = 0;
     crafteando1 = false;
-    P2.anims.play('turn', true);
+    P1.anims.play('turn', true);
+    craftear.stop();
 
     bloqueo.enableBody(true, 640, -20, true, true);
     bloqueo.setVelocity(0, velBloqueo).setCollideWorldBounds(false).setGravityY(-300);
@@ -410,6 +422,8 @@ function municionEspecial2() {
     habilidadEspecial2 = true;
     energia2 = 0;
     crafteando2 = false;
+    P2.anims.play('turn', true);
+    craftear.stop();
 
     bloqueo.enableBody(true, 640, -20, true, true);
     bloqueo.setVelocity(0, velBloqueo).setCollideWorldBounds(false).setGravityY(-300);
@@ -443,6 +457,7 @@ function hitBateria3() {
 
 // Temporizador de la partida
 function temporizador() {
+    musica_fondo.stop();
     this.scene.start('EscenaPostGame');
 }
 
@@ -457,6 +472,7 @@ function reparar21() {
 function reparar21v2() {
     reparando1 = false;
     P1.anims.play('turn', true);
+    reparar.stop();
 
     vida2P1 += 10;
     if (vida2P1 > 100) {
@@ -475,6 +491,7 @@ function reparar22() {
 function reparar22v2() {
     reparando1 = false;
     P1.anims.play('turn', true);
+    reparar.stop();
 
     vida2P2 += 10;
     if (vida2P2 > 100) {
@@ -493,6 +510,7 @@ function reparar23() {
 function reparar23v2() {
     reparando1 = false;
     P1.anims.play('turn', true);
+    reparar.stop();
 
     vida2P3 += 10;
     if (vida2P3 > 100) {
@@ -513,6 +531,7 @@ function reparar11() {
 function reparar11v2() {
     reparando2 = false;
     P2.anims.play('turn', true);
+    reparar.stop();
 
     vida1P1 += 10;
     if (vida1P1 > 100) {
@@ -531,6 +550,7 @@ function reparar12() {
 function reparar12v2() {
     reparando2 = false;
     P2.anims.play('turn', true);
+    reparar.stop();
 
     vida1P2 += 10;
     if (vida1P2 > 100) {
@@ -549,6 +569,7 @@ function reparar13() {
 function reparar13v2() {
     reparando2 = false;
     P2.anims.play('turn', true);
+    reparar.stop();
 
     vida1P3 += 10;
     if (vida1P3 > 100) {
@@ -634,7 +655,7 @@ class EscenaJuego extends Phaser.Scene {
         this.load.image('fondo_taller2', 'assets/images/definitivas/edificios/edificio2/fondo_taller.png');
 
         // Cargamos la imagen del boton
-        this.load.image('boton', 'assets/images/pruebas/boton.png');
+        this.load.image('boton', 'assets/images/definitivas/otros/boton.png');
 
         // Cargamos las imagenes de las zonas de movimiento
         this.load.image('suelo_principal', 'assets/images/pruebas/suelo_v2.png');
@@ -653,13 +674,21 @@ class EscenaJuego extends Phaser.Scene {
         this.load.image('mesa', 'assets/images/definitivas/otros/mesa_crafteo.png');
 
         // Cargamos las imagenes de los power ups
-        this.load.spritesheet('martillo', 'assets/images/pruebas/martillo.png', { frameWidth: 800, frameHeight: 800 });
+        this.load.spritesheet('martillo', 'assets/images/definitivas/otros/martillo.png', { frameWidth: 117, frameHeight: 109 });
         this.load.spritesheet('stop', 'assets/images/pruebas/stop.png', { frameWidth: 578, frameHeight: 578 });
 
         // Ultimates
-        this.load.spritesheet('municion', 'assets/images/pruebas/municion.png', { frameWidth: 441, frameHeight: 323 });
-        this.load.spritesheet('viejas', 'assets/images/pruebas/viejas.png', { frameWidth: 2000, frameHeight: 1250 });
+        this.load.spritesheet('municion', 'assets/images/definitivas/otros/municion.png', { frameWidth: 844, frameHeight: 329 });
+        this.load.spritesheet('viejas', 'assets/images/definitivas/otros/ancianas_municion.png', { frameWidth: 1000, frameHeight: 1300 });
         this.load.spritesheet('bateria', 'assets/images/pruebas/bateria.png', { frameWidth: 500, frameHeight: 318 });
+
+        // Sonidos
+        this.load.audio('musica_fondo', 'assets/sounds/musica_fondo.mp3');
+
+        this.load.audio('disparo', 'assets/sounds/cañonazo.mp3');
+        this.load.audio('reparar', 'assets/sounds/reparar.ogg');
+        this.load.audio('craftear', 'assets/sounds/craftear.mp3');
+        this.load.audio('pulsar_boton', 'assets/sounds/boton.ogg');
     }
 
     create() {
@@ -696,6 +725,12 @@ class EscenaJuego extends Phaser.Scene {
         this.anims.create({
             key: 'reparar',
             frames: this.anims.generateFrameNumbers('anciana_reparar', { start: 0, end: 4 }),
+            frameRate: 10,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'ulti_anciana',
+            frames: this.anims.generateFrameNumbers('viejas', { start: 0, end: 1 }),
             frameRate: 10,
             repeat: -1
         });
@@ -861,9 +896,6 @@ class EscenaJuego extends Phaser.Scene {
         fondoEdificio1P2.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
         fondoEdificio1P3 = this.physics.add.sprite(181, 465, 'fondo_edificio1_parte3');
         fondoEdificio1P3.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
-        //fondoEdificio1P1 = this.add.image(181, 170, 'fondo_edificio1_parte1').setDepth(0);
-        //fondoEdificio1P2 = this.add.image(181, 300, 'fondo_edificio1_parte2').setDepth(0);
-        //fondoEdificio1P3 = this.add.image(181, 450, 'fondo_edificio1_parte3').setDepth(0);
         fondoEdificio1Taller = this.add.image(181, 610, 'fondo_taller1').setDepth(0);
 
         // Fondo edificio 2
@@ -873,10 +905,14 @@ class EscenaJuego extends Phaser.Scene {
         fondoEdificio2P2.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
         fondoEdificio2P3 = this.physics.add.sprite(1097, 465, 'fondo_edificio2_parte3');
         fondoEdificio2P3.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
-        //fondoEdificio2P1 = this.add.image(1097, 170, 'fondo_edificio2_parte1').setDepth(0);
-        //fondoEdificio2P2 = this.add.image(1097, 300, 'fondo_edificio2_parte2').setDepth(0);
-        //fondoEdificio2P3 = this.add.image(1097, 450, 'fondo_edificio2_parte3').setDepth(0);
         fondoEdificio1Taller = this.add.image(1097, 610, 'fondo_taller2').setDepth(0);
+
+        // ------------------------- Botones -------------------------
+        boton1 = this.add.image(500, 500, 'boton').setDepth(0).setScale(0.5);
+        boton2 = this.add.image(780, 500, 'boton').setDepth(0).setScale(0.5);
+
+        // ------------------------- Crafteo -------------------------
+        mesa = this.add.image(640, 515, 'mesa').setDepth(0).setScale(1.5);
 
         // ------------------------- Jugador 1 -------------------------
         P1 = this.physics.add.sprite(440, 400, 'anciana').setScale(0.075);
@@ -897,8 +933,6 @@ class EscenaJuego extends Phaser.Scene {
         taller1 = this.physics.add.sprite(1125, 610, 'taller1');
         taller1.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
 
-        boton1 = this.add.image(500, 500, 'boton').setDepth(0).setScale(0.1);
-
         // Creamos el edificio 2
         edificio2P1 = this.physics.add.sprite(200, 165, 'edificio2_parte1');
         edificio2P1.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
@@ -909,19 +943,12 @@ class EscenaJuego extends Phaser.Scene {
         taller2 = this.physics.add.sprite(150, 610, 'taller2');
         taller2.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
 
-        boton2 = this.add.image(780, 500, 'boton').setDepth(0).setScale(0.1);
-
-        // ------------------------- Crafteo -------------------------
-        mesa = this.add.image(640, 515, 'mesa').setDepth(0).setScale(1.5);
-
         // ------------------------- Cañones derecha -------------------------
         // Creamos el cañon 1 (arriba)
         cannonHead1 = this.physics.add.sprite(350, 190, 'cannon_head1').setScale(0.75).setDepth(2);
         cannonHead1.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300)
         cannon1 = this.physics.add.sprite(cannonHead1.x, cannonHead1.y + 20, 'cannon_body').setScale(0.8).setDepth(2);
         cannon1.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
-        //cannonHead1 = this.add.image(350, 190, 'cannon_head1').setDepth(1).setScale(0.75);
-        //cannon1 = this.add.image(cannonHead1.x, cannonHead1.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
         gfx1 = this.add.graphics().setDefaultStyles({ lineStyle: { width: 10, color: 0xffdd00, alpha: 0.5 } });
         line1 = new Phaser.Geom.Line();
         angle1 = 0;
@@ -931,8 +958,6 @@ class EscenaJuego extends Phaser.Scene {
         cannonHead2.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
         cannon2 = this.physics.add.sprite(cannonHead2.x, cannonHead2.y + 20, 'cannon_body').setScale(0.8).setDepth(1);
         cannon2.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
-        //cannonHead2 = this.add.image(350, 340, 'cannon_head1').setDepth(1).setScale(0.75);
-        //cannon2 = this.add.image(cannonHead2.x, cannonHead2.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
         gfx2 = this.add.graphics().setDefaultStyles({ lineStyle: { width: 10, color: 0xffdd00, alpha: 0.5 } });
         line2 = new Phaser.Geom.Line();
         angle2 = 0;
@@ -942,8 +967,6 @@ class EscenaJuego extends Phaser.Scene {
         cannonHead3.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
         cannon3 = this.physics.add.sprite(cannonHead3.x, cannonHead3.y + 20, 'cannon_body').setScale(0.8).setDepth(1);
         cannon3.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
-        //cannonHead3 = this.add.image(350, 490, 'cannon_head1').setDepth(1).setScale(0.75);
-        //cannon3 = this.add.image(cannonHead3.x, cannonHead3.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
         gfx3 = this.add.graphics().setDefaultStyles({ lineStyle: { width: 10, color: 0xffdd00, alpha: 0.5 } });
         line3 = new Phaser.Geom.Line();
         angle3 = 0;
@@ -954,8 +977,6 @@ class EscenaJuego extends Phaser.Scene {
         cannonHead4.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
         cannon4 = this.physics.add.sprite(cannonHead4.x, cannonHead4.y + 20, 'cannon_body').setScale(0.8).setDepth(1);
         cannon4.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
-        //cannonHead4 = this.add.image(930, 190, 'cannon_head2').setDepth(1).setScale(0.75);
-        //cannon4 = this.add.image(cannonHead4.x, cannonHead4.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
         gfx4 = this.add.graphics().setDefaultStyles({ lineStyle: { width: 10, color: 0xffdd00, alpha: 0.5 } });
         line4 = new Phaser.Geom.Line();
         angle4 = 0;
@@ -965,8 +986,6 @@ class EscenaJuego extends Phaser.Scene {
         cannonHead5.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
         cannon5 = this.physics.add.sprite(cannonHead5.x, cannonHead5.y + 20, 'cannon_body').setScale(0.8).setDepth(1);
         cannon5.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
-        //cannonHead5 = this.add.image(930, 340, 'cannon_head2').setDepth(1).setScale(0.75);
-        //cannon5 = this.add.image(cannonHead5.x, cannonHead5.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
         gfx5 = this.add.graphics().setDefaultStyles({ lineStyle: { width: 10, color: 0xffdd00, alpha: 0.5 } });
         line5 = new Phaser.Geom.Line();
         angle5 = 0;
@@ -976,8 +995,6 @@ class EscenaJuego extends Phaser.Scene {
         cannonHead6.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
         cannon6 = this.physics.add.sprite(cannonHead6.x, cannonHead6.y + 20, 'cannon_body').setScale(0.8).setDepth(1);
         cannon6.setVelocity(0, 0).setCollideWorldBounds(false).setGravityY(-300);
-        //cannonHead6 = this.add.image(930, 490, 'cannon_head2').setDepth(1).setScale(0.75);
-        //cannon6 = this.add.image(cannonHead6.x, cannonHead6.y + 20, 'cannon_body').setDepth(1).setScale(0.8);
         gfx6 = this.add.graphics().setDefaultStyles({ lineStyle: { width: 10, color: 0xffdd00, alpha: 0.5 } });
         line6 = new Phaser.Geom.Line();
         angle6 = 0;
@@ -1035,11 +1052,11 @@ class EscenaJuego extends Phaser.Scene {
 
         // ------------------------- Temporizador -------------------------
         textoTiempo = this.add.text(620, 50, '', { fontSize: '32px', aling: 'center' });
-        tiempoPartida = this.time.delayedCall(120000, temporizador, [], this);
+        tiempoPartida = this.time.delayedCall(180000, temporizador, [], this);
 
         // ------------------------- Power ups -------------------------
         // Martillo
-        martillo = this.physics.add.sprite(640, 150, 'martillo').setScale(0.06);
+        martillo = this.physics.add.sprite(640, 150, 'martillo').setScale(0.4);
         martillo.setVelocity(0, velMartillo).setCollideWorldBounds(false).setGravityY(-300);
         martillo.disableBody(true, true);
 
@@ -1169,6 +1186,15 @@ class EscenaJuego extends Phaser.Scene {
 
         // Prueba de detectar la duracion de la pulsacion (no funciona)
         //key = this.input.keyboard.addKey('A');
+
+        // Sonidos
+        musica_fondo = this.sound.add('musica_fondo', {loop: false});
+        musica_fondo.play();
+
+        cañonazo = this.sound.add('disparo', {loop: false});
+        reparar = this.sound.add('reparar', {loop: true});
+        craftear = this.sound.add('craftear', {loop: true});
+        boton = this.sound.add('pulsar_boton', {loop: false});
     }
 
     update() {
@@ -1183,8 +1209,6 @@ class EscenaJuego extends Phaser.Scene {
         municionBaquetas.setText(municion2[0].toString());
         municionGuitarra.setText(municion2[1].toString());
         municionAltavoz.setText(municion2[2].toString());
-
-        textoTiempo.setText(120 - (tiempoPartida.getProgress() * 120).toString().substr(0, 3));
 
         // ------------------------- Jugador 1 -------------------------
         var keyW = this.input.keyboard.addKey('W');
@@ -1208,19 +1232,11 @@ class EscenaJuego extends Phaser.Scene {
                 angle1 = cannonHead1.rotation + 0.02;
                 cannonHead1.rotation = angle1;
             }
-            /*
-            if (cursors.up.isDown && angle1 >= -maxAngle / 3) {
-                angle1 = cannonHead1.rotation - 0.02;
-                cannonHead1.rotation = angle1;
-            }
-            else if (cursors.down.isDown && angle1 <= maxAngle / 4) {
-                angle1 = cannonHead1.rotation + 0.02;
-                cannonHead1.rotation = angle1;
-            }
-            */
+
             if (this.input.keyboard.checkDown(cursors.shift, 1000) && municion1[bala1] > 0) {
                 pollos[bala1].enableBody(true, cannon1.x, cannon1.y - 25, true, true);
                 pollos[bala1].play('fly' + bala1);
+                cañonazo.play();
                 this.physics.velocityFromRotation(angle1, 800, pollos[bala1].body.velocity);
                 municion1[bala1]--;
 
@@ -1252,19 +1268,11 @@ class EscenaJuego extends Phaser.Scene {
                 angle2 = cannonHead2.rotation + 0.02;
                 cannonHead2.rotation = angle2;
             }
-            /*
-            if (cursors.up.isDown && angle2 >= -maxAngle) {
-                angle2 = cannonHead2.rotation - 0.02;
-                cannonHead2.rotation = angle2;
-            }
-            else if (cursors.down.isDown && angle2 <= maxAngle) {
-                angle2 = cannonHead2.rotation + 0.02;
-                cannonHead2.rotation = angle2;
-            }
-            */
+
             if (this.input.keyboard.checkDown(cursors.shift, 1000) && municion1[bala1] > 0) {
                 pollos[bala1].enableBody(true, cannon2.x, cannon2.y - 25, true, true);
                 pollos[bala1].play('fly' + bala1);
+                cañonazo.play();
                 this.physics.velocityFromRotation(angle2, 800, pollos[bala1].body.velocity);
                 municion1[bala1]--;
 
@@ -1296,19 +1304,11 @@ class EscenaJuego extends Phaser.Scene {
                 angle3 = cannonHead3.rotation + 0.02;
                 cannonHead3.rotation = angle3;
             }
-            /*
-            if (cursors.up.isDown && angle3 >= -maxAngle) {
-                angle3 = cannonHead3.rotation - 0.02;
-                cannonHead3.rotation = angle3;
-            }
-            else if (cursors.down.isDown && angle3 <= maxAngle) {
-                angle3 = cannonHead3.rotation + 0.02;
-                cannonHead3.rotation = angle3;
-            }
-            */
+            
             if (this.input.keyboard.checkDown(cursors.shift, 5000) && municion1[bala1] > 0) {
                 pollos[bala1].enableBody(true, cannon3.x, cannon3.y - 25, true, true);
                 pollos[bala1].play('fly' + bala1);
+                cañonazo.play();
                 this.physics.velocityFromRotation(angle3, 800, pollos[bala1].body.velocity);
                 municion1[bala1]--;
 
@@ -1358,18 +1358,7 @@ class EscenaJuego extends Phaser.Scene {
         if (keyS.isDown && subirEscaleras1 === true) {
             P1.setVelocityY(velocidad1);
         }
-        /*
-        this.input.keyboard.on("keydown_W", () => {
-            if (subirEscaleras1 === true) {
-                P1.setVelocityY(-velocidad1);
-            }
-        });
-        this.input.keyboard.on("keydown_S", () => {
-            if (subirEscaleras1 === true) {
-                P1.setVelocityY(velocidad1);
-            }
-        });
-        */
+        
         // Craftear
         var distanciaMesa1X = P1.x - mesa.x;
         if (distanciaMesa1X < 0) {
@@ -1384,6 +1373,7 @@ class EscenaJuego extends Phaser.Scene {
         if (this.input.keyboard.checkDown(cursors.shift, tiempoCrafteo1[bala1]) && distanciaMesa1 <= 50 && crafteando1 === false && crafteando2 === false) {
             crafteando1 = true;
             P1.anims.play('reparar', true);
+            craftear.play();
             P1.setVelocityX(0);
             P1.setVelocityY(0);
             timer1 = this.time.delayedCall(tiempoCrafteo1[bala1], añadirMunicion1, [], this);
@@ -1393,6 +1383,7 @@ class EscenaJuego extends Phaser.Scene {
             if (distanciaMesa1 <= 50 && crafteando1 === false && crafteando2 === false && energia1 === 100) {
                 crafteando1 = true;
                 P1.anims.play('reparar', true);
+                craftear.play();
                 P1.setVelocityX(0);
                 P1.setVelocityY(0);
                 timer1 = this.time.delayedCall(5000, municionEspecial1, [], this);
@@ -1432,19 +1423,11 @@ class EscenaJuego extends Phaser.Scene {
                 angle4 = cannonHead4.rotation + 0.02;
                 cannonHead4.rotation = angle4;
             }
-            /*
-            if (cursors.right.isDown && angle4 >= -maxAngle / 4) {
-                angle4 = cannonHead4.rotation - 0.02;
-                cannonHead4.rotation = angle4;
-            }
-            else if (cursors.left.isDown && angle4 <= maxAngle / 4) {
-                angle4 = cannonHead4.rotation + 0.02;
-                cannonHead4.rotation = angle4;
-            }
-            */
+            
             if (this.input.keyboard.checkDown(cursors.space, 1000) && municion2[bala2] > 0) {
                 pollos[bala2 + 3].enableBody(true, cannon4.x, cannon4.y - 25, true, true);
                 pollos[bala2 + 3].play('fly' + (bala2 + 3));
+                cañonazo.play();
                 this.physics.velocityFromRotation(angle4, -800, pollos[bala2 + 3].body.velocity);
                 municion2[bala2]--;
 
@@ -1476,19 +1459,11 @@ class EscenaJuego extends Phaser.Scene {
                 angle5 = cannonHead5.rotation + 0.02;
                 cannonHead5.rotation = angle5;
             }
-            /*
-            if (cursors.right.isDown && angle5 >= -maxAngle) {
-                angle5 = cannonHead5.rotation - 0.02;
-                cannonHead5.rotation = angle5;
-            }
-            else if (cursors.left.isDown && angle5 <= maxAngle) {
-                angle5 = cannonHead5.rotation + 0.02;
-                cannonHead5.rotation = angle5;
-            }
-            */
+            
             if (this.input.keyboard.checkDown(cursors.space, 1000) && municion2[bala2] > 0) {
                 pollos[bala2 + 3].enableBody(true, cannon5.x, cannon5.y - 25, true, true);
                 pollos[bala2 + 3].play('fly' + (bala2 + 3));
+                cañonazo.play();
                 this.physics.velocityFromRotation(angle5, -800, pollos[bala2 + 3].body.velocity);
                 municion2[bala2]--;
 
@@ -1520,19 +1495,11 @@ class EscenaJuego extends Phaser.Scene {
                 angle6 = cannonHead6.rotation + 0.02;
                 cannonHead6.rotation = angle6;
             }
-            /*
-            if (cursors.right.isDown && angle6 >= -maxAngle) {
-                angle6 = cannonHead6.rotation - 0.02;
-                cannonHead6.rotation = angle6;
-            }
-            else if (cursors.left.isDown && angle6 <= maxAngle) {
-                angle6 = cannonHead6.rotation + 0.02;
-                cannonHead6.rotation = angle6;
-            }
-            */
+            
             if (this.input.keyboard.checkDown(cursors.space, 1000) && municion2[bala2] > 0) {
                 pollos[bala2 + 3].enableBody(true, cannon6.x, cannon6.y - 25, true, true);
                 pollos[bala2 + 3].play('fly' + (bala2 + 3));
+                cañonazo.play();
                 this.physics.velocityFromRotation(angle6, -800, pollos[bala2 + 3].body.velocity);
                 municion2[bala2]--;
 
@@ -1582,18 +1549,7 @@ class EscenaJuego extends Phaser.Scene {
         if (keyS.isDown && subirEscaleras2 === true) {
             P2.setVelocityY(velocidad1);
         }
-        /*
-        this.input.keyboard.on("keydown_I", () => {
-            if (subirEscaleras2 === true) {
-                P2.setVelocityY(-200);
-            }
-        });
-        this.input.keyboard.on("keydown_K", () => {
-            if (subirEscaleras2 === true) {
-                P2.setVelocityY(200);
-            }
-        });
-        */
+        
 
         // Craftear
         var distanciaMesa2X = P2.x - mesa.x;
@@ -1609,6 +1565,7 @@ class EscenaJuego extends Phaser.Scene {
         if (this.input.keyboard.checkDown(cursors.space, tiempoCrafteo2[bala2]) && distanciaMesa2 <= 50 && crafteando2 === false && crafteando1 === false) {
             P2.anims.play('reparar', true);
             crafteando2 = true;
+            craftear.play();
             P2.setVelocityX(0);
             P2.setVelocityY(0);
             timer2 = this.time.delayedCall(tiempoCrafteo2[bala2], añadirMunicion2, [], this);
@@ -1618,27 +1575,12 @@ class EscenaJuego extends Phaser.Scene {
             if (distanciaMesa2 <= 50 && crafteando1 === false && crafteando2 === false && energia2 === 100) {
                 P2.anims.play('reparar', true);
                 crafteando2 = true;
+                craftear.play();
                 P2.setVelocityX(0);
                 P2.setVelocityY(0);
                 timer2 = this.time.delayedCall(5000, municionEspecial2, [], this);
             }
         });
-
-        /*
-        // Otra forma de girar los cañones pero que a la larga se bugea
-        var incremento = 0.0002;
-        this.input.keyboard.on("keydown_S", () => {
-            if (angle4 >= -1) {
-                angle4 = cannonHead4.rotation - incremento;
-                cannonHead4.rotation = angle4;
-            }
-        });
-        this.input.keyboard.on("keydown_W", () => {
-            if (angle4 <= 1) {
-                angle4 = cannonHead4.rotation + incremento;
-                cannonHead4.rotation = angle4;
-            }
-        });*/
 
         // Cambiar balas
         this.input.keyboard.on("keydown_EIGHT", () => {
@@ -1806,15 +1748,15 @@ class EscenaJuego extends Phaser.Scene {
         }
 
         // ------------------------- Temporizador -------------------------
-        textoTiempo.setText(120 - (tiempoPartida.getProgress() * 120).toString().substr(0, 3));
+        textoTiempo.setText(180 - (tiempoPartida.getProgress() * 180).toString().substr(0, 3));
 
         // ------------------------- Power ups -------------------------
         // Martillo
-        if ((120 - (tiempoPartida.getProgress() * 120).toString().substr(0, 2)) === 90) {
+        if ((180 - (tiempoPartida.getProgress() * 180).toString().substr(0, 2)) === 90) {
             martillo.enableBody(true, 640, -20, true, true);
             martillo.setVelocity(0, velMartillo).setCollideWorldBounds(false).setGravityY(-300);
         }
-        if ((120 - (tiempoPartida.getProgress() * 120).toString().substr(0, 2)) === 20) {
+        if ((180 - (tiempoPartida.getProgress() * 180).toString().substr(0, 2)) === 20) {
             martillo.enableBody(true, 640, -20, true, true);
             martillo.setVelocity(0, velMartillo).setCollideWorldBounds(false).setGravityY(-300);
         }
@@ -1846,8 +1788,10 @@ class EscenaJuego extends Phaser.Scene {
 
         if (cursors.shift.isDown && distanciaBoton1 <= 50 && crafteando2 === false && crafteando1 === false && habilidadEspecial1 === true) {
             habilidadEspecial1 = false;
+            boton.play();
 
             viejas.enableBody(true, -100, 475, true, true);
+            viejas.anims.play('ulti_anciana');
             viejas.setVelocity(50, 0).setCollideWorldBounds(false).setGravityY(-300);
         }
         if (viejas.x > 200) {
@@ -1860,7 +1804,7 @@ class EscenaJuego extends Phaser.Scene {
             viejas.setVelocity(-50, 0).setCollideWorldBounds(false).setGravityY(-300);
         }
         if (viejas.x < -500) {
-            municion.disableBody(true, true);
+            viejas.disableBody(true, true);
         }
 
         // Lanzar habilidad especial 2
@@ -1876,13 +1820,14 @@ class EscenaJuego extends Phaser.Scene {
 
         if (cursors.space.isDown && distanciaBoton2 <= 50 && crafteando2 === false && crafteando1 === false && habilidadEspecial2 === true) {
             habilidadEspecial2 = false;
+            boton.play();
 
             bateria.enableBody(true, 180, -50, true, true);
             bateria.setVelocity(0, 100).setCollideWorldBounds(false).setGravityY(-300);
         }
 
         // ------------------------- Energia -------------------------
-        tiempoAux1 = (tiempoPartida.getProgress() * 120).toString().substr(0, 2);
+        tiempoAux1 = (tiempoPartida.getProgress() * 180).toString().substr(0, 2);
         if (tiempoAux1 > tiempoAux2) {
             energia1++;
             energia2++;
@@ -1902,16 +1847,19 @@ class EscenaJuego extends Phaser.Scene {
         if (reparar21aux === true) {
             reparando1 = true;
             P1.anims.play('reparar', true);
+            reparar.play();
             timer1 = this.time.delayedCall(tiempoReparar, reparar21v2, [], this);
         }
         if (reparar22aux === true) {
             reparando1 = true;
             P1.anims.play('reparar', true);
+            reparar.play();
             timer1 = this.time.delayedCall(tiempoReparar, reparar22v2, [], this);
         }
         if (reparar23aux === true) {
             reparando1 = true;
             P1.anims.play('reparar', true);
+            reparar.play();
             timer1 = this.time.delayedCall(tiempoReparar, reparar23v2, [], this);
         }
 
@@ -1927,25 +1875,30 @@ class EscenaJuego extends Phaser.Scene {
         if (reparar11aux === true) {
             reparando2 = true;
             P2.anims.play('reparar', true);
+            reparar.play();
             timer2 = this.time.delayedCall(tiempoReparar, reparar11v2, [], this);
         }
         if (reparar12aux === true) {
             reparando2 = true;
             P2.anims.play('reparar', true);
+            reparar.play();
             timer2 = this.time.delayedCall(tiempoReparar, reparar12v2, [], this);
         }
         if (reparar13aux === true) {
             reparando2 = true;
             P2.anims.play('reparar', true);
+            reparar.play();
             timer2 = this.time.delayedCall(tiempoReparar, reparar13v2, [], this);
         }
 
         // ------------------------- Fin del juego -------------------------
         if (vida1P1 <= 0 && vida1P2 <= 0 && vida1P3 <= 0) {
             this.scene.start('EscenaPostGame');
+            musica_fondo.stop();
         }
         if (vida2P1 <= 0 && vida2P2 <= 0 && vida2P3 <= 0) {
             this.scene.start('EscenaPostGame');
+            musica_fondo.stop();
         }
     }
 }
