@@ -157,7 +157,8 @@ Para utilizar la reparar E (jugador 1) o O (jugador 2).
 **Descripción**: Tras varias llamadas a la policía por parte de sus vecinos, ahora ve la oportunidad perfecta de venganza gracias a la locura causada por el COVID-19.
 <br>
 **Imagen**:
-<img src="https://user-images.githubusercontent.com/92206944/138766914-65777dc0-399d-4361-81c6-ae1f8acd384a.png" alt="Rockero" width="50%">
+<img src="https://user-images.githubusercontent.com/92206944/145451148-8fa21800-0a5b-4dfe-8f3d-ac2469771d75.png" alt="Rockero" width="50%">
+<img src="https://user-images.githubusercontent.com/92206944/145451234-e8fac4cf-9f86-4faf-ae02-1c63c7306900.png" alt="Rockero" width="50%">
 <br>
 **Munición**:
 <ul>
