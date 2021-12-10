@@ -56,15 +56,16 @@ l.tallero.2018@alumnos.urjc.es - tallerofdez (github)
      * [Elementos en pantalla](#Elementos-en-pantalla)
   
   * [Arte](#Arte)
+
   
      * [Herramientas de diseño](#Herramientas-de-diseño)
      * [Paleta de colores](#Paleta-de-colores)
      * [Estilo visual](#Estilo-visual)
+
+
+     * [Música](#Música)
   
-  * [Música](#Música)
-  
-     * [Música durante la partida](#Música-durante-la-partida)
-     * [Música fuera de la partida](#Música-fuera-de-la-partida)
+
   
 <br>
 
@@ -218,6 +219,17 @@ La pantalla del juego consta de dos edificios iguales situados cada uno a un lad
 
 <img src="https://user-images.githubusercontent.com/92206944/145611073-8e063a00-3a80-4280-9d6f-697a09b0a4f1.png" width="80%">
 
+<br>
+Tiene la opción de empezar a jugar y la opción de ver el tutorial.
+
+
+### Pantalla de tutorial
+
+<img src="https://user-images.githubusercontent.com/92206944/145613050-b68a828e-7361-4cc9-9d54-f808576c923d.png" width="80%">
+<img src="https://user-images.githubusercontent.com/92206944/145613067-54968cb0-183c-46e3-bd77-856a92f54713.png" width="80%">
+
+<br>
+Las flechas te dan la opción de pasar a la siguiente página del tutorial o a la anterior
 
 ### Pantalla final de juegos
 
@@ -225,6 +237,8 @@ La pantalla del juego consta de dos edificios iguales situados cada uno a un lad
 <img src="https://user-images.githubusercontent.com/92206944/145611239-eeaf78eb-7f5c-40e0-9a79-62dd34bfbef5.png" width="80%">
 <img src="https://user-images.githubusercontent.com/92206944/145611334-13e41167-dd80-48dd-ba5b-a0effdfe54bd.png" width="80%">
 
+<br>
+Se mjuestra según el jugador que haya ganado
 
 
 # Arte
@@ -274,14 +288,25 @@ Algunas imágenes de referencia:
 <br>
 
 
-
-
-
 # Música
-### Música durante la partida
-<a href="https://www.youtube.com/watch?v=YTEADhN5_WM&ab_channel=JuanSanchez">Música estilo combate pokémon</a>
-<br>
-<a href="https://youtu.be/EI9iI-RC5XI">Música estilo Piratas del Caribe</a>
-### Música fuera de la partida
-Música animada estilo juegos para niños
-<br>
+
+https://user-images.githubusercontent.com/92206944/145613292-1c7ab156-0a61-453a-ac93-52d42e4e83b1.mp4
+
+
+https://user-images.githubusercontent.com/92206944/145613609-69a1af98-a436-4d38-af67-b7d241224923.mp4
+
+
+
+https://user-images.githubusercontent.com/92206944/145613659-85c7cc41-5bb1-4717-9afe-a222a43e01e2.mp4
+
+
+
+https://user-images.githubusercontent.com/92206944/145613645-732e9137-d4fd-4b56-b597-27a59bbae28b.mp4
+
+
+
+
+https://user-images.githubusercontent.com/92206944/145613630-e60eb9ab-7443-4867-bdf5-f8dc5a8f8bb7.mp4
+
+
+
