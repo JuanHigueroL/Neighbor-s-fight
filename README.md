@@ -290,22 +290,33 @@ Algunas imágenes de referencia:
 
 # Música
 
+<br>
+Sonido al disparar:
+<br>
 https://user-images.githubusercontent.com/92206944/145613292-1c7ab156-0a61-453a-ac93-52d42e4e83b1.mp4
 
-
+<br>
+Sonido al pulsar el botón del ulti:
+<br>
 https://user-images.githubusercontent.com/92206944/145613609-69a1af98-a436-4d38-af67-b7d241224923.mp4
 
 
-
+<br>
+Sonido al reparar :
+<br>
 https://user-images.githubusercontent.com/92206944/145613659-85c7cc41-5bb1-4717-9afe-a222a43e01e2.mp4
 
 
-
+<br>
+Música de fondo:
+<br>
 https://user-images.githubusercontent.com/92206944/145613645-732e9137-d4fd-4b56-b597-27a59bbae28b.mp4
 
 
 
-
+<br>
+Sonido al craftear:
+<br>
 https://user-images.githubusercontent.com/92206944/145613630-e60eb9ab-7443-4867-bdf5-f8dc5a8f8bb7.mp4
 
 
