@@ -201,8 +201,6 @@ La pantalla del juego consta de dos edificios iguales situados cada uno a un lad
 
 ### Elementos en pantalla
 
-<img src="https://user-images.githubusercontent.com/92206944/138778894-25a7a176-1559-4305-9ee2-a7d89c7d7468.png" alt="pantalla" width="70%">
-
 <ul>
   <li>Dos edificios iguales situados cada uno a un lado de la pantalla</li>
   <li>Cada edificio estará formado por tres pisos por los que los jugadores irán moviéndose para cargar y disparar los respectivos cañones que hay situados en cada piso.</li>
@@ -216,7 +214,16 @@ La pantalla del juego consta de dos edificios iguales situados cada uno a un lad
 </ul>
 <br>
 
+### Pantalla de inicio
 
+<img src="https://user-images.githubusercontent.com/92206944/145611073-8e063a00-3a80-4280-9d6f-697a09b0a4f1.png" width="80%">
+
+
+### Pantalla final de juegos
+
+
+<img src="https://user-images.githubusercontent.com/92206944/145611239-eeaf78eb-7f5c-40e0-9a79-62dd34bfbef5.png" width="80%">
+<img src="https://user-images.githubusercontent.com/92206944/145611334-13e41167-dd80-48dd-ba5b-a0effdfe54bd.png" width="80%">
 
 
 
@@ -231,6 +238,8 @@ La pantalla del juego consta de dos edificios iguales situados cada uno a un lad
 ### Paleta de colores
 
 Se elegirá una paleta de colores de tonos brillantes y coloridos, acompañando el tono naif del juego.
+<img src="https://user-images.githubusercontent.com/92206944/145610670-d05cc2d9-300d-447f-a6ba-eeda6709da13.jpg" alt="paleta" width="100%">
+
 <br>
 Para elegir la paleta se tomarán de referencia los colores de juegos como los de King
 <br>
