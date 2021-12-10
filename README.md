@@ -151,9 +151,9 @@ Para utilizar la reparar E (jugador 1) o O (jugador 2).
 
 **Imagenes de su munición:**
 <br>
-<img src="https://user-images.githubusercontent.com/92206944/145609868-9f588f6a-b43b-4353-8c8a-b8b497d016b7.png" alt="Concha" width="50%">
-<img src="https://user-images.githubusercontent.com/92206944/145610094-2762c30a-3731-45b9-9b16-8ae578b2c4c0.png" alt="Concha" width="50%">
-<img src="https://user-images.githubusercontent.com/92206944/145610121-ac21fd70-d79b-4a15-bbe8-41eb1bd3be55.png" alt="Concha" width="50%">
+<img src="https://user-images.githubusercontent.com/92206944/145609868-9f588f6a-b43b-4353-8c8a-b8b497d016b7.png" alt="Concha" width="15%">
+<img src="https://user-images.githubusercontent.com/92206944/145610094-2762c30a-3731-45b9-9b16-8ae578b2c4c0.png" alt="Concha" width="15%">
+<img src="https://user-images.githubusercontent.com/92206944/145610121-ac21fd70-d79b-4a15-bbe8-41eb1bd3be55.png" alt="Concha" width="15%">
 <br>
 
 #### Personaje 2:
@@ -195,8 +195,7 @@ La interacción es mediante la pulsación de teclas.
 ### Pantalla durante la partida
 
 
-<img src="https://user-images.githubusercontent.com/92206944/138779209-c05306ce-a6f6-430d-be8b-e01d94284b28.png" width="80%">
-<img src="https://user-images.githubusercontent.com/92206944/138779249-0a74fbc7-2bbc-4fbb-aaa1-145feef9e71a.png" width="80%">
+<img src="https://user-images.githubusercontent.com/92206944/145610319-e1de8330-1644-490a-9491-a787c1e92a3e.png" width="80%">
 
 La pantalla del juego consta de dos edificios iguales situados cada uno a un lado de la pantalla. Cada edificio estará formado por tres pisos por los que los jugadores irán moviéndose para cargar y disparar los respectivos cañones que hay situados en cada piso.
 
