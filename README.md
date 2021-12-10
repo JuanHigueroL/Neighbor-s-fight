@@ -112,6 +112,9 @@ Aquí se generan dos estrategias diferentes: los jugadores al recibir daño debe
 <img src="https://user-images.githubusercontent.com/92206944/138764126-7f04618d-f9e5-4b42-aa9a-5674c7f55acb.png" alt="Flujo de juego" width="100%">
 <br>
 
+Flujo de pantallas : 
+<img src="https://user-images.githubusercontent.com/92206944/145608780-dae0f381-f8b7-4099-80c2-790372c58a71.png" alt="Flujo de juego" width="100%">
+<br>
 
 ### Dinámica de juego
 <strong>Cámara</strong>: Vista lateral fija
