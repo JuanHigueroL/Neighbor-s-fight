@@ -151,7 +151,9 @@ Para utilizar la reparar E (jugador 1) o O (jugador 2).
 
 **Imagenes de su munición:**
 <br>
-<img src="https://user-images.githubusercontent.com/92206944/138765037-186c8f03-985b-4ac0-9ef5-702101405892.png" alt="Concha" width="50%">
+<img src="https://user-images.githubusercontent.com/92206944/145609868-9f588f6a-b43b-4353-8c8a-b8b497d016b7.png" alt="Concha" width="50%">
+<img src="https://user-images.githubusercontent.com/92206944/145610094-2762c30a-3731-45b9-9b16-8ae578b2c4c0.png" alt="Concha" width="50%">
+<img src="https://user-images.githubusercontent.com/92206944/145610121-ac21fd70-d79b-4a15-bbe8-41eb1bd3be55.png" alt="Concha" width="50%">
 <br>
 
 #### Personaje 2:
