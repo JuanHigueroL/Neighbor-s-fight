@@ -238,7 +238,7 @@ Las flechas te dan la opción de pasar a la siguiente página del tutorial o a l
 <img src="https://user-images.githubusercontent.com/92206944/145611334-13e41167-dd80-48dd-ba5b-a0effdfe54bd.png" width="80%">
 
 <br>
-Se mjuestra según el jugador que haya ganado
+Se muestra según el jugador que haya ganado
 
 
 # Arte
