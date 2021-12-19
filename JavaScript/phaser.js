@@ -217,6 +217,11 @@ var reparar;
 var craftear;
 var boton;
 
+// Fase 3
+var chat;
+var textoChat;
+var enviar = true;
+
 // Prueba de detectar la duracion de la pulsacion (no funciona)
 //var key;
 
@@ -457,14 +462,22 @@ function hitBateria3() {
 
 // Temporizador de la partida
 function temporizador() {
+    $.ajax({
+        type: "DELETE",
+        url: "http://localhost:8080/chat",
+        dataType: "json",
+    }).done(function (data) {
+        console.log("DELETE CHAT");
+    });
+
     musica_fondo.stop();
 
     var vidaTotalAnciana = vida2P1 + vida2P2 + vida2P3;
     var vidaTotalRockero = vida1P1 + vida1P2 + vida1P3;
 
-    if(vidaTotalAnciana > vidaTotalRockero){
+    if (vidaTotalAnciana > vidaTotalRockero) {
         this.scene.start('VictoriaAnciana');
-    }else{
+    } else {
         this.scene.start('VictoriaRockero');
     }
 }
@@ -586,6 +599,91 @@ function reparar13v2() {
     console.log("Reparado 13: " + vida1P3);
 }
 
+class EscenaLogin extends Phaser.Scene {
+    constructor() {
+        super({ key: 'EscenaLogin' });
+    }
+
+    preload() {
+        this.load.image('fondo_juego', 'assets/images/definitivas/general/fondo_inicio.png');
+        this.load.image('fondo_negro', 'assets/images/definitivas/general/fondo_negro.png');
+        this.load.image('logo_juego', 'assets/images/definitivas/general/logo_juego.png');
+        this.load.image('logo_grupo', 'assets/images/definitivas/general/logo_grupo.png');
+        this.load.image('boton_jugar', 'assets/images/definitivas/general/boton_jugar.png');
+    }
+
+    create() {
+        this.add.image(640, 360, 'fondo_juego');
+        this.add.image(640, 360, 'fondo_negro');
+        this.add.image(640, 360, 'logo_juego');
+        this.add.image(640, 360, 'logo_grupo');
+        this.add.image(640, 450, 'boton_jugar');
+
+        
+        //this.add.graphics().lineStyle(2,0xff0000).strokeRectShape(jugar);
+
+        this.add.text(10, 10, 'Enter your name:', { font: '32px Courier', fill: '#ffffff' });
+
+        var textEntry = this.add.text(10, 50, '', { font: '32px Courier', fill: '#ffff00' });
+
+        this.input.keyboard.on('keydown', function (event) {
+
+            if (event.keyCode === 8 && textEntry.text.length > 0) {
+                textEntry.text = textEntry.text.substr(0, textEntry.text.length - 1);
+            }
+            else if (event.keyCode === 32 || (event.keyCode >= 48 && event.keyCode < 90)) {
+                textEntry.text += event.key;
+            }
+            console.log(textEntry.text);
+        });
+
+        $.ajax({
+            type: "DELETE",
+            url: "http://localhost:8080/users",
+            dataType: "json",
+        }).done(function (data) {
+            console.log("DELETE USUARIO");
+        });
+        $.ajax({
+            type: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            url: "http://localhost:8080/users",
+            data: JSON.stringify("--------- USUARIO ---------"),
+            dataType: "json",
+            processData: false
+        }).done(function (data) {
+            console.log("POST USUARIO");
+        });
+
+        
+
+
+        var jugar = this.add.zone(480, 380, 320, 140);
+        jugar.setOrigin(0);
+        jugar.setInteractive();
+        jugar.once('pointerdown', () => {
+            $.ajax({
+                type: "PUT",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                url: "http://localhost:8080/users",
+                data: JSON.stringify(textEntry.text),
+                dataType: "json",
+                processData: false
+            }).done(function (data) {
+                console.log("PUT USUARIO");
+            });
+
+            this.scene.start('EscenaInicio')
+        });
+    }
+}
+
 class EscenaInicio extends Phaser.Scene {
     constructor() {
         super({ key: 'EscenaInicio' });
@@ -608,18 +706,18 @@ class EscenaInicio extends Phaser.Scene {
         this.add.image(640, 450, 'boton_jugar');
         this.add.image(640, 600, 'boton_tutorial');
 
-        var jugar = this.add.zone(480,380,320,140);
+        var jugar = this.add.zone(480, 380, 320, 140);
         jugar.setOrigin(0);
         jugar.setInteractive();
-        jugar.once('pointerdown', ()=>{
+        jugar.once('pointerdown', () => {
             this.scene.start('EscenaJuego')
         });
         //this.add.graphics().lineStyle(2,0xff0000).strokeRectShape(jugar);
 
-        var controles = this.add.zone(490,550,300,100);
+        var controles = this.add.zone(490, 550, 300, 100);
         controles.setOrigin(0);
         controles.setInteractive();
-        controles.once('pointerdown', ()=>{
+        controles.once('pointerdown', () => {
             this.scene.start('EscenaTutorial1')
         });
         //this.add.graphics().lineStyle(2,0xff0000).strokeRectShape(controles);
@@ -642,18 +740,18 @@ class EscenaTutorial1 extends Phaser.Scene {
         this.add.image(1050, 100, 'atras1');
         this.add.image(1050, 300, 'flecha_derecha');
 
-        var volver1 = this.add.zone(1000,50,100,100);
+        var volver1 = this.add.zone(1000, 50, 100, 100);
         volver1.setOrigin(0);
         volver1.setInteractive();
-        volver1.once('pointerdown', ()=>{
+        volver1.once('pointerdown', () => {
             this.scene.start('EscenaInicio')
         });
         //this.add.graphics().lineStyle(2,0xff0000).strokeRectShape(volver1);
 
-        var pasarDerecha = this.add.zone(1000,245,110,110);
+        var pasarDerecha = this.add.zone(1000, 245, 110, 110);
         pasarDerecha.setOrigin(0);
         pasarDerecha.setInteractive();
-        pasarDerecha.once('pointerdown', ()=>{
+        pasarDerecha.once('pointerdown', () => {
             this.scene.start('EscenaTutorial2')
         });
         //this.add.graphics().lineStyle(2,0xff0000).strokeRectShape(pasarDerecha);
@@ -676,18 +774,18 @@ class EscenaTutorial2 extends Phaser.Scene {
         this.add.image(1050, 100, 'atras2');
         this.add.image(200, 300, 'flecha_izquierda');
 
-        var volver2 = this.add.zone(1000,50,100,100);
+        var volver2 = this.add.zone(1000, 50, 100, 100);
         volver2.setOrigin(0);
         volver2.setInteractive();
-        volver2.once('pointerdown', ()=>{
+        volver2.once('pointerdown', () => {
             this.scene.start('EscenaInicio')
         });
         //this.add.graphics().lineStyle(2,0xff0000).strokeRectShape(volver2);
 
-        var pasarIzquierda = this.add.zone(150,245,110,110);
+        var pasarIzquierda = this.add.zone(150, 245, 110, 110);
         pasarIzquierda.setOrigin(0);
         pasarIzquierda.setInteractive();
-        pasarIzquierda.once('pointerdown', ()=>{
+        pasarIzquierda.once('pointerdown', () => {
             this.scene.start('EscenaTutorial1')
         });
         //this.add.graphics().lineStyle(2,0xff0000).strokeRectShape(pasarIzquierda);
@@ -1306,13 +1404,59 @@ class EscenaJuego extends Phaser.Scene {
         //key = this.input.keyboard.addKey('A');
 
         // Sonidos
-        musica_fondo = this.sound.add('musica_fondo', {loop: false});
+        musica_fondo = this.sound.add('musica_fondo', { loop: false });
         musica_fondo.play();
 
-        cañonazo = this.sound.add('disparo', {loop: false});
-        reparar = this.sound.add('reparar', {loop: true});
-        craftear = this.sound.add('craftear', {loop: true});
-        boton = this.sound.add('pulsar_boton', {loop: false});
+        cañonazo = this.sound.add('disparo', { loop: false });
+        reparar = this.sound.add('reparar', { loop: true });
+        craftear = this.sound.add('craftear', { loop: true });
+        boton = this.sound.add('pulsar_boton', { loop: false });
+
+        // Fase 3
+        $.ajax({
+            type: "DELETE",
+            url: "http://localhost:8080/chat",
+            dataType: "json",
+        }).done(function (data) {
+            console.log("DELETE CHAT");
+        });
+        $.ajax({
+            type: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            url: "http://localhost:8080/chat",
+            data: JSON.stringify("--------- CHAT ---------"),
+            dataType: "json",
+            processData: false
+        }).done(function (data) {
+            console.log("POST CHAT");
+        });
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/chat",
+            dataType: "json",
+        }).done(function (data) {
+            chat = data;
+            console.log(chat);
+            console.log("GET CHAT");
+        });
+
+        $('#value-input').val('');
+
+        textoChat = this.add.text(500, 550, chat, { fontSize: '20px', aling: 'center' });
+
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/users",
+            dataType: "json",
+        }).done(function (data) {
+            console.log(data[0]);
+            console.log(data[1]);
+            //console.log(data[1]);
+            console.log("GET USUARIOS");
+        });
     }
 
     update() {
@@ -1422,7 +1566,7 @@ class EscenaJuego extends Phaser.Scene {
                 angle3 = cannonHead3.rotation + 0.02;
                 cannonHead3.rotation = angle3;
             }
-            
+
             if (this.input.keyboard.checkDown(cursors.shift, 5000) && municion1[bala1] > 0) {
                 pollos[bala1].enableBody(true, cannon3.x, cannon3.y - 25, true, true);
                 pollos[bala1].play('fly' + bala1);
@@ -1476,7 +1620,111 @@ class EscenaJuego extends Phaser.Scene {
         if (keyS.isDown && subirEscaleras1 === true) {
             P1.setVelocityY(velocidad1);
         }
+
+        // JQuery (fase 3)
+        /*
+        $.ajax({
+            type:"PUT",
+            headers: { 
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            url:"http://localhost:8080/players/0/x",
+            data: JSON.stringify(P1.x),
+            dataType: "json",
+            processData: false
+        }).done(function(data){console.log("PUT1")});
+
+        $.ajax({
+            type:"PUT",
+            headers: { 
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            url:"http://localhost:8080/players/1/x",
+            data: JSON.stringify(P2.x),
+            dataType: "json",
+            processData: false
+        }).done(function(data){console.log("PUT2")});
         
+        $.ajax({
+            type:"GET",
+            url:"http://localhost:8080/players/0/x",
+            dataType: "json",
+        }).done(function(data){console.log("GET1")});
+        $.ajax({
+            type:"GET",
+            url:"http://localhost:8080/players/1/x",
+            dataType: "json",
+        }).done(function(data){console.log("GET2")});
+        */
+
+        var keyC = this.input.keyboard.addKey('C');
+        var keyV = this.input.keyboard.addKey('V');
+        var keyB = this.input.keyboard.addKey('B');
+        var keyN = this.input.keyboard.addKey('N');
+
+        if (this.input.keyboard.checkDown(keyC, 1000)) {
+
+        }
+        if (this.input.keyboard.checkDown(keyV, 1000)) {
+
+        }
+        if (this.input.keyboard.checkDown(keyB, 1000)) {
+
+        }
+        if (this.input.keyboard.checkDown(keyN, 1000)) {
+
+        }
+
+
+        // Fase 3 bien
+        $("#value-input").click(function () {
+            //this.scene.pause(EscenaJuego);
+            console.log("pausa");
+
+            enviar = true;
+        })
+
+        $("#add-button").click(function () {
+            if (enviar === true) {
+                enviar = false;
+
+                //this.scene.resume(EscenaJuego);
+                console.log("no pausa");
+                var value = $('#value-input').val();
+
+                $.ajax({
+                    type: "PUT",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    url: "http://localhost:8080/chat",
+                    data: JSON.stringify(value),
+                    dataType: "json",
+                    processData: false
+                }).done(function (data) {
+                    console.log("PUT CHAT");
+                });
+                $.ajax({
+                    type: "GET",
+                    url: "http://localhost:8080/chat",
+                    dataType: "json",
+                }).done(function (data) {
+                    chat = data;
+                    console.log(chat);
+                    console.log("GET CHAT");
+                });
+
+                $('#value-input').val('');
+            }
+        })
+
+
+
+
+
         // Craftear
         var distanciaMesa1X = P1.x - mesa.x;
         if (distanciaMesa1X < 0) {
@@ -1541,7 +1789,7 @@ class EscenaJuego extends Phaser.Scene {
                 angle4 = cannonHead4.rotation + 0.02;
                 cannonHead4.rotation = angle4;
             }
-            
+
             if (this.input.keyboard.checkDown(cursors.space, 1000) && municion2[bala2] > 0) {
                 pollos[bala2 + 3].enableBody(true, cannon4.x, cannon4.y - 25, true, true);
                 pollos[bala2 + 3].play('fly' + (bala2 + 3));
@@ -1577,7 +1825,7 @@ class EscenaJuego extends Phaser.Scene {
                 angle5 = cannonHead5.rotation + 0.02;
                 cannonHead5.rotation = angle5;
             }
-            
+
             if (this.input.keyboard.checkDown(cursors.space, 1000) && municion2[bala2] > 0) {
                 pollos[bala2 + 3].enableBody(true, cannon5.x, cannon5.y - 25, true, true);
                 pollos[bala2 + 3].play('fly' + (bala2 + 3));
@@ -1613,7 +1861,7 @@ class EscenaJuego extends Phaser.Scene {
                 angle6 = cannonHead6.rotation + 0.02;
                 cannonHead6.rotation = angle6;
             }
-            
+
             if (this.input.keyboard.checkDown(cursors.space, 1000) && municion2[bala2] > 0) {
                 pollos[bala2 + 3].enableBody(true, cannon6.x, cannon6.y - 25, true, true);
                 pollos[bala2 + 3].play('fly' + (bala2 + 3));
@@ -1667,7 +1915,7 @@ class EscenaJuego extends Phaser.Scene {
         if (keyS.isDown && subirEscaleras2 === true) {
             P2.setVelocityY(velocidad1);
         }
-        
+
 
         // Craftear
         var distanciaMesa2X = P2.x - mesa.x;
@@ -1868,6 +2116,10 @@ class EscenaJuego extends Phaser.Scene {
         // ------------------------- Temporizador -------------------------
         textoTiempo.setText(180 - (tiempoPartida.getProgress() * 180).toString().substr(0, 3));
 
+        // ------------------------- Chat -------------------------
+        // fase 3
+        textoChat.setText(chat);
+
         // ------------------------- Power ups -------------------------
         // Martillo
         if ((180 - (tiempoPartida.getProgress() * 180).toString().substr(0, 2)) === 90) {
@@ -2011,10 +2263,26 @@ class EscenaJuego extends Phaser.Scene {
 
         // ------------------------- Fin del juego -------------------------
         if (vida1P1 <= 0 && vida1P2 <= 0 && vida1P3 <= 0) {
+            $.ajax({
+                type: "DELETE",
+                url: "http://localhost:8080/chat",
+                dataType: "json",
+            }).done(function (data) {
+                console.log("DELETE CHAT");
+            });
+
             this.scene.start('VictoriaAnciana');
             musica_fondo.stop();
         }
         if (vida2P1 <= 0 && vida2P2 <= 0 && vida2P3 <= 0) {
+            $.ajax({
+                type: "DELETE",
+                url: "http://localhost:8080/chat",
+                dataType: "json",
+            }).done(function (data) {
+                console.log("DELETE CHAT");
+            });
+
             this.scene.start('VictoriaRockero');
             musica_fondo.stop();
         }
@@ -2062,7 +2330,7 @@ var config = {
             gravity: { y: 300 }
         }
     },
-    scene: [EscenaInicio, EscenaTutorial1, EscenaTutorial2, EscenaJuego, VictoriaAnciana, VictoriaRockero]
+    scene: [EscenaLogin, EscenaInicio, EscenaTutorial1, EscenaTutorial2, EscenaJuego, VictoriaAnciana, VictoriaRockero]
 };
 
 let game = new Phaser.Game(config);
