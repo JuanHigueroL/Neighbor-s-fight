@@ -353,6 +353,12 @@ Se ha creado una API REST en Java usando el IDE Eclipse y el framework Spring. E
 
 <img src="https://user-images.githubusercontent.com/92206944/146981543-a1368e1f-cc70-4994-8328-ee44e18d1241.png" >
 
+La API tiene :
+- Clases controladores Chat y Username con sus constructores, getters y setters.
+- Clases RestController ChatRestController y UsernameRestController. Definen diferentes métodos GET, PUT, DELETE y POST para acceder a sus datos desde el cliente.
+- Clase App. Desde aquí se inicia la ejecución.
+
+
 
 La API REST se usa para levantar un servidor y ofecer comunicación cliente-servidor. Esta API permite:
 - El chat del juego
