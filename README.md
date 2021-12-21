@@ -64,7 +64,7 @@ l.tallero.2018@alumnos.urjc.es - tallerofdez (github)
 
 
   * [Música](#Música)
-  * [Ejecución del programa](#Ejecución del programa)
+  * [Ejecución del programa](#Ejecución-del-programa)
   
      *  [API REST](#API-REST)
      *  [Pasos para ejecutar el juego](#Pasos-para-ejecutar-el-juego)
@@ -337,6 +337,11 @@ Sonido al craftear:
 <br>
 
 https://user-images.githubusercontent.com/92206944/145613630-e60eb9ab-7443-4867-bdf5-f8dc5a8f8bb7.mp4
+
+
+# Ejecución del programa
+### API REST
+### Pasos para ejecutar el juego
 
 
 
