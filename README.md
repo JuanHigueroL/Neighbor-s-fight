@@ -138,6 +138,9 @@ Para utilizar la reparar E (jugador 1) o O (jugador 2).
 
 ### Interacción en Red
  En la interacción en red podemos ver el movimiento del jugador subiendo y bajando de piso, la creación de la distinta munición,  la recarga de los cañones, su disparo y la barra de vida del edificio rival junto al desgaste del edificio tras la pérdida de vida.
+ 
+ También hay un chat y un sistema de nombres de usuario que se gestionan con una API REST (ver más en [API REST](#API-REST)).
+ 
 ### Personajes
 #### Personaje 1:
 <br>
@@ -345,6 +348,16 @@ https://user-images.githubusercontent.com/92206944/145613630-e60eb9ab-7443-4867-
 
 # Ejecución del programa
 ### API REST
+
+Se ha creado una API REST en Java usando el IDE Eclipse y el framework Spring. En la siguiente imagen esta el diagrama UML de clases de la API REST:
+
+<img src="https://user-images.githubusercontent.com/92206944/146981543-a1368e1f-cc70-4994-8328-ee44e18d1241.png" >
+
+
+La API REST se usa para levantar un servidor y ofecer comunicación cliente-servidor. Esta API permite:
+- El chat del juego
+- Guardar los nombres de usuario de los jugadores
+
 ### Pasos para ejecutar el juego
 
 
