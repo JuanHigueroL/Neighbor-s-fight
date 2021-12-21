@@ -64,6 +64,10 @@ l.tallero.2018@alumnos.urjc.es - tallerofdez (github)
 
 
   * [Música](#Música)
+  * [Ejecución del programa](#Ejecución del programa)
+  
+     *  [API REST](#API-REST)
+     *  [Pasos para ejecutar el juego](#Pasos-para-ejecutar-el-juego)
   
 
   
