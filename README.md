@@ -360,5 +360,17 @@ La API REST se usa para levantar un servidor y ofecer comunicación cliente-serv
 
 ### Pasos para ejecutar el juego
 
+Primero es necesario levantar el servidor:
+- Descargar el proyecto 
+- Importarlo con Eclipse o con Spring Tool Suite (opción Existing Maven Project)
+- Ejecutarlo como SpringApplication (desde el fichero App.java)
+
+Acceder al servidor desde un cliente:
+- El cliente será un navegador de la misma máquina que ha levantado el servidor o de otra.
+- El navegador preferiblemente será Google Chrome.
+- Buscar la dirección IP de la máquina que ha levantado el servidor en el puerto 8080.
+
+¡Jugar!
+
 
 
