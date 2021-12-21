@@ -118,7 +118,10 @@ Aquí se generan dos estrategias diferentes: los jugadores al recibir daño debe
 <br>
 
 Flujo de pantallas : 
-<img src="https://user-images.githubusercontent.com/92206944/145608780-dae0f381-f8b7-4099-80c2-790372c58a71.png" alt="Flujo de juego" width="100%">
+<img src="https://user-images.githubusercontent.com/92206944/146975372-90198f7b-ace2-4377-bcc7-556e9d555f01.png" alt="Flujo de juego" width="100%">
+
+Las pantallas con más detalle en [interfaz](#Interfaz).
+
 <br>
 
 ### Dinámica de juego
@@ -338,6 +341,7 @@ Sonido al craftear:
 
 https://user-images.githubusercontent.com/92206944/145613630-e60eb9ab-7443-4867-bdf5-f8dc5a8f8bb7.mp4
 
+<br><br>
 
 # Ejecución del programa
 ### API REST
