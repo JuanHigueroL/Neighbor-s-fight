@@ -118,7 +118,7 @@ Aquí se generan dos estrategias diferentes: los jugadores al recibir daño debe
 <br>
 
 Flujo de pantallas : 
-<img src="https://user-images.githubusercontent.com/92206944/146975372-90198f7b-ace2-4377-bcc7-556e9d555f01.png" alt="Flujo de juego" width="100%">
+<img src="https://user-images.githubusercontent.com/92206944/146983511-a43041af-d780-4a71-8fa6-de799e5604e5.png" alt="Flujo de juego" width="100%">
 
 Las pantallas con más detalle en [interfaz](#Interfaz).
 
