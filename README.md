@@ -196,7 +196,7 @@ La interacción es mediante la pulsación de teclas.
 ### Pantalla durante la partida
 
 
-<img src="https://user-images.githubusercontent.com/92206944/145610319-e1de8330-1644-490a-9491-a787c1e92a3e.png" width="80%">
+<img src="https://user-images.githubusercontent.com/92206944/146971613-5e737032-9b9f-4a44-8f4d-686c5544e4f1.png" width="80%">
 
 La pantalla del juego consta de dos edificios iguales situados cada uno a un lado de la pantalla. Cada edificio estará formado por tres pisos por los que los jugadores irán moviéndose para cargar y disparar los respectivos cañones que hay situados en cada piso.
 
@@ -211,6 +211,7 @@ La pantalla del juego consta de dos edificios iguales situados cada uno a un lad
   <li>Mesa de crafteo en el piso inferior</li>
   <li>Botón de pausa en la esquina derecha superior</li>
   <li>Inventario (con la munición del jugador) en la esquina superior izquierda.</li>
+  <li>Un chat para comunicarse con los jugadores en la misma red</li>
 
 </ul>
 <br>
@@ -230,6 +231,15 @@ Tiene la opción de empezar a jugar y la opción de ver el tutorial.
 
 <br>
 Las flechas te dan la opción de pasar a la siguiente página del tutorial o a la anterior
+
+
+### Pantalla de elección de nombre del jugador
+
+<img src="https://user-images.githubusercontent.com/92206944/146972096-806285e1-db3a-4275-b4b5-d91570e075a8.png" width="80%">
+<img src="https://user-images.githubusercontent.com/92206944/146972340-d4e45c38-9036-4862-8e7a-f685bbaf55c0.png" width="80%">
+
+<br>
+Aquí se escogerá el nombre del jugador que más tarde se mostrará en lapantalla durante el juego
 
 ### Pantalla final de juegos
 
