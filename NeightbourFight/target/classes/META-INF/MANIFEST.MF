@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Built-By: DavidPS
+Build-Jdk: 17.0.1
+Implementation-Title: NeightbourFight
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: es.Zakan
+Implementation-URL: http://www.example.com
+Created-By: Maven Integration for Eclipse
+
