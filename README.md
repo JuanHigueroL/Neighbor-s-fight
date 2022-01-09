@@ -243,6 +243,14 @@ Tiene la opción de empezar a jugar y la opción de ver el tutorial.
 Las flechas te dan la opción de pasar a la siguiente página del tutorial o a la anterior
 
 
+### Pantalla selección de modo
+
+<img src="https://user-images.githubusercontent.com/92206944/148689496-87999604-6f63-40f9-a2bb-c3f31f67eef8.png" width="80%">
+
+<br>
+Esta pantalla se mostrará después de elegir la opción 'jugar' en la pantallá de menú.
+
+
 ### Pantalla de elección de nombre del jugador
 
 <img src="https://user-images.githubusercontent.com/92206944/146972096-806285e1-db3a-4275-b4b5-d91570e075a8.png" width="80%">
@@ -251,7 +259,15 @@ Las flechas te dan la opción de pasar a la siguiente página del tutorial o a l
 <br>
 Aquí se escogerá el nombre del jugador que más tarde se mostrará en lapantalla durante el juego
 
-### Pantalla final de juegos
+
+### Pantalla de espera
+
+<img src="https://user-images.githubusercontent.com/92206944/148689403-684c68ab-eb0a-4bb9-b1e2-4b5c77af5900.png" width="80%">
+
+<br>
+Está pantantalla se mostrará mientras se espera a un segundo jugador, en caso de haber seleccionado la opción jugar en multijugador
+
+### Pantalla final de juego
 
 
 <img src="https://user-images.githubusercontent.com/92206944/145611239-eeaf78eb-7f5c-40e0-9a79-62dd34bfbef5.png" width="80%">
