@@ -67,6 +67,7 @@ l.tallero.2018@alumnos.urjc.es - tallerofdez (github)
   * [Ejecución del programa](#Ejecución-del-programa)
   
      *  [API REST](#API-REST)
+     *  [Comunicación por WebSockets](#Comunicación-por-WebSockets)
      *  [Pasos para ejecutar el juego](#Pasos-para-ejecutar-el-juego)
   
 
@@ -379,6 +380,25 @@ La API tiene :
 La API REST se usa para levantar un servidor y ofecer comunicación cliente-servidor. Esta API permite:
 - El chat del juego
 - Guardar los nombres de usuario de los jugadores
+
+
+### Comunicación por WebSockets
+
+EL Diagrama de clases teniendo en cuenta la clase Manejador para los WebSockets:
+<img src="https://user-images.githubusercontent.com/92206944/148689752-99f85739-006a-4013-9d09-38eb49402c20.png" width="80%">
+<br>
+
+El cliente comunica al servidor:
+ * Que está esperando para entrar a jugar
+* La posición de su jugador
+* La posición a la que apuntan sus cañones
+* Su barra de energía 
+* Al disparar con que bala dispara y desde donde 
+* Acción de reparar o craftear
+* La vida de sus edificios
+
+
+
 
 ### Pasos para ejecutar el juego
 
