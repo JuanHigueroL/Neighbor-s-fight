@@ -397,7 +397,18 @@ El cliente comunica al servidor:
 * Acción de reparar o craftear
 * La vida de sus edificios
 
+*Clase Manejador: WebsocketZakanHandlet:*
 
+La clase manejador implementada tiene una tabla Hash en la que se guardan todas las sesiones que se unen al servidor.
+
+La clase tiene las siguientes funciones:
+
+- afterConnectionEstablished(): Asigna un orden a los usuarios cuando se conectan. Se le asigna un 1 al primer usuario y un O al segundo.
+- afterConnectionClosed(): Se invoca cuando un usuario se desconecta. Se imprime por pantalla y se borra de la lista de sesiones.
+- handleTextMessage(): Recibe un mensaje JSON (que contiene los cambios en el juego) y lo mapea. Despues llama al método sendOtherParticipants()
+- sendOtherParticipants(): Manda a todas las sesiones de la lista la información que recibe.
+
+ 
 
 
 ### Pasos para ejecutar el juego
