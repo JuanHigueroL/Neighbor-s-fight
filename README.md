@@ -405,8 +405,8 @@ La clase tiene las siguientes funciones:
 
 - afterConnectionEstablished(): Asigna un orden a los usuarios cuando se conectan. Se le asigna un 1 al primer usuario y un 0 al segundo.
 - afterConnectionClosed(): Se invoca cuando un usuario se desconecta. Se imprime por pantalla y se borra de la lista de sesiones.
-- handleTextMessage(): Recibe un mensaje JSON (que contiene los cambios en el juego) y lo mapea. Despues llama al método sendOtherParticipants()
-- sendOtherParticipants(): Manda a todas las sesiones de la lista la información que recibe.
+- handleTextMessage(): Recibe un mensaje JSON (que contiene los cambios en el juego) y lo mapea. Despues llama al método enviarInfo()
+- enviarInfo(): Manda a todas las sesiones de la lista la información que recibe.
 
  
 
