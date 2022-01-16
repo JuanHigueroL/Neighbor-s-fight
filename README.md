@@ -433,7 +433,7 @@ Acceder al servidor desde un cliente:
 <br><br>
 
 # Vídeo
-## Explicación y Gameplay
+### Explicación y Gameplay
 
 
 <a href="https://youtu.be/Nj-qqBWYyz4">Enlace al video</a>
