@@ -395,7 +395,7 @@ El cliente comunica al servidor:
 * Su barra de energía 
 * Al disparar con que bala dispara y desde donde 
 * Acción de reparar o craftear
-* La vida de sus edificios
+* La vida de los edificios enemigos
 
 *Clase Manejador: WebsocketZakanHandlet:*
 
