@@ -69,6 +69,8 @@ l.tallero.2018@alumnos.urjc.es - tallerofdez (github)
      *  [API REST](#API-REST)
      *  [Comunicación por WebSockets](#Comunicación-por-WebSockets)
      *  [Pasos para ejecutar el juego](#Pasos-para-ejecutar-el-juego)
+
+  * [Vídeo: Explicación y Gameplay](#Video:-Explicacion-y-Gameplay)
   
 
   
@@ -425,5 +427,14 @@ Acceder al servidor desde un cliente:
 
 ¡Jugar!
 
+
+
+
+<br><br>
+
+#Video: Explicación y Gameplay
+
+
+<a href="https://youtu.be/Nj-qqBWYyz4">nlace al video</a>
 
 
