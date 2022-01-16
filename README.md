@@ -70,7 +70,7 @@ l.tallero.2018@alumnos.urjc.es - tallerofdez (github)
      *  [Comunicación por WebSockets](#Comunicación-por-WebSockets)
      *  [Pasos para ejecutar el juego](#Pasos-para-ejecutar-el-juego)
 
-  * [Vídeo: Explicación y Gameplay](#Vídeo:-Explicación-y-Gameplay)
+  * [Vídeo: Explicación y Gameplay](# Vídeo:-Explicación-y-Gameplay)
   
 
   
