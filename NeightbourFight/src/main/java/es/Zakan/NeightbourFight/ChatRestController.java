@@ -33,7 +33,7 @@ public class ChatRestController {
             bw.write(startMessage + "\n");
             bw.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 		
 		return new ResponseEntity<>(true, HttpStatus.CREATED);
@@ -45,7 +45,7 @@ public class ChatRestController {
             Path path = Paths.get("chat/", "chatRegister.txt");
             chat.setMensajes(Files.readAllLines(path, Charset.defaultCharset()));
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 		
 		return chat.getMensajes();
@@ -63,12 +63,11 @@ public class ChatRestController {
 				archivo.createNewFile();
 				escribir = new FileWriter (archivo,true);
 				linea= new PrintWriter(escribir);
-				//escribimos ene el arc
 				linea.println(newMessage);
 				linea.close();
 				escribir.close();
 			}catch (IOException e){
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 
 
@@ -76,12 +75,11 @@ public class ChatRestController {
 			try{
 			    escribir = new FileWriter (archivo,true);
 			    linea= new PrintWriter(escribir);
-			    //escribimos ene el arc
 			    linea.println(newMessage);
 			    linea.close();
 			    escribir.close();
 			}catch (IOException e){
-			    e.printStackTrace();
+			    //e.printStackTrace();
 			}
 		}
 		
@@ -96,12 +94,11 @@ public class ChatRestController {
 				archivoCompleto.createNewFile();
 				escribirCompleto = new FileWriter (archivoCompleto,true);
 				lineaCompleto= new PrintWriter(escribirCompleto);
-				//escribimos ene el arc
 				lineaCompleto.println(newMessage);
 				lineaCompleto.close();
 				escribirCompleto.close();
 			}catch (IOException e){
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 
 
@@ -109,12 +106,11 @@ public class ChatRestController {
 			try{
 			    escribirCompleto = new FileWriter (archivoCompleto,true);
 			    lineaCompleto= new PrintWriter(escribirCompleto);
-			    //escribimos ene el arc
 			    lineaCompleto.println(newMessage);
 			    lineaCompleto.close();
 			    escribirCompleto.close();
 			}catch (IOException e){
-			    e.printStackTrace();
+			    //e.printStackTrace();
 			}
 		}
 		
@@ -129,7 +125,7 @@ public class ChatRestController {
             
             file.delete();
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 		return new ResponseEntity<>(true, HttpStatus.CREATED);
 	}

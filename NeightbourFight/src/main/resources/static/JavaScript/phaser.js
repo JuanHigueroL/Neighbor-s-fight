@@ -8,153 +8,149 @@ var host;
 var moverPasivo = true;
 var pantallaEspera;
 
-function ConectarWebSocket() {
-  connection = new WebSocket("ws://127.0.0.1:8080/zakan");
-  connection.onerror = function (e) {
-    console.log("WS error: " + e);
-  };
-  connection.onclose = function () {
-    console.log("Closing socket");
-  };
+function WebSocketConnection() {
+	// Establecemos conexion con el servidor
+  	conexion = new WebSocket("ws://127.0.0.1:8080/zakan");
+  	
+  	// Mandamos un mensaje cuando abrimos la conexion
+  	conexion.onopen = function () {
+    	console.log('Conexion abierta');
+  	};
+  	// Mandamos un mensaje cuando cerramos la conexion
+  	conexion.onclose = function () {
+    	console.log("Conexion cerrada");
+  	};
+  	// Mandamos un mensaje si hay algun error
+  	conexion.onerror = function (e) {
+    	console.log("Error: " + e);
+  	};
+	// Recibimos la informacion nueva
+  	conexion.onmessage = function (data) {
+    	//console.log("Mensaje recibido: " + data.data);
 
-  isSocketOpen = false;
-  isGameStarted = false;
-  connection.onopen = function () {
-    //console.log('Hola')
-    isSocketOpen = true;
-  };
-
-  connection.onmessage = function (data) {
-    //console.log('Mensaje recibido: '+data.data);
-
-    parsedData = JSON.parse(data.data);
-    if (parsedData.ishost == 1) {
-      host = 1;
-    } else if (parsedData.isready == 1) {
-      isGameStarted = true;
-    } else if (host == 1) {
-      //console.log('Soy Host');
-      messageHost(parsedData);
-    } else {
-      host = 0;
-      // console.log('No soy Host');
-      messageClient(parsedData);
-    }
-  };
+	    DatosNuevos = JSON.parse(data.data);
+	    if (DatosNuevos.EsHost == 1) {
+	      	host = 1;
+	    }else if (DatosNuevos.EsHost == 0){
+			host = 0;
+		}else if (host == 1) {
+	      	mensajeParaJ1(DatosNuevos);
+	    }else if (host == 0){
+	      	mensajeParaJ2(DatosNuevos);
+	    }
+	 };
 }
 
-function messageHost(parsedData) {
-  
+function mensajeParaJ1(DatosNuevos) {
 		// Posición de los personajes
-    	P2.x = parsedData.x;
-  		P2.y = parsedData.y;
+    	P2.x = DatosNuevos.x;
+  		P2.y = DatosNuevos.y;
   		
   		// Rotación de los cañones
-  		cannonHead4.rotation = parsedData.cannon1;
-  		cannonHead5.rotation = parsedData.cannon2;
-  		cannonHead6.rotation = parsedData.cannon3;
+  		cannonHead4.rotation = DatosNuevos.cannon1;
+  		cannonHead5.rotation = DatosNuevos.cannon2;
+  		cannonHead6.rotation = DatosNuevos.cannon3;
   		
   		// Animación personaje
-  		P2.anims.play(parsedData.animPJ, true);
+  		P2.anims.play(DatosNuevos.animPJ, true);
   		
   		// Balas
-  		pollos[3].x = parsedData.pollo1X;
-  		pollos[3].y = parsedData.pollo1Y;
-  		pollos[4].x = parsedData.pollo2X;
-  		pollos[4].y = parsedData.pollo2Y;
-  		pollos[5].x = parsedData.pollo3X;
-  		pollos[5].y = parsedData.pollo3Y;
+  		pollos[3].x = DatosNuevos.pollo1X;
+  		pollos[3].y = DatosNuevos.pollo1Y;
+  		pollos[4].x = DatosNuevos.pollo2X;
+  		pollos[4].y = DatosNuevos.pollo2Y;
+  		pollos[5].x = DatosNuevos.pollo3X;
+  		pollos[5].y = DatosNuevos.pollo3Y;
   		
-  		if(parsedData.VerPollo1 === true){
-			pollos[3].enableBody(true, parsedData.pollo1X, parsedData.pollo1Y, true, true);
-  			pollos[4].enableBody(true, parsedData.pollo2X, parsedData.pollo2Y, true, true);
-  			pollos[5].enableBody(true, parsedData.pollo3X, parsedData.pollo3Y, true, true);
+  		if(DatosNuevos.VerPollo1 === true){
+			pollos[3].enableBody(true, DatosNuevos.pollo1X, DatosNuevos.pollo1Y, true, true);
+  			pollos[4].enableBody(true, DatosNuevos.pollo2X, DatosNuevos.pollo2Y, true, true);
+  			pollos[5].enableBody(true, DatosNuevos.pollo3X, DatosNuevos.pollo3Y, true, true);
 		}
-		if(parsedData.VerPollo1 === false){
+		if(DatosNuevos.VerPollo1 === false){
 			pollos[3].disableBody(true, true);
 			pollos[4].disableBody(true, true);
 			pollos[5].disableBody(true, true);
 		}
 		
 		// Vida edificios
-		vida2P1 = parsedData.vida1;
-		vida2P2 = parsedData.vida2;
-		vida2P3 = parsedData.vida3;
+		vida2P1 = DatosNuevos.vida1;
+		vida2P2 = DatosNuevos.vida2;
+		vida2P3 = DatosNuevos.vida3;
 		
-		vida1P1 = vida1P1 + parsedData.vidaExtra1;
-		vida1P2 = vida1P2 + parsedData.vidaExtra2;
-		vida1P3 = vida1P3 + parsedData.vidaExtra3;
+		vida1P1 = vida1P1 + DatosNuevos.vidaExtra1;
+		vida1P2 = vida1P2 + DatosNuevos.vidaExtra2;
+		vida1P3 = vida1P3 + DatosNuevos.vidaExtra3;
 		
 		// Energia
-		energia2 = parsedData.energia;
+		energia2 = DatosNuevos.energia;
 		
 		// Ultimates
-		bateria.x = parsedData.UltiX;
-		bateria.y = parsedData.UltiY;
+		bateria.x = DatosNuevos.UltiX;
+		bateria.y = DatosNuevos.UltiY;
 		
 		if(bateria.y != -50){
-			bateria.enableBody(true, parsedData.UltiX, parsedData.UltiY, true, true);
+			bateria.enableBody(true, DatosNuevos.UltiX, DatosNuevos.UltiY, true, true);
 		}
 		
 		// Tiempo
 		
 }
 
-function messageClient(parsedData) {
-  
+function mensajeParaJ2(DatosNuevos) {
 		// Posición de los personajes
-    	P1.x = parsedData.x;
-  		P1.y = parsedData.y;
+    	P1.x = DatosNuevos.x;
+  		P1.y = DatosNuevos.y;
   		
   		// Rotación de los cañones
-  		cannonHead1.rotation = parsedData.cannon1;
-  		cannonHead2.rotation = parsedData.cannon2;
-  		cannonHead3.rotation = parsedData.cannon3;
+  		cannonHead1.rotation = DatosNuevos.cannon1;
+  		cannonHead2.rotation = DatosNuevos.cannon2;
+  		cannonHead3.rotation = DatosNuevos.cannon3;
   		
   		// Animación personaje
-  		P1.anims.play(parsedData.animPJ, true);
+  		P1.anims.play(DatosNuevos.animPJ, true);
   		
   		// Balas
-  		pollos[0].x = parsedData.pollo1X;
-  		pollos[0].y = parsedData.pollo1Y;
-  		pollos[1].x = parsedData.pollo2X;
-  		pollos[1].y = parsedData.pollo2Y;
-  		pollos[2].x = parsedData.pollo3X;
-  		pollos[2].y = parsedData.pollo3Y;
+  		pollos[0].x = DatosNuevos.pollo1X;
+  		pollos[0].y = DatosNuevos.pollo1Y;
+  		pollos[1].x = DatosNuevos.pollo2X;
+  		pollos[1].y = DatosNuevos.pollo2Y;
+  		pollos[2].x = DatosNuevos.pollo3X;
+  		pollos[2].y = DatosNuevos.pollo3Y;
   		
-  		if(parsedData.VerPollo1 === true){
-			pollos[0].enableBody(true, parsedData.pollo1X, parsedData.pollo1Y, true, true);
-  			pollos[1].enableBody(true, parsedData.pollo2X, parsedData.pollo2Y, true, true);
-  			pollos[2].enableBody(true, parsedData.pollo3X, parsedData.pollo3Y, true, true);
+  		if(DatosNuevos.VerPollo1 === true){
+			pollos[0].enableBody(true, DatosNuevos.pollo1X, DatosNuevos.pollo1Y, true, true);
+  			pollos[1].enableBody(true, DatosNuevos.pollo2X, DatosNuevos.pollo2Y, true, true);
+  			pollos[2].enableBody(true, DatosNuevos.pollo3X, DatosNuevos.pollo3Y, true, true);
 		}
-		if(parsedData.VerPollo1 === false){
+		if(DatosNuevos.VerPollo1 === false){
 			pollos[0].disableBody(true, true);
 			pollos[1].disableBody(true, true);
 			pollos[2].disableBody(true, true);
 		}
 		
 		// Vida edificios
-		vida1P1 = parsedData.vida1;
-		vida1P2 = parsedData.vida2;
-		vida1P3 = parsedData.vida3;
+		vida1P1 = DatosNuevos.vida1;
+		vida1P2 = DatosNuevos.vida2;
+		vida1P3 = DatosNuevos.vida3;
 		
-		vida2P1 = vida2P1 + parsedData.vidaExtra1;
-		vida2P2 = vida2P2 + parsedData.vidaExtra2;
-		vida2P3 = vida2P3 + parsedData.vidaExtra3;
+		vida2P1 = vida2P1 + DatosNuevos.vidaExtra1;
+		vida2P2 = vida2P2 + DatosNuevos.vidaExtra2;
+		vida2P3 = vida2P3 + DatosNuevos.vidaExtra3;
 		
 		// Energia
-		energia1 = parsedData.energia;
+		energia1 = DatosNuevos.energia;
 		
 		// Ultimates
-		viejas.x = parsedData.UltiX;
-		viejas.y = parsedData.UltiY;
+		viejas.x = DatosNuevos.UltiX;
+		viejas.y = DatosNuevos.UltiY;
 		
 		if(viejas.x != -400){
-			viejas.enableBody(true, parsedData.UltiX, parsedData.UltiY, true, true);
+			viejas.enableBody(true, DatosNuevos.UltiX, DatosNuevos.UltiY, true, true);
 		}
 		
 		// Tiempo
-		tiempoAux = parsedData.tiempo;
+		tiempoAux = DatosNuevos.tiempo;
 }
 
 // ------------------------- Zonas de movimiento -------------------------
@@ -656,19 +652,19 @@ function hitBateria1() {
     bateria.disableBody(true, true);
 
     vida2P1 = 0;
-    bateria.x = -100;
+    bateria.x = -200;
 }
 function hitBateria2() {
     bateria.disableBody(true, true);
 
     vida2P2 = 0;
-    bateria.x = -100;
+    bateria.x = -200;
 }
 function hitBateria3() {
     bateria.disableBody(true, true);
 
     vida2P3 = 0;
-    bateria.x = -100;
+    bateria.x = -200;
 }
 
 // Temporizador de la partida
@@ -1856,7 +1852,7 @@ class GameOnline extends Phaser.Scene {
         // Fase 4
         pantallaEspera = this.add.image(640, 360, 'fondoEspera').setDepth(3);
         
-        ConectarWebSocket();
+        WebSocketConnection();
     }
 
     update() {
@@ -2087,7 +2083,7 @@ class GameOnline extends Phaser.Scene {
         Phaser.Geom.Line.SetToAngle(line3, cannonHead3.x, cannonHead3.y, angle3, 128);
         gfx3.clear().strokeLineShape(line3);
 	        
-	        connection.send(
+	        conexion.send(
 			    JSON.stringify({
 					// Posición del jugador
 			      	x: P1.x,
@@ -2109,6 +2105,7 @@ class GameOnline extends Phaser.Scene {
 			      	pollo3X: pollos[2].x,
 			      	pollo3Y: pollos[2].y,
 			      	
+			      	// Visibilidad de las balas
 			      	VerPollo1: verPollo1,
 			      	VerPollo2: verPollo2,
 			      	VerPollo3: verPollo3,
@@ -2294,7 +2291,7 @@ class GameOnline extends Phaser.Scene {
         Phaser.Geom.Line.SetToAngle(line6, cannonHead6.x, cannonHead6.y, 3.14159265 + angle6, 128);
         gfx6.clear().strokeLineShape(line6);
 	        
-	        connection.send(
+	        conexion.send(
 			    JSON.stringify({
 					// Posición del jugador
 			      	x: P2.x,
@@ -2814,7 +2811,7 @@ class GameOnline extends Phaser.Scene {
             reparar.play();
             timer1 = this.time.delayedCall(tiempoReparar, reparar21v2, [], this);
             
-            connection.send(
+            conexion.send(
 			    JSON.stringify({
 					// Posición del jugador
 			      	x: P1.x,
@@ -2868,7 +2865,7 @@ class GameOnline extends Phaser.Scene {
             reparar.play();
             timer1 = this.time.delayedCall(tiempoReparar, reparar22v2, [], this);
             
-            connection.send(
+            conexion.send(
 			    JSON.stringify({
 					// Posición del jugador
 			      	x: P1.x,
@@ -2922,7 +2919,7 @@ class GameOnline extends Phaser.Scene {
             reparar.play();
             timer1 = this.time.delayedCall(tiempoReparar, reparar23v2, [], this);
             
-            connection.send(
+            conexion.send(
 			    JSON.stringify({
 					// Posición del jugador
 			      	x: P1.x,
@@ -2986,7 +2983,7 @@ class GameOnline extends Phaser.Scene {
             reparar.play();
             timer2 = this.time.delayedCall(tiempoReparar, reparar11v2, [], this);
             
-            connection.send(
+            conexion.send(
 			    JSON.stringify({
 					// Posición del jugador
 			      	x: P2.x,
@@ -3040,7 +3037,7 @@ class GameOnline extends Phaser.Scene {
             reparar.play();
             timer2 = this.time.delayedCall(tiempoReparar, reparar12v2, [], this);
             
-            connection.send(
+            conexion.send(
 			    JSON.stringify({
 					// Posición del jugador
 			      	x: P2.x,
@@ -3094,7 +3091,7 @@ class GameOnline extends Phaser.Scene {
             reparar.play();
             timer2 = this.time.delayedCall(tiempoReparar, reparar13v2, [], this);
             
-            connection.send(
+            conexion.send(
 			    JSON.stringify({
 					// Posición del jugador
 			      	x: P2.x,

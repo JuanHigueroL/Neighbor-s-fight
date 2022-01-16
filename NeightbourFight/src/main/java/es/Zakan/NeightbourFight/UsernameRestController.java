@@ -28,7 +28,7 @@ public class UsernameRestController {
 			
             file.createNewFile();
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 		
 		return new ResponseEntity<>(true, HttpStatus.CREATED);
@@ -40,7 +40,7 @@ public class UsernameRestController {
             Path path = Paths.get("users/", "usernamesHistory.txt");
             usernames.setUsuarios(Files.readAllLines(path, Charset.defaultCharset()));
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 		
 		return usernames.getUsuarios();
@@ -62,7 +62,7 @@ public class UsernameRestController {
 				linea.close();
 				escribir.close();
 			}catch (IOException e){
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}else {
 			try{
@@ -72,7 +72,7 @@ public class UsernameRestController {
 			    linea.close();
 			    escribir.close();
 			}catch (IOException e){
-			    e.printStackTrace();
+			    //e.printStackTrace();
 			}
 		}
 		
@@ -87,7 +87,7 @@ public class UsernameRestController {
             
             file.delete();
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 		return new ResponseEntity<>(true, HttpStatus.CREATED);
 	}
