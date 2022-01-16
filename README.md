@@ -431,7 +431,7 @@ Acceder al servidor desde un cliente:
 
 
 <br><br>
-
+<a name="Vídeo:-Explicación-y-Gameplay"></a>
 # Vídeo: Explicación y Gameplay
 
 
