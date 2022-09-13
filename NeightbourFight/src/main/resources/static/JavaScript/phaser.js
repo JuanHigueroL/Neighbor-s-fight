@@ -10,7 +10,7 @@ var pantallaEspera;
 
 function WebSocketConnection() {
 	// Establecemos conexion con el servidor
-  	conexion = new WebSocket("ws://127.0.0.1:8080/zakan");
+  	conexion = new WebSocket("ws://192.168.1.39:8080/zakan");
   	
   	// Mandamos un mensaje cuando abrimos la conexion
   	conexion.onopen = function () {
