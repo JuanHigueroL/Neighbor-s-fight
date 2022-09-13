@@ -69,6 +69,8 @@ l.tallero.2018@alumnos.urjc.es - tallerofdez (github)
      *  [API REST](#API-REST)
      *  [Comunicación por WebSockets](#Comunicación-por-WebSockets)
      *  [Pasos para ejecutar el juego](#Pasos-para-ejecutar-el-juego)
+
+  * [Vídeo: Explicación y Gameplay](#Vídeo)
   
 
   
@@ -395,7 +397,7 @@ El cliente comunica al servidor:
 * Su barra de energía 
 * Al disparar con que bala dispara y desde donde 
 * Acción de reparar o craftear
-* La vida de sus edificios
+* La vida de los edificios enemigos
 
 *Clase Manejador: WebsocketZakanHandlet:*
 
@@ -403,10 +405,10 @@ La clase manejador implementada tiene una tabla Hash en la que se guardan todas 
 
 La clase tiene las siguientes funciones:
 
-- afterConnectionEstablished(): Asigna un orden a los usuarios cuando se conectan. Se le asigna un 1 al primer usuario y un O al segundo.
+- afterConnectionEstablished(): Asigna un orden a los usuarios cuando se conectan. Se le asigna un 1 al primer usuario y un 0 al segundo.
 - afterConnectionClosed(): Se invoca cuando un usuario se desconecta. Se imprime por pantalla y se borra de la lista de sesiones.
-- handleTextMessage(): Recibe un mensaje JSON (que contiene los cambios en el juego) y lo mapea. Despues llama al método sendOtherParticipants()
-- sendOtherParticipants(): Manda a todas las sesiones de la lista la información que recibe.
+- handleTextMessage(): Recibe un mensaje JSON (que contiene los cambios en el juego) y lo mapea. Despues llama al método enviarInfo()
+- enviarInfo(): Manda a todas las sesiones de la lista la información que recibe.
 
  
 
@@ -425,5 +427,15 @@ Acceder al servidor desde un cliente:
 
 ¡Jugar!
 
+
+
+
+<br><br>
+
+# Vídeo
+### Explicación y Gameplay
+
+
+<a href="https://youtu.be/Nj-qqBWYyz4">Enlace al video</a>
 
 
